@@ -1,0 +1,15 @@
+[user]
+	name = Mike Abrahamsen
+	email = mail@michaelabrahamsen.com
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[core]
+	excludesfile = /home/ma/.gitignore
+	editor = vim
+	autocrlf = input
+[apply]
+	whitespace = nowarn
+[merge]
+	tool = vimdiff
