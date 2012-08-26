@@ -1,0 +1,74 @@
+#compdef pip
+#autoload
+
+# pip zsh completion, based on homebrew completion
+
+_pip_all() {
+  # we cache the list of pack***REMOVED***es (originally from the macports plugin)
+  if (( ! $+piplist )); then
+    echo -n " (caching pack***REMOVED***e index...)"
+	piplist=($(pip search * | cut -d ' ' -f 1 | tr '[A-Z]' '[a-z]'))
+  fi
+}
+
+_pip_installed() {
+  installed_pkgs=(`pip freeze | cut -d '=' -f 1`)
+}
+
+local -a _1st_arguments
+_1st_arguments=(
+  'bundle:create pybundles (archives containing multiple pack***REMOVED***es)'
+  'freeze:output all currently installed pack***REMOVED***es (exact versions) to stdout'
+  'help:show available commands'
+  'install:install pack***REMOVED***es'
+  'search:search PyPI'
+  'uninstall:uninstall pack***REMOVED***es'
+  'unzip:unzip individual pack***REMOVED***es'
+  'zip:zip individual pack***REMOVED***es'
+)
+
+local expl
+local -a all_pkgs installed_pkgs
+
+_arguments \
+  '(--version)--version[show version number of program and exit]' \
+  '(-h --help)'{-h,--help}'[show help]' \
+  '(-E --environment)'{-E,--environment}'[virtualenv environment to run pip in]' \
+  '(-s --enable-site-pack***REMOVED***es)'{-s,--enable-site-pack***REMOVED***es}'[include site-pack***REMOVED***es in virtualenv]' \
+  '(-v --verbose)'{-v,--verbose}'[give more output]' \
+  '(-q --quiet)'{-q,--quiet}'[give less output]' \
+  '(--log)--log[log file location]' \
+  '(--proxy)--proxy[proxy in form user:passwd@proxy.server:port]' \
+  '(--timeout)--timeout[socket timeout (default 15s)]' \
+  '*:: :->subcmds' && return 0
+
+if (( CURRENT == 1 )); then
+  _describe -t commands "pip subcommand" _1st_arguments
+  return
+fi
+
+case "$words[1]" in
+  search)
+    _arguments \
+      '(--index)--index[base URL of Python Pack***REMOVED***e Index]' ;;
+  freeze)
+    _arguments \
+      '(-l --local)'{-l,--local}'[report only virtualenv pack***REMOVED***es]' ;;
+  install)
+  	_arguments \
+      '(-U --upgrade)'{-U,--upgrade}'[upgrade all pack***REMOVED***es to the newest available version]' \
+      '(-f --find-links)'{-f,--find-links}'[URL for finding pack***REMOVED***es]' \
+      '(--no-deps --no-dependencies)'{--no-deps,--no-dependencies}'[iIgnore pack***REMOVED***e dependencies]' \
+      '(--no-install)--no-install[only download pack***REMOVED***es]' \
+      '(--no-download)--no-download[only install downloaded pack***REMOVED***es]' \
+      '(--install-option)--install-option[extra arguments to be supplied to the setup.py]' \
+      '1: :->pack***REMOVED***es' &&  return 0
+     
+      if [[ "$state" == pack***REMOVED***es ]]; then
+        _pip_all
+        _wanted piplist expl 'pack***REMOVED***es' compadd -a piplist
+      fi ;;
+  uninstall)
+    _pip_installed
+    _wanted installed_pkgs expl 'installed pack***REMOVED***es' compadd -a installed_pkgs ;;
+esac

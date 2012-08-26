@@ -1,0 +1,104 @@
+#compdef v***REMOVED***rant 
+#autoload
+
+# v***REMOVED***rant zsh completion
+
+local -a _1st_arguments
+_1st_arguments=(
+    'box:Box commands'
+    'destroy:Destroys the v***REMOVED***rant environment'
+    'halt:Halts the currently running v***REMOVED***rant environment'
+    'help:[TASK] Describe available tasks or one specific task'
+    'init:[box_name] [box_url] Initializes current folder for V***REMOVED***rant us***REMOVED***e'
+    'pack***REMOVED***e:Pack***REMOVED***es a v***REMOVED***rant environment for distribution'
+    'provision:Run the provisioner'
+    'reload:Reload the v***REMOVED***rant environment'
+    'resume:Resumes a suspend v***REMOVED***rant environment'
+    'ssh:SSH into the currently running environment'
+    'ssh_config:outputs .ssh/config valid syntax for connecting to this environment via ssh.'
+    'status:Shows the status of the current V***REMOVED***rant environment.'
+    'suspend:Suspends the currently running v***REMOVED***rant environment'
+    'up:Creates the v***REMOVED***rant environment'
+    'version:Prints the V***REMOVED***rant version information'
+)
+
+local -a _box_arguments
+_box_arguments=(
+    'add:NAME URI Add a box to the system'
+    'help:COMMAND Describe subcommands or one specific subcommand'
+    'list:Lists all installed boxes'
+    'remove:NAME Remove a box from the system'
+    'repack***REMOVED***e:NAME Repack***REMOVED***e an installed box into a `.box` file.'
+)
+
+__task_list ()
+{
+    local expl
+    declare -a tasks
+
+    tasks=(box destroy halt init pack***REMOVED***e provision reload resume ssh ssh_config status suspend up version)
+
+    _wanted tasks expl 'help' compadd $tasks
+}
+
+__box_list ()
+{
+    _wanted application expl 'command' compadd $(command ls -1 $HOME/.v***REMOVED***rant/boxes 2>/dev/null| sed -e 's/ /\\ /g')
+}
+
+__v***REMOVED***rant-box ()
+{
+    local curcontext="$curcontext" state line
+    typeset -A opt_args
+
+    _arguments -C \
+        ':command:->command' \
+        '*::options:->options'
+
+   case $state in
+       (command)
+           _describe -t commands "gem subcommand" _box_arguments
+           return
+       ;;
+
+       (options)
+           case $line[1] in
+               (repack***REMOVED***e|remove)
+                   _arguments ':feature:__box_list' 
+               ;;
+           esac
+       ;;
+    esac
+}
+
+
+
+
+local expl
+local -a boxes installed_boxes
+
+local curcontext="$curcontext" state line
+typeset -A opt_args
+
+_arguments -C \
+    ':command:->command' \
+    '*::options:->options'
+
+case $state in
+  (command)
+      _describe -t commands "gem subcommand" _1st_arguments
+      return
+  ;;
+
+  (options)
+    case $line[1] in
+      (help)
+         _arguments ':feature:__task_list' 
+      ;;
+
+      (box)
+          __v***REMOVED***rant-box
+      ;;
+    esac
+  ;;
+esac
