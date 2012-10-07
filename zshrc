@@ -8,4 +8,4 @@ plugins=(git)
 export PATH="/usr/local/bin:$PATH"
 
 source $ZSH/oh-my-zsh.sh
-
+alias sudo="nocorrect sudo"
