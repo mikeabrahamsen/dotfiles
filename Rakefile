@@ -7,7 +7,6 @@ task :install do
   switch_to_zsh
   replace_all = false
   files = Dir['*'] - %w[Rakefile config]
-  files << "oh-my-zsh/themes/robbyrussell.zsh-theme"
   files << "config/awesome"
   files.each do |file|
     system %Q{mkdir -p "$HOME/.#{File.dirname(file)}"} if file =~ /\//
@@ -61,7 +60,7 @@ def install_oh_my_zsh
     case $stdin.gets.chomp
     when 'y'
       puts "installing oh-my-zsh"
-      system %Q{git clone https://github.com/robbyrussell/oh-my-zsh.git "$HOME/.oh-my-zsh"}
+      system %Q{sudo pacman -S zsh}
     when 'q'
       exit
     else
@@ -78,7 +77,7 @@ def switch_to_zsh
     case $stdin.gets.chomp
     when 'y'
       puts "switching to zsh"
-      system %Q{chsh -s `which zsh`}
+      system %Q{chsh -s /bin/zsh}
     when 'q'
       exit
     else
