@@ -93,6 +93,17 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
                                      menu = mymainmenu })
 -- }}}
 
+-- Create a list of programs to start
+do
+  local cmds = 
+  { 
+    "conky"
+  }
+
+  for _,i in pairs(cmds) do
+    awful.util.spawn(i)
+  end
+end
 -- {{{ Wibox
 -- Create a textclock widget
 mytextclock = awful.widget.textclock({ align = "right" })
