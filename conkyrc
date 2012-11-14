@@ -12,7 +12,7 @@ out_to_console no
 use_xft yes
 
 # Xft font when Xft is enabled
-xftfont DejaVu Sans Mono:size=10
+xftfont Terminus:size=8
 
 own_window yes
 own_window_transparent yes
@@ -45,7 +45,7 @@ border_margin 4
 
 # border width
 border_width 1
-
+1}% 
 # Default colors and also border colors
 default_color white
 default_shade_color white
@@ -56,7 +56,7 @@ default_bar_size 150 5
 default_gauge_size 20 20
 
 # Text alignment, other possible values are commented
-alignment top_left
+alignment top_right
 gap_x 5
 gap_y 30
 
@@ -69,32 +69,53 @@ values
 # set to yes if you want all text to be in uppercase
 uppercase no
 
-TEXT
-$nodename - $sysname $kernel on $machine
-$stippled_hr
-${color lightgrey}Battery: ${battery_percent BAT1}% Time Remaining: ${battery_time BAT1}
-${color lightgrey}Uptime:$color $uptime ${color lightgrey}- Load:$color $loadavg
-${color lightgrey}CPU Us***REMOVED***e:${color #5000a0} ${cpu}% ${cpubar}
- ${color1}Core 1	${color}${cpu cpu1}%  ${cpubar cpu1}
- ${color1}Core 2 ${color}${cpu cpu2}%  ${cpubar cpu2}
-${color grey}Frequency (in GHz):$color $freq_g
-${color lightgrey}RAM Us***REMOVED***e:$color $mem/$memmax - $memperc% $membar
-${color lightgrey}Processes:$color $processes  ${color grey}Running:$color $running_processes
-$color$stippled_hr
-${color lightgrey}Networking:
- Down:${color #8844ee} ${downspeed eth0} k/s${color lightgrey} ${offset 70}Up:${color #22ccff} ${upspeed eth0} k/s
-${color lightgrey}File systems:
- / $color${fs_used /}/${fs_size /} ${fs_bar 6 /}
- /home $color${fs_used /home}/${fs_size /home} ${fs_bar 6 /home}
- /var $color${fs_used /var}/${fs_size /var} ${fs_bar 6 /var}
-${color lightgrey}Temperatures:
- ${color1}CPU ${color}${acpitemp}°C
+# Set colors
+default_color ECEAE4
+color1 9f907d
+color2 01C400
 
-${color}Name                PID   CPU%   MEM%
-${color #ddaa00} ${top name 1} ${top pid 1} ${top cpu 1} ${top mem 1}
-${color lightgrey} ${top name 2} ${top pid 2} ${top cpu 2} ${top mem 2}
-${color lightgrey} ${top name 3} ${top pid 3} ${top cpu 3} ${top mem 3}
-${color}Mem us***REMOVED***e
-${color #ddaa00} ${top_mem name 1} ${top_mem pid 1} ${top_mem cpu 1} ${top_mem mem 1}
-${color lightgrey} ${top_mem name 2} ${top_mem pid 2} ${top_mem cpu 2} ${top_mem mem 2}
-${color lightgrey} ${top_mem name 3} ${top_mem pid 3} ${top_mem cpu 3} ${top_mem mem 3}
+TEXT
+${font AvantGardeLTMedium:bold:size=10}${color Tan1}System ${color slate grey}${hr 2}${font}
+${color1}Hostname		${alignr}${color}${nodename}
+${color1}${sysname}		${alignr}${color}${kernel}-${machine}
+${color1}CPU			${alignr}${color}${freq_g}GHz
+${color1}Uptime			${alignr}${color}${uptime}
+${color1}Battery Status		${alignr}${color}${battery_short BAT1}
+${color1}Time Remaining    ${alignr}${color}${battery_time BAT1}
+${color1}Cpu Temperature	${alignr}${color}${acpitemp}°C
+
+${font AvantGardeLTMedium:bold:size=10}${color Tan1}Processors ${color slate grey}${hr 2}${font}
+${color1}Core 1		${alignr}${color}${cpu cpu1}%  ${cpubar cpu1}
+${color1}Core 2		${alignr}${color}${cpu cpu2}%  ${cpubar cpu2}
+
+${font AvantGardeLTMedium:bold:size=10}${color Tan1}Memory ${color slate grey}${hr 2}${font}
+${color1}Memory 	${color}${alignr}${mem} / ${memmax}
+${color1}Currently	${color}${alignr}${memperc}%   ${membar}
+
+${font AvantGardeLTMedium:bold:size=10}${color Tan1}Filesystem ${color slate grey}${hr 2}${font}
+${color1}/		${color}${alignc}${fs_used /} / ${fs_size /} ${color}${alignr}${fs_used_perc /} %
+${color}${fs_bar 5,300 /}
+${color1}/var		${color}${alignc}${fs_used /var} / ${fs_size /var} ${color}${alignr}${fs_used_perc /var} %
+${color}${fs_bar 5,300 /var}
+${color1}/home		${color}${alignc}${fs_used /home} / ${fs_size /home} ${color}${alignr}${fs_used_perc /home} %
+${color}${fs_bar 5,300 /home}
+
+${font AvantGardeLTMedium:bold:size=10}${color Tan1}Networking ${color slate grey}${hr 2}${font}
+${if_existing /proc/net/route wlan0}${color1}Ip		${color}${alignr}${addr wlan0}
+${color1}AP		${color}${alignr}${wireless_essid wlan0}
+${color1}Signal		${color}${alignr}${wireless_link_qual_perc wlan0}${wireless_link_bar 10,100 wlan0}
+${color1}Download	${alignr}${color}${downspeed wlan0}${downspeedgraph wlan0 10,100}
+${color1}Upload		${alignr}${color}${upspeed wlan0}${upspeedgraph wlan0 10,100}
+${color1}Total Down/Up	${alignr}${color}${totaldown wlan0}${color1}/${color}${totalup wlan0}
+${else}${if_existing /proc/net/route eth0}${color1}Ip		${color}${alignr}${addr eth0}
+${color1}Download	${alignr}${color}${downspeed eth0}${downspeedgraph eth0 10,100}
+${color1}Upload		${alignr}${color}${upspeed eth0}${upspeedgraph eth0 10,100}
+${color1}Total Down/Up	${alignr}${color}${totaldown eth0}${color1}/${color}${totalup eth0}${endif}${endif}
+${font AvantGardeLTMedium:bold:size=10}${color Tan1}Top Processes ${color slate grey}${font}${color} ${alignr}PID  CPU%  MEM%
+${color1}${top name 1} 	${alignr}${color}${top pid 1}  ${top cpu 1}   ${top mem 1}
+${color1}${top name 2} 	${alignr}${color}${top pid 2}  ${top cpu 2}   ${top mem 2}
+${color1}${top name 3} 	${alignr}${color}${top pid 3}  ${top cpu 3}   ${top mem 3}
+${font AvantGardeLTMedium:bold:size=10}${color Tan1}Top Memory ${color slate grey}${font}
+${color1}${top_mem name 1} 	${alignr}${color}${top_mem pid 1}  ${top_mem cpu 1}   ${top_mem mem 1}
+${color1}${top_mem name 2} 	${alignr}${color}${top_mem pid 2}  ${top_mem cpu 2}   ${top_mem mem 2}
+${color1}${top_mem name 3} 	${alignr}${color}${top_mem pid 3}  ${top_mem cpu 3}   ${top_mem mem 3}
