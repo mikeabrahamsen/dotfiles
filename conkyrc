@@ -80,7 +80,7 @@ ${color1}Hostname		${alignr}${color}${nodename}
 ${color1}${sysname}		${alignr}${color}${kernel}-${machine}
 ${color1}CPU			${alignr}${color}${freq_g}GHz
 ${color1}Uptime			${alignr}${color}${uptime}
-${color1}Battery Status		${alignr}${color}${battery_short BAT1}
+${color1}Battery Status		${alignr}${color}${battery_percent BAT1}%
 ${color1}Time Remaining    ${alignr}${color}${battery_time BAT1}
 ${color1}Cpu Temperature	${alignr}${color}${acpitemp}°C
 
