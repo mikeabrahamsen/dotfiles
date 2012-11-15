@@ -95,9 +95,10 @@ mylauncher = awful.widget.launcher({ im***REMOVED***e = im***REMOVED***e(beautif
 
 -- Create a list of programs to start
 do
-  local cmds = 
-  { 
-    "conky"
+  local cmds =
+  {
+    "conky",
+    "dropboxd"
   }
 
   for _,i in pairs(cmds) do
