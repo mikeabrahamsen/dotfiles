@@ -8,7 +8,10 @@ task :install do
   replace_all = false
   files = Dir['*'] - %w[Rakefile config]
   files << "config/awesome"
-  files << "config/sublime-text-2/Pack***REMOVED***es/User"
+  files << "config/sublime-text-2/Pack***REMOVED***es/User/Default (Linux).sublime-keymap"
+  files << "config/sublime-text-2/Pack***REMOVED***es/User/Default (Windows).sublime-keymap"
+  files << "config/sublime-text-2/Pack***REMOVED***es/User/Preferences.sublime-settings"
+  files << "config/sublime-text-2/Pack***REMOVED***es/User/Tomorrow-Night.tmTheme"
   files.each do |file|
     system %Q{mkdir -p "$HOME/.#{File.dirname(file)}"} if file =~ /\//
     if File.exist?(File.join(ENV['HOME'], ".#{file.sub(/\.erb$/, '')}"))
