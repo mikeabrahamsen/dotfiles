@@ -98,7 +98,8 @@ do
   local cmds =
   {
     "conky",
-    "dropboxd"
+    "dropboxd",
+    "redshift"
   }
 
   for _,i in pairs(cmds) do

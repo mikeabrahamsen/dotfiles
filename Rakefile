@@ -12,6 +12,7 @@ task :install do
   files << "config/sublime-text-2/Packages/User/Default (Windows).sublime-keymap"
   files << "config/sublime-text-2/Packages/User/Preferences.sublime-settings"
   files << "config/sublime-text-2/Packages/User/Tomorrow-Night.tmTheme"
+  files << "config/redshift.conf"
   files.each do |file|
     system %Q{mkdir -p "$HOME/.#{File.dirname(file)}"} if file =~ /\//
     if File.exist?(File.join(ENV['HOME'], ".#{file.sub(/\.erb$/, '')}"))
