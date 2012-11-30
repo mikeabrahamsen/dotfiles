@@ -10,4 +10,5 @@ export PATH="/usr/local/bin:$PATH"
 set -o vi
 
 source $ZSH/oh-my-zsh.sh
+source ~/.zprofile
 alias sudo="nocorrect sudo"
