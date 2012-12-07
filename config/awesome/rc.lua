@@ -98,7 +98,6 @@ do
   local cmds =
   {
     "conky",
-    "dropboxd",
     "redshift"
   }
 
