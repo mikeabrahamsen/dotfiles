@@ -7,6 +7,8 @@ task :install do
   switch_to_zsh
   replace_all = false
   files = Dir['*'] - %w[Rakefile config]
+  # had to ignore the config folder and add in each file seperately
+  # as there may already be something in the config folder
   files << "config/awesome"
   files << "config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap"
   files << "config/sublime-text-2/Packages/User/Default (Windows).sublime-keymap"
