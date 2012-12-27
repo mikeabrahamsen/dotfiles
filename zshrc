@@ -25,9 +25,3 @@ alias sudo="nocorrect sudo"
 alias ta="todo.sh add"
 alias tl="todo.sh list"
 alias td="todo.sh do"
-
-# git alias
-alias ga="git add"
-alias gs="git status"
-alias gl="git log"
-
