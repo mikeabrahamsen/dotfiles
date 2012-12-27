@@ -3,7 +3,6 @@ URxvt*foreground:                grey80
 URxvt*borderLess:                false
 URxvt*depth:                    32
 URxvt*background:                rgba:0000/0000/0000/dddd
-URxvt*scrollBar_right:            true
 URxvt*font:                        xft:DejaVu Sans Mono-10
 URxvt.scrollBar: false
 URxvt*cursorBlink: true
