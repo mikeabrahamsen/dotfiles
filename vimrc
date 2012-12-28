@@ -25,4 +25,6 @@ set ruler
 
 imap jj <Esc>
 
+nnoremap Q <nop> "unmap Q, typo causes bad results
 cmap w!! w !sudo tee % >/dev/null
+let g:miniBufExplMapWindowNavVim = 1
