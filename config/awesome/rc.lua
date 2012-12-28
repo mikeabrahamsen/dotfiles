@@ -250,6 +250,17 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
 
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
+    
+    -- Volume
+    awful.key({}, "XF86AudioRaiseVolume", function ()
+        awful.util.spawn("amixer sset Master 5%+")
+    end),
+    awful.key({}, "XF86AudioLowerVolume", function ()
+        awful.util.spawn("amixer sset Master 5%-")
+    end),
+    awful.key({}, "XF86AudioMute", function ()
+        awful.util.spawn("amixer sset Master toggle")
+    end),
 
     -- Print Screen
     awful.key({ }, "Print", function () awful.util.spawn("scrot -e 'mv $f ~/Downloads/ 2>/dev/null'") end),
