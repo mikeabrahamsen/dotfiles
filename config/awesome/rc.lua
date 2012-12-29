@@ -68,10 +68,12 @@ layouts =
 
 -- {{{ T***REMOVED***s
 -- Define a t***REMOVED*** table which hold all screen t***REMOVED***s.
-t***REMOVED***s = {}
+t***REMOVED***s = {
+    names = {"term","dev","web"}
+}
 for s = 1, screen.count() do
     -- Each screen has its own t***REMOVED*** table.
-    t***REMOVED***s[s] = awful.t***REMOVED***({ 1, 2, 3, 4, 5, 6, 7, 8, 9 }, s, layouts[1])
+    t***REMOVED***s[s] = awful.t***REMOVED***(t***REMOVED***s.names, s, layouts[10])
 end
 -- }}}
 
