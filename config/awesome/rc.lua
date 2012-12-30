@@ -114,8 +114,8 @@ function round(num, idp)
 		local mult = 10^(idp or 0)
 		return math.floor(num * mult + 0.5) / mult
 	else
-		return 0
-	end
+        return 0
+    end
 end
 
 -- {{{ Wibox
@@ -136,17 +136,17 @@ wlanwidget_t = awful.tooltip({ objects = { wlanicon },})
 
 vicious.register(wlanwidget, vicious.widgets.wifi,
 function (widget, args)
-		wlanwidget_t:set_text(
-		" SSID: " .. args["{ssid}"] .. "\n" ..
-		" Chan: " .. args["{chan}"] .. "\n" ..
-		" Signal: " .. args["{link}"] .."%"
-		)
-end, 10, "wlan0")
+    wlanwidget_t:set_text(
+    " SSID: " .. args["{ssid}"] .. "\n" ..
+    " Chan: " .. args["{chan}"] .. "\n" ..
+    " Signal: " .. args["{link}"] .."%"
+    )
+end, 60, "wlan0")
 
 -- memory
 memorywidget = widget({ type = "textbox" })
 vicious.register(memorywidget, vicious.widgets.mem, function (widget, args)
-	return args[1] .. "%"
+    return args[1] .. "%"
 end
 , 30)
 
@@ -172,7 +172,7 @@ vicious.register(cputemp, vicious.widgets.thermal, function(widget, args)
 end, 30, "thermal_zone0")
 ---------- battery
 baticon = widget({ type = "imagebox" })
-baticon.image = image(icons .. "bat_full_01.png")
+baticon.image = image(icons .. "bat_full_02.png")
 
 batmon = widget({ type = "textbox" })
 batmon_t = awful.tooltip({ objects = { baticon,batmon},})
