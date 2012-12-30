@@ -6,7 +6,7 @@ require("awful.rules")
 require("beautiful")
 -- Notification library
 require("naughty")
-
+vicious = require("vicious")
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -34,12 +34,13 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
-beautiful.init("/usr/share/awesome/themes/default/theme.lua")
-
+beautiful.init("/home/ma/.config/awesome/themes/ma/theme.lua")
+--beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvt"
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
+icons		= "/home/ma/.config/awesome/themes/ma/icons/"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -99,7 +100,6 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 do
   local cmds =
   {
-    "conky",
     "redshift"
   }
 
@@ -107,12 +107,93 @@ do
     awful.util.spawn(i)
   end
 end
+fontwidget 	= "MonteCarlo 8"
+
+function round(num, idp)
+	if (num ~= nil) then
+		local mult = 10^(idp or 0)
+		return math.floor(num * mult + 0.5) / mult
+	else
+		return 0
+	end
+end
+
 -- {{{ Wibox
 -- Create a textclock widget
 mytextclock = awful.widget.textclock({ align = "right" })
 
 -- Create a systray
 mysystray = widget({ type = "systray" })
+
+
+---------- wlan widget
+wlanicon = widget({ type = "imagebox" })
+wlanicon.image = image(icons .. "wifi_03.png")
+
+wlanwidget = widget({ type = "textbox" })
+
+wlanwidget_t = awful.tooltip({ objects = { wlanicon },})
+
+vicious.register(wlanwidget, vicious.widgets.wifi,
+function (widget, args)
+		wlanwidget_t:set_text(
+		" SSID: " .. args["{ssid}"] .. "\n" ..
+		" Chan: " .. args["{chan}"] .. "\n" ..
+		" Signal: " .. args["{link}"] .."%"
+		)
+end, 10, "wlan0")
+
+-- memory
+memorywidget = widget({ type = "textbox" })
+vicious.register(memorywidget, vicious.widgets.mem, function (widget, args)
+	return args[1] .. "%"
+end
+, 30)
+
+memoryicon = widget({ type = "imagebox" })
+memoryicon.image = image(icons .. "mem.png")
+
+cpuloadicon = widget({ type = "imagebox" })
+cpuloadicon.image = image(icons .. "cpu.png")
+
+cpuwidget = widget({ type = "textbox" })
+vicious.register(cpuwidget, vicious.widgets.cpu, "$1%")
+
+
+cpuwidget_t = awful.tooltip({ objects = {cpuwidget,cpuloadicon},})
+
+cpufreq = widget({ type = "textbox" })
+vicious.register(cpufreq, vicious.widgets.cpuinf, function(widget, args)
+    cpuwidget_t:set_text(args["{cpu0 ghz}"].. "Ghz")
+end, 30, "cpu0")
+cputemp = widget({ type = "textbox" })
+vicious.register(cputemp, vicious.widgets.thermal, function(widget, args)
+    return " " .. args[1] .. "°C"
+end, 30, "thermal_zone0")
+---------- battery
+baticon = widget({ type = "imagebox" })
+baticon.image = image(icons .. "bat_full_01.png")
+
+batmon = widget({ type = "textbox" })
+batmon_t = awful.tooltip({ objects = { baticon,batmon},})
+vicious.register(batmon, vicious.widgets.bat, function (widget, args)
+                batmon_t:set_text(" State: " .. args[1] .. "\n" ..
+                " Charge: " .. args[2] .. "%\n"..
+                " Remaining: " .. args[3])
+                if args[2] <= 10 then
+                        naughty.notify({ text="Battery is low! " .. args[2] .. " percent remaining." })
+                end
+                if args[1] == "⌁" or args[1] == "↯" then
+                   return "Charged" 
+               else
+                    if args[3] == "N/A" then
+                            return "Charging"
+                    else
+                        return args[3]
+                    end
+
+                end
+                end , 60, "BAT1")
 
 -- Create a wibox for each screen and add it
 mywibox = {}
@@ -190,6 +271,15 @@ for s = 1, screen.count() do
         },
         mylayoutbox[s],
         mytextclock,
+        wlanwidget,
+        wlanicon,
+        memorywidget,
+        memoryicon,
+        cputemp,
+        cpuwidget,
+        cpuloadicon,
+        batmon,
+        baticon,
         s == 1 and mysystray or nil,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
