@@ -301,12 +301,12 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "l",  awful.t***REMOVED***.viewnext       ),
     awful.key({ modkey,           }, "Escape", awful.t***REMOVED***.history.restore),
 
-    awful.key({ modkey,           }, "t",
+    awful.key({ modkey,           }, "n",
         function ()
             awful.client.focus.byidx( 1)
             if client.focus then client.focus:raise() end
         end),
-    awful.key({ modkey,           }, "n",
+    awful.key({ modkey,           }, "t",
         function ()
             awful.client.focus.byidx(-1)
             if client.focus then client.focus:raise() end
@@ -314,8 +314,8 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "w", function () mymainmenu:show({keygrabber=true}) end),
 
     -- Layout manipulation
-    awful.key({ modkey, "Shift"   }, "t", function () awful.client.swap.byidx(  1)    end),
-    awful.key({ modkey, "Shift"   }, "n", function () awful.client.swap.byidx( -1)    end),
+    awful.key({ modkey, "Shift"   }, "n", function () awful.client.swap.byidx(  1)    end),
+    awful.key({ modkey, "Shift"   }, "t", function () awful.client.swap.byidx( -1)    end),
     awful.key({ modkey,           }, "`", function () awful.screen.focus_relative( 1) end),
     awful.key({ modkey, "Shift"   }, "`", function () awful.screen.focus_relative(-1) end),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
