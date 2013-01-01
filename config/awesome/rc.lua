@@ -117,6 +117,36 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- Create a textclock widget
 mytextclock = awful.widget.textclock()
 
+-- Create a function to return the battery state
+function batterystate(state)
+    if state == "+" then
+        return "Charging"
+    end
+    if state == "-" then
+        return "Discharging" 
+    end
+    -- For the most part if battery state is unknown it is because I am using an 
+    -- artificial battery capacity to extend battery life
+    if state == "↯" or state == "⌁" then
+        return "Charged"
+    end
+end
+-- Create battery icon and widget
+baticon = wibox.widget.imagebox() 
+baticon:set_image(icons .. "bat_full_02.png")
+batwidget = wibox.widget.textbox()
+batmouseover = awful.tooltip({ objects = { baticon,batwidget},})
+vicious.register(batwidget, vicious.widgets.bat,function(widget,args)
+    bat_state = batterystate(args[1])
+    batmouseover:set_text(" State: " .. bat_state .. "\n" ..
+            " Charge: " .. args[2] .. "%\n"..
+            " Remaining: " .. args[3])
+            if args[2] <= 10 then
+                    naughty.notify({ text="Battery is low! " .. args[2] .. " percent remaining." })
+            end
+    return args[3]
+    
+end, 61, "BAT1")
 -- Create a wibox for each screen and add it
 mywibox = {}
 mypromptbox = {}
@@ -194,15 +224,16 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
+    right_layout:add(memwidget)
+    right_layout:add(baticon)
+    right_layout:add(batwidget)
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
-    
     -- Now bring it all together (with the tasklist in the middle)
     local layout = wibox.layout.align.horizontal()
     layout:set_left(left_layout)
     layout:set_middle(mytasklist[s])
     layout:set_right(right_layout)
-
     mywibox[s]:set_widget(layout)
 end
 -- }}}
@@ -251,7 +282,7 @@ globalkeys = awful.util.table.join(
 
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
-    awful.key({ modkey, "Control" }, "r", awesome.rentart),
+    awful.key({ modkey, "Control" }, "r", awesome.restart),
     -- turn off quit keybinding for lack of use
     -- awful.key({ modkey, "Shift"   }, "q", awesome.quit),
 
