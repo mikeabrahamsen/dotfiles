@@ -40,8 +40,6 @@ end
 -- Themes define colours, icons, and wallpapers
 beautiful.init("/home/ma/.config/awesome/themes/ma/theme.lua")
 
--- icon directory
-icons		= "/home/ma/.config/awesome/themes/ma/icons/"
 -- This is used later as the default terminal and editor to run.
 terminal = "u***REMOVED***"
 editor = os.getenv("EDITOR") or "vim"
@@ -131,11 +129,19 @@ function batterystate(state)
         return "Charged"
     end
 end
+
+batterylevel = awful.widget.progressbar()
+batterylevel:set_width(20)
+batterylevel:set_vertical(false)
+batterylevel:set_background_color("#494B4F")
+batterylevel:set_border_color("#426797")
+batterylevel:set_color("#426797")
+batmargin = wibox.layout.margin(batterylevel, 4, 4, 4, 4)
+vicious.register(batterylevel,vicious.widgets.bat,"$2",31,"BAT1")
+
 -- Create battery icon and widget
-baticon = wibox.widget.im***REMOVED***ebox() 
-baticon:set_im***REMOVED***e(icons .. "bat_full_02.png")
 batwidget = wibox.widget.textbox()
-batmouseover = awful.tooltip({ objects = { baticon,batwidget},})
+batmouseover = awful.tooltip({ objects = {batterylevel,batwidget},})
 vicious.register(batwidget, vicious.widgets.bat,function(widget,args)
     bat_state = batterystate(args[1])
     batmouseover:set_text(" State: " .. bat_state .. "\n" ..
@@ -147,6 +153,7 @@ vicious.register(batwidget, vicious.widgets.bat,function(widget,args)
     return args[3]
     
 end, 61, "BAT1")
+
 -- Create a wibox for each screen and add it
 mywibox = {}
 mypromptbox = {}
@@ -160,6 +167,7 @@ myt***REMOVED***list.buttons = awful.util.table.join(
                     awful.button({ }, 4, function(t) awful.t***REMOVED***.viewnext(awful.t***REMOVED***.getscreen(t)) end),
                     awful.button({ }, 5, function(t) awful.t***REMOVED***.viewprev(awful.t***REMOVED***.getscreen(t)) end)
                     )
+
 mytasklist = {}
 mytasklist.buttons = awful.util.table.join(
                      awful.button({ }, 1, function (c)
@@ -224,7 +232,7 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
-    right_layout:add(baticon)
+    right_layout:add(batmargin)
     right_layout:add(batwidget)
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
