@@ -130,16 +130,19 @@ function batterystate(state)
     end
 end
 
+
+-- Create battery progress bar and widget
 batterylevel = awful.widget.progressbar()
 batterylevel:set_width(20)
 batterylevel:set_vertical(false)
 batterylevel:set_background_color("#494B4F")
 batterylevel:set_border_color("#426797")
 batterylevel:set_color("#426797")
+-- use layout.margin to give spacing and desired height
 batmargin = wibox.layout.margin(batterylevel, 4, 4, 4, 4)
 vicious.register(batterylevel,vicious.widgets.bat,"$2",31,"BAT1")
 
--- Create battery icon and widget
+-- Remaining time and mouseover
 batwidget = wibox.widget.textbox()
 batmouseover = awful.tooltip({ objects = {batterylevel,batwidget},})
 vicious.register(batwidget, vicious.widgets.bat,function(widget,args)
@@ -147,13 +150,22 @@ vicious.register(batwidget, vicious.widgets.bat,function(widget,args)
     batmouseover:set_text(" State: " .. bat_state .. "\n" ..
             " Charge: " .. args[2] .. "%\n"..
             " Remaining: " .. args[3])
-            if args[2] <= 10 then
+            if args[2] <= 20 then
                     naughty.notify({ text="Battery is low! " .. args[2] .. " percent remaining." })
             end
     return args[3]
-    
 end, 61, "BAT1")
+--End Battery
 
+-- Wifi Widget
+wifilevel = awful.widget.progressbar()
+wifilevel:set_width(5)
+wifilevel:set_vertical(true)
+wifilevel:set_background_color("#494B4F")
+wifilevel:set_border_color("#426797")
+wifilevel:set_color("#426797")
+wifimargin = wibox.layout.margin(wifilevel,4,4,2,2)
+vicious.register(wifilevel,vicious.widgets.wifi,"${link}",17,"wlan0")
 -- Create a wibox for each screen and add it
 mywibox = {}
 mypromptbox = {}
@@ -234,6 +246,7 @@ for s = 1, screen.count() do
     if s == 1 then right_layout:add(wibox.widget.systray()) end
     right_layout:add(batmargin)
     right_layout:add(batwidget)
+    right_layout:add(wifimargin)
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
     -- Now bring it all together (with the tasklist in the middle)
