@@ -40,8 +40,6 @@ end
 -- Themes define colours, icons, and wallpapers
 beautiful.init("/home/ma/.config/awesome/themes/ma/theme.lua")
 
--- icon directory
-icons		= "/home/ma/.config/awesome/themes/ma/icons/"
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvt"
 editor = os.getenv("EDITOR") or "vim"
@@ -131,22 +129,46 @@ function batterystate(state)
         return "Charged"
     end
 end
--- Create battery icon and widget
-baticon = wibox.widget.imagebox() 
-baticon:set_image(icons .. "bat_full_02.png")
+
+-- Create battery progress bar and widget
+batterylevel = awful.widget.progressbar()
+batterylevel:set_width(20)
+batterylevel:set_vertical(false)
+batterylevel:set_background_color("#494B4F")
+batterylevel:set_border_color("#426797")
+batterylevel:set_color("#426797")
+-- use layout.margin to give spacing and desired height
+batmargin = wibox.layout.margin(batterylevel, 4, 4, 4, 4)
 batwidget = wibox.widget.textbox()
-batmouseover = awful.tooltip({ objects = { baticon,batwidget},})
-vicious.register(batwidget, vicious.widgets.bat,function(widget,args)
+batmouseover = awful.tooltip({ objects = {batterylevel,batwidget},})
+
+vicious.register(batterylevel,vicious.widgets.bat,function(widget,args)
     bat_state = batterystate(args[1])
     batmouseover:set_text(" State: " .. bat_state .. "\n" ..
             " Charge: " .. args[2] .. "%\n"..
             " Remaining: " .. args[3])
-            if args[2] <= 10 then
+            if args[2] <= 20 then
                     naughty.notify({ text="Battery is low! " .. args[2] .. " percent remaining." })
             end
-    return args[3]
-    
-end, 61, "BAT1")
+    batwidget:set_text(args[3])
+    return args[2]
+end,31,"BAT1")
+
+
+-- Wifi Signal Widget
+wifilevel = awful.widget.progressbar()
+wifilevel:set_width(5)
+wifilevel:set_vertical(true)
+wifilevel:set_background_color(nil)
+wifilevel:set_border_color(nil)
+wifilevel:set_color("#426797")
+wifimargin = wibox.layout.margin(wifilevel,10,10,2,2)
+wifimouseover = awful.tooltip({objects = {wifilevel},})
+vicious.register(wifilevel,vicious.widgets.wifi,function(widget,args)
+    wifimouseover:set_text(" SSID: " ..  args["{ssid}"] .. "\n" .. " Link: " .. args["{link}"])
+    return args["{link}"]
+end,17,"wlan0")
+
 -- Create a wibox for each screen and add it
 mywibox = {}
 mypromptbox = {}
@@ -160,6 +182,7 @@ mytaglist.buttons = awful.util.table.join(
                     awful.button({ }, 4, function(t) awful.tag.viewnext(awful.tag.getscreen(t)) end),
                     awful.button({ }, 5, function(t) awful.tag.viewprev(awful.tag.getscreen(t)) end)
                     )
+
 mytasklist = {}
 mytasklist.buttons = awful.util.table.join(
                      awful.button({ }, 1, function (c)
@@ -219,15 +242,17 @@ for s = 1, screen.count() do
     local left_layout = wibox.layout.fixed.horizontal()
     left_layout:add(mylauncher)
     left_layout:add(mytaglist[s])
+    left_layout:add(mylayoutbox[s])
     left_layout:add(mypromptbox[s])
 
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
-    right_layout:add(baticon)
+    right_layout:add(batmargin)
     right_layout:add(batwidget)
+    right_layout:add(wifimargin)
+
     right_layout:add(mytextclock)
-    right_layout:add(mylayoutbox[s])
     -- Now bring it all together (with the tasklist in the middle)
     local layout = wibox.layout.align.horizontal()
     layout:set_left(left_layout)
