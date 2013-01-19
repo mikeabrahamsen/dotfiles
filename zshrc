@@ -22,6 +22,8 @@ alias grep="grep --color=auto"
 alias sudo="nocorrect sudo"
 
 # todo alias
+alias t="todo.sh"
 alias ta="todo.sh add"
 alias tl="todo.sh list"
 alias td="todo.sh do"
+alias tr="todo.sh rm"
