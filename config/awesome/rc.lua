@@ -59,14 +59,14 @@ local layouts =
     awful.layout.suit.tile,
     awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
-    awful.layout.suit.tile.top,
-    awful.layout.suit.fair,
-    awful.layout.suit.fair.horizontal,
-    awful.layout.suit.spiral,
+    --awful.layout.suit.tile.top,
+    --awful.layout.suit.fair,
+    --awful.layout.suit.fair.horizontal,
+    --awful.layout.suit.spiral,
     awful.layout.suit.spiral.dwindle,
     awful.layout.suit.max,
-    awful.layout.suit.max.fullscreen,
-    awful.layout.suit.m***REMOVED***nifier
+    --awful.layout.suit.max.fullscreen,
+    --awful.layout.suit.m***REMOVED***nifier
 }
 -- }}}
 
@@ -86,7 +86,7 @@ names = {"term","dev","web","misc"}
 
 for s = 1, screen.count() do
     -- Each screen has its own t***REMOVED*** table.
-    t***REMOVED***s[s] = awful.t***REMOVED***(t***REMOVED***s.names, s, layouts[8])
+    t***REMOVED***s[s] = awful.t***REMOVED***(t***REMOVED***s.names, s, layouts[2])
 end
 -- }}}
 
@@ -321,6 +321,13 @@ globalkeys = awful.util.table.join(
 
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
 
+    -- Switch between layouts
+    awful.key({ modkey,           }, ";", function () awful.layout.set(awful.layout.suit.max) end),
+    awful.key({ modkey,           }, "q", function () awful.layout.set(awful.layout.suit.tile) end),
+    awful.key({ modkey,           }, "j", function () awful.layout.set( awful.layout.suit.bottom) end),
+    awful.key({ modkey,           }, "k", function () awful.layout.set(awful.layout.suit.tile.left) end),
+    awful.key({ modkey,           }, "x", function () awful.layout.set(awful.layout.suit.spiral.dwindle) end),
+
     -- Volume
     awful.key({}, "XF86AudioRaiseVolume", function ()
         awful.util.spawn("amixer sset Master 5%+")
@@ -338,13 +345,6 @@ globalkeys = awful.util.table.join(
     -- Prompt
     awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
 
-    awful.key({ modkey }, "x",
-              function ()
-                  awful.prompt.run({ prompt = "Run Lua code: " },
-                  mypromptbox[mouse.screen].widget,
-                  awful.util.eval, nil,
-                  awful.util.getdir("cache") .. "/history_eval")
-              end),
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end)
 )
