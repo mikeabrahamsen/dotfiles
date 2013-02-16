@@ -5,7 +5,7 @@ DISABLE_LS_COLORS="true"
 
 plugins=(git vi-mode)
 
-export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/bin:$PATH:$HOME/.gem/ruby/1.9.1/bin"
 
 set -o vi
 
