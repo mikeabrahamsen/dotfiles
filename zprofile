@@ -3,3 +3,7 @@
 
 # mute beep
 xset -b
+
+export EDITOR=vim
+export PATH="/usr/local/bin:$PATH:$HOME/.gem/ruby/1.9.1/bin"
+
