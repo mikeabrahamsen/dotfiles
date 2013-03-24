@@ -12,4 +12,4 @@
 [apply]
 	whitespace = nowarn
 [merge]
-	tool = vimdiff
+	external = /home/ma/.bin/diff.sh
