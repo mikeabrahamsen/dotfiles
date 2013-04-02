@@ -11,6 +11,14 @@ local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
 local vicious = require("vicious")
+
+if vicious.widgets.bat("BAT1") then
+    local battery = require("battery")
+end
+if vicious.widgets.wifi("wlan0") then
+    local wifi = require("wifi")
+end
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -115,59 +123,19 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- Create a textclock widget
 mytextclock = awful.widget.textclock()
 
--- Create a function to return the battery state
-function batterystate(state)
-    if state == "+" then
-        return "Charging"
-    end
-    if state == "-" then
-        return "Discharging" 
-    end
-    -- For the most part if battery state is unknown it is because I am using an 
-    -- artificial battery capacity to extend battery life
-    if state == "↯" or state == "⌁" then
-        return "Charged"
-    end
+if battery then
+-- use layout.margin to give spacing and desired height
+    batmargin = wibox.layout.margin(batterylevel, 4, 4, 4, 4)
+    batwidget = wibox.widget.textbox()
+    batmouseover = awful.tooltip({ objects = {batterylevel,batwidget},})
 end
 
--- Create battery progress bar and widget
-batterylevel = awful.widget.progressbar()
-batterylevel:set_width(20)
-batterylevel:set_vertical(false)
-batterylevel:set_background_color("#494B4F")
-batterylevel:set_border_color("#426797")
-batterylevel:set_color("#426797")
--- use layout.margin to give spacing and desired height
-batmargin = wibox.layout.margin(batterylevel, 4, 4, 4, 4)
-batwidget = wibox.widget.textbox()
-batmouseover = awful.tooltip({ objects = {batterylevel,batwidget},})
+if wifi then
+    -- Wifi Signal Widget
+    wifimargin = wibox.layout.margin(wifilevel,10,10,2,2)
+    wifimouseover = awful.tooltip({objects = {wifilevel},})
+end
 
-vicious.register(batterylevel,vicious.widgets.bat,function(widget,args)
-    bat_state = batterystate(args[1])
-    batmouseover:set_text(" State: " .. bat_state .. "\n" ..
-            " Charge: " .. args[2] .. "%\n"..
-            " Remaining: " .. args[3])
-            if args[2] <= 20 then
-                    naughty.notify({ text="Battery is low! " .. args[2] .. " percent remaining." })
-            end
-    batwidget:set_text(args[3])
-    return args[2]
-end,31,"BAT1")
-
-
--- Wifi Signal Widget
-wifilevel = awful.widget.progressbar()
-wifilevel:set_width(5)
-wifilevel:set_vertical(true)
-wifilevel:set_background_color(nil)
-wifilevel:set_border_color(nil)
-wifilevel:set_color("#426797")
-wifimargin = wibox.layout.margin(wifilevel,10,10,2,2)
-wifimouseover = awful.tooltip({objects = {wifilevel},})
-vicious.register(wifilevel,vicious.widgets.wifi,function(widget,args)
-    wifimouseover:set_text(" SSID: " ..  args["{ssid}"] .. "\n" .. " Link: " .. args["{link}"])
-    return args["{link}"]
-end,17,"wlan0")
 
 -- Create a wibox for each screen and add it
 mywibox = {}
@@ -248,10 +216,13 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
-    right_layout:add(batmargin)
-    right_layout:add(batwidget)
-    right_layout:add(wifimargin)
-
+    if battery then
+        right_layout:add(batmargin)
+        right_layout:add(batwidget)
+    end
+    if wifi then
+        right_layout:add(wifimargin)
+    end
     right_layout:add(mytextclock)
     -- Now bring it all together (with the tasklist in the middle)
     local layout = wibox.layout.align.horizontal()
