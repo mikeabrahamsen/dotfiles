@@ -1,7 +1,29 @@
-call pathogen#infect()
-syntax on
+set nocompatible               " be iMproved
+filetype off                   " required!
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle man***REMOVED***e Vundle
+" required! 
+Bundle 'gmarik/vundle'
+
+" My Bundles here:
+"
+" original repos on github
+
+Bundle 'scrooloose/syntastic'
+Bundle 'Valloric/YouCompleteMe'
+
 filetype plugin indent on
 
+" ctrl-jklm  changes to that split
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
+
+syntax on
 colorscheme Tomorrow-Night
 set background=dark
 set nu
@@ -26,5 +48,8 @@ set ruler
 imap jj <Esc>
 
 nnoremap Q <nop> "unmap Q, typo causes bad results
+
+" to save even when I forget to use sudo
 cmap w!! w !sudo tee % >/dev/null
+
 let g:miniBufExplMapWindowNavVim = 1
