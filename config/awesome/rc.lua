@@ -11,9 +11,13 @@ local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
 local vicious = require("vicious")
+local helpers = require("vicious.helpers")
 
-if vicious.widgets.bat("BAT1") then
-    local battery = require("battery")
+local battery = 0
+local batteryvar =  helpers.pathtotable("/sys/class/power_supply/BAT1")
+if batteryvar.present then
+    require("battery")
+    battery = 1
 end
 if vicious.widgets.wifi("wlan0") then
     local wifi = require("wifi")
