@@ -19,9 +19,14 @@ if batteryvar.present then
     require("battery")
     battery = 1
 end
-if vicious.widgets.wifi("wlan0") then
-    local wifi = require("wifi")
-end
+local wlan = 0
+local f = io.popen('iwconfig wlan0 '.."2>&1")
+    local iw = f:read("*all")
+    f:close()
+    if iw ~= nil and string.find(iw, "No such device") == nil then
+        wlan = 1
+        require("wifi")
+    end
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -134,7 +139,7 @@ if battery then
     batmouseover = awful.tooltip({ objects = {batterylevel,batwidget},})
 end
 
-if wifi then
+if wlan then
     -- Wifi Signal Widget
     wifimargin = wibox.layout.margin(wifilevel,10,10,2,2)
     wifimouseover = awful.tooltip({objects = {wifilevel},})
@@ -224,7 +229,7 @@ for s = 1, screen.count() do
         right_layout:add(batmargin)
         right_layout:add(batwidget)
     end
-    if wifi then
+    if wlan then
         right_layout:add(wifimargin)
     end
     right_layout:add(mytextclock)
