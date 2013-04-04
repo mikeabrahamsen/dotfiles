@@ -51,7 +51,7 @@ set clipboard=unnamedplus
 set ruler
 set noswapfile
 set cursorline
-
+set nostartofline
 imap jj <Esc>
 
 nnoremap Q <nop> "unmap Q, typo causes bad results
