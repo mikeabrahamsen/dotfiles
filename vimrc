@@ -50,6 +50,7 @@ set hidden
 set clipboard=unnamedplus
 set ruler
 set noswapfile
+set cursorline
 
 imap jj <Esc>
 
