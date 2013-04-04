@@ -6,6 +6,7 @@ task :install do
   install_oh_my_zsh
   switch_to_zsh
   replace_all = false
+  create_tmp_dir
   files = Dir['*'] - %w[Rakefile config]
   # had to ignore the config folder and add in each file seperately
   # as there may already be something in the config folder
@@ -41,7 +42,14 @@ task :install do
     end
   end
 end
-
+def create_tmp_dir()
+    if File.exist?(File.join(ENV['HOME'], "tmp"))
+        puts "tmp directory found"
+    else
+        puts "creating tmp directory"
+        system %Q{mkdir "$HOME/tmp"}
+    end
+end
 def replace_file(file)
   system %Q{rm -rf "$HOME/.#{file.sub(/\.erb$/, '')}"}
   link_file(file)
