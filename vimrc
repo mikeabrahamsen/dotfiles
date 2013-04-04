@@ -44,6 +44,7 @@ set backspace=indent,eol,start
 set hidden
 set clipboard=unnamedplus
 set ruler
+set noswapfile
 
 imap jj <Esc>
 
