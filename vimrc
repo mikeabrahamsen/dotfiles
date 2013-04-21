@@ -56,7 +56,8 @@ set nostartofline           " preserve cursor location when paging
 set ls=2                    " always show status line
 imap jj <Esc>
 
-nnoremap Q <nop> "unmap Q, typo causes bad results
+nnoremap <esc> :noh<return><esc>    " turn off search highlight by pushing esc
+nnoremap Q <nop>            "unmap Q, typo causes bad results
 
 " to save even when I forget to use sudo
 cmap w!! w !sudo tee % >/dev/null
