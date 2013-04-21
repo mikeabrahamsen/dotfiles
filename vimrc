@@ -14,6 +14,7 @@ Bundle 'gmarik/vundle'
 
 Bundle 'scrooloose/syntastic'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'tpope/vim-surround'
 
 filetype plugin indent on
 let mapleader=","             " change the leader to be a comma vs slash
