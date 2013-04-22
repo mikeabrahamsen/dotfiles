@@ -60,8 +60,8 @@ inoremap kk <Esc>
 inoremap jk <esc>
 inoremap kj <esc>
 
-" turn off search highlight by pushing esc
-nnoremap <esc> :noh<return><esc>
+" turn off search highlight by pushing enter
+nnoremap <CR> :noh<CR><CR>
 "unmap Q, typo causes bad results
 nnoremap Q <nop>
 
