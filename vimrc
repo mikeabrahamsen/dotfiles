@@ -54,10 +54,16 @@ set ruler                   " show cursor position
 set cursorline              " highlight the line the cursor is on
 set nostartofline           " preserve cursor location when p***REMOVED***ing
 set ls=2                    " always show status line
-imap jj <Esc>
+" remap variations of j and k to use to esc
+inoremap jj <Esc>
+inoremap kk <Esc>
+inoremap jk <esc>
+inoremap kj <esc>
 
-nnoremap <esc> :noh<return><esc>    " turn off search highlight by pushing esc
-nnoremap Q <nop>            "unmap Q, typo causes bad results
+" turn off search highlight by pushing esc
+nnoremap <esc> :noh<return><esc>
+"unmap Q, typo causes bad results
+nnoremap Q <nop>
 
 " to save even when I forget to use sudo
 cmap w!! w !sudo tee % >/dev/null
