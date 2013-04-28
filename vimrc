@@ -15,6 +15,7 @@ Bundle 'gmarik/vundle'
 Bundle 'scrooloose/syntastic'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'tpope/vim-surround'
+Bundle 'SirVer/ultisnips'
 
 filetype plugin indent on
 let mapleader=","             " change the leader to be a comma vs slash
@@ -69,3 +70,7 @@ nnoremap Q <nop>
 cmap w!! w !sudo tee % >/dev/null
 
 let g:miniBufExplMapWindowNavVim = 1
+let g:UltiSnipsExpandTrigger = '<c-j>'
+let g:UltiSnipsJumpForwardTrigger = '<c-j>'
+let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
+let g:UltiSnipsListSnippets = '<c-l>'
