@@ -16,6 +16,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'tpope/vim-surround'
 Bundle 'SirVer/ultisnips'
+Bundle 'nvie/vim-flake8'
 
 filetype plugin indent on
 let mapleader=","             " change the leader to be a comma vs slash
@@ -55,6 +56,12 @@ set ruler                   " show cursor position
 set cursorline              " highlight the line the cursor is on
 set nostartofline           " preserve cursor location when p***REMOVED***ing
 set ls=2                    " always show status line
+set colorcolumn=80          " add line at column 80
+
+" make text over 79 characters red
+highlight OverLength ctermfg=red
+match OverLength /\%80v.\+/
+
 " remap variations of j and k to use to esc
 inoremap jj <Esc>
 inoremap kk <Esc>
