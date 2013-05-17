@@ -17,6 +17,7 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'tpope/vim-surround'
 Bundle 'SirVer/ultisnips'
 Bundle 'nvie/vim-flake8'
+Bundle 'hynek/vim-python-pep8-indent'
 
 filetype plugin indent on
 let mapleader=","             " change the leader to be a comma vs slash
