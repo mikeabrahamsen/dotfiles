@@ -43,7 +43,6 @@ set tabstop=4 shiftwidth=4 expandtab
 set softtabstop=4           " use the appropriate number of spaces when tabbing
 set shiftround              " use multiple of shiftwidth when indenting with '<' and '>'
 set autoindent              " auto indent
-set smartindent             " use smart indent if there is no indent file
 set list                    " show unprinted characters
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
 set showmode                " show visual or insert mode
@@ -61,6 +60,9 @@ set colorcolumn=80          " add line at column 80
 " make text over 79 characters red
 highlight OverLength ctermfg=red
 match OverLength /\%80v.\+/
+
+" set the fileformat to unix for python and c files
+au BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix
 
 " remap variations of j and k to use to esc
 inoremap jj <Esc>
