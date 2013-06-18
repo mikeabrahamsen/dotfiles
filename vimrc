@@ -25,6 +25,9 @@ let mapleader=","             " change the leader to be a comma vs slash
 " Reload Vimrc
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
+" toggle spellcheck
+nmap <silent> <leader>s :set spell!<CR>
+
 " ctrl-jklm  changes to that split
 map <c-j> <c-w>j
 map <c-k> <c-w>k
