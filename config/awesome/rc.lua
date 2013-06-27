@@ -145,6 +145,21 @@ if wlan then
     wifimouseover = awful.tooltip({objects = {wifilevel},})
 end
 
+-- Volume widget
+iconVol = wibox.widget.im***REMOVED***ebox()
+iconVol:set_im***REMOVED***e(beautiful.widget_vol)
+
+widgetVol = wibox.widget.textbox()
+vicious.register(widgetVol, vicious.widgets.volume,  
+    function (widget, args)
+        if (args[2] ~= "♩" ) then 
+            if (args[1] == 0) then iconVol:set_im***REMOVED***e(beautiful.widget_vol_no)
+            else iconVol:set_im***REMOVED***e(beautiful.widget_vol)
+            end
+        else iconVol:set_im***REMOVED***e(beautiful.widget_vol_no) 
+        end
+        return  ' ' .. args[1] .. '%'
+    end, 1, "Master")
 
 -- Create a wibox for each screen and add it
 mywibox = {}
@@ -224,6 +239,10 @@ for s = 1, screen.count() do
 
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
+
+    right_layout:add(iconVol)
+    right_layout:add(widgetVol)
+
     if s == 1 then right_layout:add(wibox.widget.systray()) end
     if battery then
         right_layout:add(batmargin)

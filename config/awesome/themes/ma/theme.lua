@@ -92,5 +92,8 @@ theme.layout_dwindle = "/home/ma/.config/awesome/themes/ma/layouts/dwindle.png"
 
 theme.awesome_icon = "/home/ma/.config/awesome/themes/ma/icons/arch-blue.png"
 
+theme.widget_vol = "/home/ma/.config/awesome/themes/ma/icons/spkr_01.png"
+theme.widget_vol_no = "/home/ma/.config/awesome/themes/ma/icons/spkr_02.png"
+
 return theme
 -- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80
