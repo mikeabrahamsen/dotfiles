@@ -240,10 +240,11 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
 
+    if s == 1 then right_layout:add(wibox.widget.systray()) end
+
     right_layout:add(iconVol)
     right_layout:add(widgetVol)
 
-    if s == 1 then right_layout:add(wibox.widget.systray()) end
     if battery then
         right_layout:add(batmargin)
         right_layout:add(batwidget)

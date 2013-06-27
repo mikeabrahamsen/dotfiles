@@ -34,6 +34,6 @@ vicious.register(batterylevel,vicious.widgets.bat,function(widget,args)
             if args[2] <= 20 and args[3] ~= "N/A" then
                     naughty.notify({ text="Battery is low! " .. args[2] .. " percent remaining." })
             end
-    batwidget:set_text(args[3])
+    batwidget:set_text(args[2] .. "%")
     return args[2]
 end,31,"BAT1")
