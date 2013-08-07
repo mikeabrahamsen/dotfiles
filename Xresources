@@ -1,3 +1,4 @@
+URxvt*loginShell: true
 URxvt*geometry:                    80x25
 URxvt*borderLess:                false
 URxvt.scrollBar: false
