@@ -1,6 +1,7 @@
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 DISABLE_LS_COLORS="true"
+DISABLE_AUTO_TITLE=true
 
 plugins=(git)
 
