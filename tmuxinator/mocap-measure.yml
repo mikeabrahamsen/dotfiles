@@ -9,4 +9,5 @@ windows:
       panes:
         - vim
         - #empty, will just run plain bash
+  - server: python manage.py runserver
   - console: #empty
