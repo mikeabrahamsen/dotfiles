@@ -3,12 +3,14 @@ ZSH_THEME="robbyrussell"
 DISABLE_LS_COLORS="true"
 DISABLE_AUTO_TITLE=true
 
-plugins=(git)
+plugins=(git git-flow)
 
 set -o vi
 
-source $ZSH/oh-my-zsh.sh
 source ~/.zprofile
+source $ZSH/oh-my-zsh.sh
+source ~/.git-flow-completion.zsh
+source ~/.bin/tmuxinator.zsh
 
 # alias
 alias mv="mv -i"
@@ -25,3 +27,6 @@ alias ta="todo.sh add"
 alias tl="todo.sh list"
 alias td="todo.sh do"
 alias tr="todo.sh rm"
+
+# git alias not in oh-my-zsh git plugin
+alias glgp="git log --graph --pretty=oneline --abbrev-commit"
