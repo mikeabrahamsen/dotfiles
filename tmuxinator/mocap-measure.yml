@@ -7,7 +7,7 @@ windows:
   - editor:
       layout: 09df,194x52,0,0[194x39,0,0,39,194x12,0,40,41]
       panes:
-        - vim
-        - #empty, will just run plain bash
-  - server: python man***REMOVED***e.py runserver
+        - vim 
+        - source ~/.virtualenvs/python-kinetics-analyzer/bin/activate
+  - server: source ~/.virtualenvs/python-kinetics-analyzer/bin/activate; python man***REMOVED***e.py runserver
   - console: #empty
