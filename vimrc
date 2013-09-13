@@ -70,9 +70,7 @@ au BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix
 
 " remap variations of j and k to use to esc
 inoremap jj <Esc>
-inoremap kk <Esc>
 inoremap jk <esc>
-inoremap kj <esc>
 
 " turn off search highlight by pushing enter
 nnoremap <CR> :noh<CR><CR>
