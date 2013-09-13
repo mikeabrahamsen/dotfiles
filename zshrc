@@ -1,11 +1,8 @@
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
-DISABLE_LS_COLORS="true"
 DISABLE_AUTO_TITLE=true
 
 plugins=(git git-flow)
-
-set -o vi
 
 source ~/.zprofile
 source $ZSH/oh-my-zsh.sh
