@@ -50,7 +50,7 @@ set autoindent              " auto indent
 set list                    " show unprinted characters
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
 set showmode                " show visual or insert mode
-set hlsearch incsearch smartcase "searching preferences,highlight,search as you type
+set hlsearch incsearch smartcase ignorecase "searching preferences,highlight,search as you type
 set showmatch               " show matching paratheses
 set backspace=indent,eol,start " backspace over anything
 set hidden                  " allow hidden buffers
@@ -81,8 +81,8 @@ nnoremap Q <nop>
 cmap w!! w !sudo tee % >/dev/null
 
 let g:miniBufExplMapWindowNavVim = 1
-let g:UltiSnipsExpandTrigger = '<c-j>'
-let g:UltiSnipsJumpForwardTrigger = '<c-j>'
+let g:UltiSnipsExpandTrigger = '<leader>u<cr>'
+let g:UltiSnipsJumpForwardTrigger = '<leader>u<cr>'
 let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
 let g:UltiSnipsListSnippets = '<c-l>'
 let g:ultisnips_python_style = 'sphinx'
@@ -100,3 +100,9 @@ function! <SID>StripTrailingWhitespaces()
 endfunction
 
 autocmd BufWritePre *.py,*.js :call <SID>StripTrailingWhitespaces()
+
+" If you prefer the Omni-Completion tip window to close when a selection is
+" made, these lines close it on movement in insert mode or when leaving
+" insert mode
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
