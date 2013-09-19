@@ -26,4 +26,4 @@ alias td="todo.sh do"
 alias tr="todo.sh rm"
 
 # git alias not in oh-my-zsh git plugin
-alias glgp="git log --graph --pretty=oneline --abbrev-commit"
+alias gl="git log --graph --pretty=oneline --abbrev-commit"
