@@ -1,9 +1,3 @@
-[submodule "oh-my-zsh"]
-	path = oh-my-zsh
-	url = https://github.com/robbyrussell/oh-my-zsh.git
-[submodule "vim/bundle/minibufexpl"]
-	path = vim/bundle/minibufexpl
-	url = https://github.com/fholgado/minibufexpl.vim.git
 [submodule "config/awesome/vicious"]
 	path = config/awesome/vicious
 	url = http://git.sysphere.org/vicious
