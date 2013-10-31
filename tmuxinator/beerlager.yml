@@ -1,0 +1,13 @@
+# ~/.tmuxinator/.yml
+# you can make as many tabs as you wish...
+
+name: beerl***REMOVED***er
+root: ~/code/beerl***REMOVED***er
+windows:
+  - editor:
+      layout: 09df,194x52,0,0[194x39,0,0,39,194x12,0,40,41]
+      panes:
+        - vim 
+        - source ~/.virtualenvs/beerl***REMOVED***er/bin/activate
+  - console: #empty
+  - console: #empty
