@@ -68,6 +68,8 @@ match OverLength /\%80v.\+/
 " set the fileformat to unix for python and c files
 au BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix
 
+autocmd BufNewFile,BufRead *.{md,mkd,mark,markdown} set ft=markdown
+
 " remap variations of j and k to use to esc
 inoremap jj <Esc>
 inoremap jk <esc>
