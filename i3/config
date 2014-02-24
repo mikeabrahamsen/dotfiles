@@ -126,3 +126,9 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
+
+bindsym XF86AudioMute exec "amixer sset Master toggle"
+bindsym XF86AudioRaiseVolume exec "amixer sset Master 5%+"
+bindsym XF86AudioLowerVolume exec "amixer sset Master 5%-"
+
+bindsym Print exec scrot -e 'mv $f ~/screenshots/ 2>/dev/null'
