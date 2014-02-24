@@ -10,7 +10,7 @@ task :install do
   files = Dir['*'] - %w[Rakefile config]
   # had to ignore the config folder and add in each file seperately
   # as there may already be something in the config folder
-  files << "config/awesome"
+  files << "config/i3status"
   files << "config/redshift.conf"
   files.each do |file|
     system %Q{mkdir -p "$HOME/.#{File.dirname(file)}"} if file =~ /\//
