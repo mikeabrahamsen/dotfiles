@@ -19,6 +19,7 @@ order += "wireless wlan0"
 order += "ethernet eth0"
 order += "battery 1"
 order += "load"
+order += "volume master"
 order += "tztime local"
 
 wireless wlan0 {
@@ -50,6 +51,13 @@ tztime local {
 
 load {
         format = "%1min"
+}
+
+volume master {
+        format = "♪: %volume"
+        device = "default"
+        mixer = "Master"
+        mixer_idx = 0
 }
 
 disk "/" {
