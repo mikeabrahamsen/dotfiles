@@ -57,8 +57,9 @@ bindsym $mod+Mod1+Control+l move workspace to output right
 bindsym $mod+Mod1+Control+h move workspace to output left
 
 # move workspace display
-bindsym $mod+w workspace next_on_output
-bindsym $mod+v workspace prev_on_output
+bindsym $mod+v workspace next_on_output
+bindsym $mod+w workspace prev_on_output
+
 
 # split in horizontal orientation
 bindsym $mod+d split h
