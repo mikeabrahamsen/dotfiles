@@ -11,29 +11,27 @@ general {
         interval = 5
 }
 
-order += "ipv6"
-order += "disk /"
-order += "run_watch DHCP"
-order += "run_watch VPN"
+order += "volume master"
+order += "load"
 order += "wireless wlan0"
 order += "ethernet eth0"
 order += "battery 1"
-order += "load"
-order += "volume master"
 order += "tztime local"
 
 wireless wlan0 {
-        format_up = "W: (%quality at %essid) %ip"
+        format_up = "%essid: %quality"
         format_down = "W: down"
 }
 
 ethernet eth0 {
         # if you use %speed, i3status requires root privileges
         format_up = "E: %ip (%speed)"
-        format_down = "E: down"
+        format_down = ""
 }
 
 battery 1 {
+        last_full_capacity = true
+        integer_battery_capacity = true
         format = "%status %percent***REMOVED***e %remaining"
 }
 
@@ -50,7 +48,7 @@ tztime local {
 }
 
 load {
-        format = "%1min"
+        format = "Load:%1min"
 }
 
 volume master {
@@ -61,5 +59,5 @@ volume master {
 }
 
 disk "/" {
-        format = "%avail"
+        format = "Disk:%avail"
 }
