@@ -33,7 +33,8 @@ map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
 
-colorscheme Tomorrow-Night
+"colorscheme Tomorrow-Night
+colorscheme ir_black
 syntax on                   " use syntax highlighting
 set background=dark         " use dark background
 set nu                      " show line numbers
