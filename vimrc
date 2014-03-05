@@ -13,7 +13,6 @@ Bundle 'gmarik/vundle'
 " original repos on github
 
 Bundle 'scrooloose/syntastic'
-Bundle 'Valloric/YouCompleteMe'
 Bundle 'tpope/vim-surround'
 Bundle 'SirVer/ultisnips'
 Bundle 'nvie/vim-flake8'
