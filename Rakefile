@@ -11,6 +11,7 @@ task :install do
   # had to ignore the config folder and add in each file seperately
   # as there may already be something in the config folder
   files << "config/i3status"
+  files << "config/i3pystatus"
   files << "config/redshift.conf"
   files << "i3/config"
   files.each do |file|
