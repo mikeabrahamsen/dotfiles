@@ -13,7 +13,9 @@ general {
 
 order += "volume master"
 order += "load"
-order += "ethernet net0"
+order += "battery 1"
+order += "wlan0"
+order += "ethernet eth0"
 order += "tztime local"
 
 wireless wlan0 {
