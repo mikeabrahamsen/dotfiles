@@ -157,3 +157,4 @@ bindsym Print exec scrot -e 'mv $f ~/screenshots/ 2>/dev/null'
 # program assignments
 assign [class="Chromium"] 3
 assign [class="Skype"] 6
+assign [class="Keepassx"] 4
