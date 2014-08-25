@@ -9,6 +9,10 @@ source $ZSH/oh-my-zsh.sh
 source ~/.git-flow-completion.zsh
 source ~/.bin/tmuxinator.zsh
 
+# virtualenv wrapper
+export WORKON_HOME=~/.virtualenvs
+source /usr/bin/virtualenvwrapper.sh
+
 # alias
 alias mv="mv -i"
 alias cp="cp -i"
