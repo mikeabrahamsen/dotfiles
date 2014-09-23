@@ -7,7 +7,8 @@ plugins=(git git-flow)
 source ~/.zprofile
 source $ZSH/oh-my-zsh.sh
 source ~/.git-flow-completion.zsh
-source ~/.bin/tmuxinator.zsh
+
+[ -d ~/.bin ] && export PATH=~/.bin:$PATH
 
 # virtualenv wrapper
 export WORKON_HOME=~/.virtualenvs
