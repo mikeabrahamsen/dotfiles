@@ -1,24 +1,22 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-" let Vundle manage Vundle
-" required! 
-Bundle 'gmarik/vundle'
-
+Plugin 'gmarik/Vundle.vim'
 " My Bundles here:
 "
 " original repos on github
 
-Bundle 'scrooloose/syntastic'
-Bundle 'tpope/vim-surround'
-Bundle 'SirVer/ultisnips'
-Bundle 'nvie/vim-flake8'
-Bundle 'hynek/vim-python-pep8-indent'
-Bundle 'suan/vim-instant-markdown'
+Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-surround'
+Plugin 'SirVer/ultisnips'
+Plugin 'nvie/vim-flake8'
+Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'suan/vim-instant-markdown'
 
+call vundle#end()
 filetype plugin indent on
 let mapleader=","             " change the leader to be a comma vs slash
 
