@@ -18,3 +18,6 @@ exec i3 -V >> ~/.i3/i3log 2>&1
 
 xse +fp /usr/share/fonts/local
 xset fp rehash
+
+# key remaps
+xmodmap ~/.xmodmaprc
