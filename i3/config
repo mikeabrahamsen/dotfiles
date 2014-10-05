@@ -155,6 +155,6 @@ bindsym XF86AudioLowerVolume exec "amixer sset Master 5%-"
 bindsym Print exec scrot -e 'mv $f ~/screenshots/ 2>/dev/null'
 
 # program assignments
-assign [class="Chromium"] 3
+assign [class="Google-chrome-stable"] 3
 assign [class="Skype"] 6
 assign [class="Keepassx"] 4
