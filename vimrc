@@ -107,3 +107,5 @@ autocmd BufWritePre *.py,*.js :call <SID>StripTrailingWhitespaces()
 " insert mode
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+au BufRead,BufNewFile *.{md,mark,markdown} setlocal textwidth=80
