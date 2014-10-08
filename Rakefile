@@ -13,8 +13,8 @@ task :install do
   files << "config/i3status"
   files << "config/i3pystatus"
   files << "config/htop"
-  files << "config/redshift.conf"
   files << "i3/config"
+  files << "config/ranger/rifle.conf"
   files.each do |file|
     system %Q{mkdir -p "$HOME/.#{File.dirname(file)}"} if file =~ /\//
     if File.exist?(File.join(ENV['HOME'], ".#{file.sub(/\.erb$/, '')}"))
