@@ -15,3 +15,6 @@ alias tr="todo.sh rm"
 
 # git alias not in oh-my-zsh git plugin
 alias gl="git log --graph --pretty=oneline --abbrev-commit"
+
+# tmux force 256
+alias tmux="tmux -2"
