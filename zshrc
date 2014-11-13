@@ -7,7 +7,6 @@ plugins=(git git-flow)
 source ~/.zprofile
 source ~/.aliases
 source $ZSH/oh-my-zsh.sh
-source ~/.git-flow-completion.zsh
 
 [ -d ~/.bin ] && export PATH=~/.bin:$PATH
 
