@@ -5,6 +5,7 @@ DISABLE_AUTO_TITLE=true
 plugins=(git git-flow)
 
 source ~/.zprofile
+source ~/.aliases
 source $ZSH/oh-my-zsh.sh
 source ~/.git-flow-completion.zsh
 
