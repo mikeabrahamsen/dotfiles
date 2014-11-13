@@ -138,7 +138,7 @@ bindsym $mod+r mode "resize"
 bar {
     # The display is connected either via HDMI or via DisplayPort
     output HDMI-0
-    status_command python ~/.config/i3pystatus/config-desktop
+    status_command i3status --config ~/.config/i3status/config-desktop
     font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
     font pango:DejaVu Sans Mono 14
 }
