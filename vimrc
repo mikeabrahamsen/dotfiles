@@ -68,6 +68,7 @@ match OverLength /\%80v.\+/
 au BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix
 
 autocmd BufNewFile,BufRead *.{md,mkd,mark,markdown} set ft=markdown
+au BufRead,BufNewFile *.{md,mark,markdown} setlocal textwidth=80
 
 " remap variations of j and k to use to esc
 inoremap jj <Esc>
@@ -87,6 +88,9 @@ let g:UltiSnipsJumpForwardTrigger = '<leader>u<cr>'
 let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
 let g:UltiSnipsListSnippets = '<c-l>'
 let g:ultisnips_python_style = 'sphinx'
+
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_flake8_exec = 'flake8-python2'
 
 function! <SID>StripTrailingWhitespaces()
     " Preparation: save last search, and cursor position.
@@ -108,4 +112,3 @@ autocmd BufWritePre *.py,*.js :call <SID>StripTrailingWhitespaces()
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
-au BufRead,BufNewFile *.{md,mark,markdown} setlocal textwidth=80
