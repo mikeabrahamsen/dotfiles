@@ -158,3 +158,6 @@ bindsym Print exec scrot -e 'mv $f ~/screenshots/ 2>/dev/null'
 assign [class="Google-chrome-stable"] 3
 assign [class="Skype"] 6
 assign [class="Keepassx"] 4
+
+# start programs
+exec redshift-scheduler
