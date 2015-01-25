@@ -89,8 +89,8 @@ let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
 let g:UltiSnipsListSnippets = '<c-l>'
 let g:ultisnips_python_style = 'sphinx'
 
+" must have flake8 installed through pip2
 let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_python_flake8_exec = 'flake8-python2'
 
 function! <SID>StripTrailingWhitespaces()
     " Preparation: save last search, and cursor position.
