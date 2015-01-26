@@ -15,6 +15,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'nvie/vim-flake8'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'suan/vim-instant-markdown'
+Plugin 'honza/vim-snippets'
 
 call vundle#end()
 filetype plugin indent on
