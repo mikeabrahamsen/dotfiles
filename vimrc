@@ -11,6 +11,7 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
 Plugin 'SirVer/ultisnips'
 Plugin 'nvie/vim-flake8'
 Plugin 'hynek/vim-python-pep8-indent'
@@ -92,6 +93,15 @@ let g:ultisnips_python_style = 'sphinx'
 
 " must have flake8 installed through pip2
 let g:syntastic_python_checkers = ['flake8']
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFl***REMOVED***()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 function! <SID>StripTrailingWhitespaces()
     " Preparation: save last search, and cursor position.
