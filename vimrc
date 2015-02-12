@@ -17,8 +17,15 @@ Plugin 'nvie/vim-flake8'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'suan/vim-instant-markdown'
 Plugin 'honza/vim-snippets'
+Plugin 'Shougo/neocomplete.vim'
+Plugin 'Shougo/unite.vim'
+Plugin 'davidhalter/jedi-vim'
+
+Plugin 'pangloss/vim-javascript'
+Plugin 'matthewsimo/angular-vim-snippets'
 
 call vundle#end()
+
 filetype plugin indent on
 let mapleader=","             " change the leader to be a comma vs slash
 
@@ -62,6 +69,7 @@ set nostartofline           " preserve cursor location when p***REMOVED***ing
 set ls=2                    " always show status line
 set colorcolumn=80          " add line at column 80
 
+
 " make text over 79 characters red
 highlight OverLength ctermfg=red
 match OverLength /\%80v.\+/
@@ -84,24 +92,39 @@ nnoremap Q <nop>
 " to save even when I forget to use sudo
 cmap w!! w !sudo tee % >/dev/null
 
-let g:miniBufExplMapWindowNavVim = 1
-let g:UltiSnipsExpandTrigger = '<leader>u<cr>'
-let g:UltiSnipsJumpForwardTrigger = '<leader>u<cr>'
-let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
-let g:UltiSnipsListSnippets = '<c-l>'
+" ultinsnips config
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+let g:UltiSnipsListSnippets = '<C-l>'
 let g:ultisnips_python_style = 'sphinx'
 
+" syntastic config
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_wq = 0
 " must have flake8 installed through pip2
 let g:syntastic_python_checkers = ['flake8']
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFl***REMOVED***()}
-set statusline+=%*
+" neocomplete
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#max_list = 5
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+let g:jedi#auto_vim_configuration = 0
+let g:jedi#completions_enabled=0
+
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteT***REMOVED***s
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteT***REMOVED***s
+
+" unite config
+nnoremap <C-l> :Unite file file_rec buffer<CR>
+
+" othree/javascript-libraries-syntax.vim config
+let g:used_javascript_libs = 'angularjs,underscore'
 
 function! <SID>StripTrailingWhitespaces()
     " Preparation: save last search, and cursor position.
@@ -116,10 +139,3 @@ function! <SID>StripTrailingWhitespaces()
 endfunction
 
 autocmd BufWritePre *.py,*.js :call <SID>StripTrailingWhitespaces()
-
-" If you prefer the Omni-Completion tip window to close when a selection is
-" made, these lines close it on movement in insert mode or when leaving
-" insert mode
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-
