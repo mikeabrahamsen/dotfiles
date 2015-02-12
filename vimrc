@@ -21,6 +21,7 @@ Plugin 'Shougo/neocomplete.vim'
 Plugin 'Shougo/unite.vim'
 Plugin 'davidhalter/jedi-vim'
 
+Plugin 'marijnh/tern_for_vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'matthewsimo/angular-vim-snippets'
 
@@ -110,13 +111,14 @@ let g:syntastic_python_checkers = ['flake8']
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#max_list = 5
+set completeopt-=preview
 
 let g:jedi#auto_vim_configuration = 0
 let g:jedi#completions_enabled=0
-
+let g:tern_show_signature_in_pum=1
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType javascript setlocal omnifunc=tern#Complete
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
