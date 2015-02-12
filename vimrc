@@ -126,7 +126,7 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 nnoremap <C-l> :Unite file file_rec buffer<CR>
 
 " othree/javascript-libraries-syntax.vim config
-let g:used_javascript_libs = 'angularjs,underscore'
+let g:used_javascript_libs = 'angularjs,underscore,jasmine'
 
 function! <SID>StripTrailingWhitespaces()
     " Preparation: save last search, and cursor position.
