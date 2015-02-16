@@ -31,6 +31,7 @@ Plugin 'Shougo/neomru.vim'
 Plugin 'marijnh/tern_for_vim' "README
 Plugin 'pangloss/vim-javascript'
 Plugin 'matthewsimo/angular-vim-snippets'
+Plugin 'claco/jasmine.vim'
 
 call vundle#end()
 
@@ -62,6 +63,7 @@ set nu                      " show line numbers
 set nowrap                  " don't wrap lines
 set title                   " show title in title bar
 set backup                  " create backups
+set backupcopy=yes
 set backupdir=~/tmp         " set backup folder
 set directory=~/tmp         " set directory for swap files
 set tabstop=4 shiftwidth=4 expandtab
@@ -154,6 +156,7 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " use the fuzzy matcher for everything
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
+
 " Set up some custom ignores
 call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
       \ 'ignore_pattern', join([
@@ -199,8 +202,8 @@ nnoremap <silent> [unite]<space> :<C-u>Unite
 
 " Quick help
 nnoremap <silent> [unite]h :<C-u>Unite -buffer-name=help help<CR>
-" Quick buffers and mru
-nnoremap <silent> [unite]u :<C-u>Unite -buffer-name=buffers file_mru buffer<CR>
+" Quick buffers mru
+nnoremap <silent> [unite]u :<C-u>Unite -buffer-name=buffers buffer file_mru <CR>
 " Quick file search
 nnoremap <silent> [unite]f :<C-u>Unite -buffer-name=files file_rec/async file/new<CR>
 " Quick line
@@ -246,7 +249,6 @@ let g:unite_update_time = 200
 
 let g:unite_source_file_mru_limit = 1000
 let g:unite_cursor_line_highlight = 'TabLineSel'
-" let g:unite_abbr_highlight = 'TabLine'
 
 let g:unite_source_file_mru_filename_format = ':~:.'
 let g:unite_source_file_mru_time_format = ''
@@ -300,4 +302,5 @@ function! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfunction
 
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 autocmd BufWritePre *.py,*.js :call <SID>StripTrailingWhitespaces()
