@@ -31,7 +31,6 @@ Plugin 'Shougo/neomru.vim'
 Plugin 'marijnh/tern_for_vim' "README
 Plugin 'pangloss/vim-javascript'
 Plugin 'matthewsimo/angular-vim-snippets'
-Plugin 'claco/jasmine.vim'
 
 call vundle#end()
 
@@ -83,6 +82,8 @@ set cursorline              " highlight the line the cursor is on
 set nostartofline           " preserve cursor location when paging
 set ls=2                    " always show status line
 set colorcolumn=80          " add line at column 80
+set splitright
+set splitbelow
 
 " toggle paste mode
 noremap <silent> <Leader>1 :set paste!<cr>:set paste?<CR>
@@ -109,6 +110,25 @@ au BufRead,BufNewFile *.{md,mark,markdown} setlocal textwidth=80
 " remap variations of j and k to use to esc
 inoremap jj <Esc>
 inoremap jk <esc>
+
+" split with | and _
+nnoremap _ :sp<cr>
+nnoremap <bar> :vsp<cr>
+
+" Ctrl-b: Go (b)ack. Go to previously buffer
+nnoremap <c-b> <c-^>
+nnoremap <leader>w :bprevious<CR>
+nnoremap <leader>v :bnext<CR>
+
+nnoremap <leader>m <C-w>_<C-w><Bar>
+nnoremap <leader>M <C-w>=
+
+" resize splits
+nnoremap <space>= <c-w>=
+nnoremap <up> <c-w>+
+nnoremap <down> <c-w>-
+nnoremap <left> <c-w><
+nnoremap <right> <c-w>>
 
 " turn off search highlight by pushing enter
 nnoremap <CR> :noh<CR><CR>
