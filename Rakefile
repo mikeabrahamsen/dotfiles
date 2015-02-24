@@ -14,6 +14,7 @@ task :install do
   files << "config/htop"
   files << "i3/config"
   files << "config/ranger/rifle.conf"
+  files << "i3/detect_displays.sh"
   files << "config/redshift-scheduler/rules.conf"
   files.each do |file|
     system %Q{mkdir -p "$HOME/.#{File.dirname(file)}"} if file =~ /\//
