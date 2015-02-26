@@ -11,7 +11,7 @@ xrdb -merge ~/.Xresources
 setxkbmap dvorak &
 
 # start dropbox with delay
-sleep 30 && dropboxd &
+sleep 30 && dropbox &
 
 # key remaps
 xmodmap ~/.xmodmaprc
