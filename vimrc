@@ -151,9 +151,6 @@ nnoremap Q <nop>
 " to save even when I forget to use sudo
 cmap w!! w !sudo tee % >/dev/null
 
-" airline config
-let g:airline#extensions#tabline#enabled = 1
-
 " ultinsnips config
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
@@ -348,6 +345,9 @@ autocmd MyAutoCmd FileType help,quickrun
 autocmd MyAutoCmd FileType qf nnoremap <silent> <buffer> q :q<CR>
 
 
+" airline config
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
 " Airline Unicode
   if !exists('g:airline_symbols')
     let g:airline_symbols = {}
