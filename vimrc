@@ -32,6 +32,9 @@ Plugin 'marijnh/tern_for_vim' "README
 Plugin 'pangloss/vim-javascript'
 Plugin 'matthewsimo/angular-vim-snippets'
 
+Plugin 'bling/vim-airline'
+Plugin 'ton/vim-bufsurf'
+
 call vundle#end()
 
 filetype plugin indent on
@@ -148,6 +151,9 @@ nnoremap Q <nop>
 " to save even when I forget to use sudo
 cmap w!! w !sudo tee % >/dev/null
 
+" airline config
+let g:airline#extensions#tabline#enabled = 1
+
 " ultinsnips config
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
@@ -156,8 +162,6 @@ let g:UltiSnipsListSnippets = '<C-l>'
 let g:ultisnips_python_style = 'sphinx'
 
 " syntastic config
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_wq = 0
 " must have flake8 installed through pip2
 let g:syntastic_python_checkers = ['flake8']
@@ -334,3 +338,31 @@ endfunction
 
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 autocmd BufWritePre *.py,*.js :call <SID>StripTrailingWhitespaces()
+
+" exit p***REMOVED***es with q even when :q wanted
+autocmd MyAutoCmd FileType help,quickrun
+      \ if (!&modifiable || &ft==#'quickrun') |
+      \ nnoremap <silent> <buffer> q :q<cr>|
+      \ nnoremap <silent> <buffer> <esc><esc> :q<cr>|
+      \ endif
+autocmd MyAutoCmd FileType qf nnoremap <silent> <buffer> q :q<CR>
+
+
+" Airline Unicode
+  if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+  endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
