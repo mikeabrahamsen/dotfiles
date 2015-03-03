@@ -95,7 +95,7 @@ noremap <silent> <Leader>1 :set paste!<cr>:set paste?<CR>
 " Auto complete setting
 set completeopt=longest,menuone
 
-set wildmode=list:longest,full
+set wildmode=full
 set wildmenu "turn on wild menu
 set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
 set wildignore+=*.png,*.jpg,*.gif
