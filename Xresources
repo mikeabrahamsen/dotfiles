@@ -5,8 +5,8 @@ URxvt.scrollBar: false
 URxvt*cursorBlink: true
 URxvt*cursorUnderline: true
 
-URxvt*font:             xft:DejaVu Sans Mono:pixelsize=14:antialias=false
-URxvt.boldFont:         xft:DejaVu Sans Mono:bold:pixelsize=14:antialias=false
+URxvt*font:             xft:DejaVu Sans Mono:pixelsize=13:antialias=false
+URxvt.boldFont:         xft:DejaVu Sans Mono:bold:pixelsize=13:antialias=false
  
 ! ! Tomorrow Night
  URxvt.foreground:  #c5c8c6
