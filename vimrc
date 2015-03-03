@@ -71,7 +71,7 @@ set shiftround              " use multiple of shiftwidth when indenting with '<'
 set autoindent              " auto indent
 set list                    " show unprinted characters
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
-set showmode                " show visual or insert mode
+set noshowmode              " don't show mode
 set hlsearch incsearch smartcase ignorecase "searching preferences,highlight,search as you type
 set showmatch               " show matching paratheses
 set backspace=indent,eol,start " backspace over anything
@@ -84,6 +84,7 @@ set ls=2                    " always show status line
 set colorcolumn=80          " add line at column 80
 set splitright
 set splitbelow
+set showcmd
 
 " toggle paste mode
 noremap <silent> <Leader>1 :set paste!<cr>:set paste?<CR>
@@ -96,6 +97,7 @@ set wildmenu "turn on wild menu
 set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
 set wildignore+=*.png,*.jpg,*.gif
 set wildignore+=*.so,*.swp,*.zip
+set wildignore+=*.pyc,*.pyo
 
 " make text over 79 characters red
 highlight OverLength ctermfg=red
@@ -120,15 +122,23 @@ nnoremap <c-b> <c-^>
 nnoremap <leader>w :bprevious<CR>
 nnoremap <leader>v :bnext<CR>
 
+" resize splits
+nnoremap <space>= <c-w>=
 nnoremap <leader>m <C-w>_<C-w><Bar>
 nnoremap <leader>M <C-w>=
 
-" resize splits
-nnoremap <space>= <c-w>=
-nnoremap <up> <c-w>+
-nnoremap <down> <c-w>-
-nnoremap <left> <c-w><
-nnoremap <right> <c-w>>
+" window navigation
+nmap <Left> <C-w>h
+nmap <Down> <C-w>j
+nmap <Up> <C-w>k
+nmap <Right> <C-w>l
+
+
+" Ctrl-c: Inserts line below
+inoremap <c-c> <c-o>o
+" Creating new lines without comment leader
+nmap go o<Esc>S
+nmap gO O<Esc>S
 
 " turn off search highlight by pushing enter
 nnoremap <CR> :noh<CR><CR>
@@ -268,8 +278,7 @@ let g:unite_split_rule = "botright"
 " Shorten the default update date of 500ms
 let g:unite_update_time = 200
 
-let g:unite_source_file_mru_limit = 1000
-let g:unite_cursor_line_highlight = 'TabLineSel'
+let g:unite_source_file_mru_limit = 500
 
 let g:unite_source_file_mru_filename_format = ':~:.'
 let g:unite_source_file_mru_time_format = ''
