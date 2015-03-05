@@ -140,13 +140,14 @@ bar {
     output HDMI-0
     status_command i3status --config ~/.config/i3status/config-desktop
     font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-    font pango:DejaVu Sans Mono 14
+    font pango:DejaVu Sans Mono, Icons 14
 }
 
 # laptop monitor
 bar {
     output LVDS1
     status_command i3status --config ~/.config/i3status/config-laptop
+    font pango:DejaVu Sans Mono, Icons 10
 }
 bindsym XF86AudioMute exec "amixer sset Master toggle"
 bindsym XF86AudioRaiseVolume exec "amixer sset Master 5%+"
@@ -159,5 +160,17 @@ assign [class="Google-chrome-stable"] 3
 assign [class="Skype"] 6
 assign [class="Keepassx"] 4
 
+
 # start programs
-exec redshift-scheduler
+exec --no-startup-id redshift-scheduler
+exec --no-startup-id dropbox
+
+# mute beep
+exec --no-startup-id xset -b
+
+# key remaps
+exec --no-startup-id setxkbmap dvorak
+exec --no-startup-id xmodmap ~/.xmodmaprc
+
+# set i3lock as screenlock
+exec --no-startup-id xss-lock -- i3lock
