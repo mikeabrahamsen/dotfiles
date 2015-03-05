@@ -11,15 +11,17 @@ general {
         interval = 5
 }
 
+order += "disk /"
 order += "volume master"
 order += "battery 1"
 order += "wireless wlp3s0"
 order += "ethernet eth0"
 order += "tztime local"
 
+# NOTE: Using icons - ttf-font-icons must be installed
 wireless wlp3s0{
-        format_up = "%essid: %quality"
-        format_down = "W: down"
+        format_up = " %essid: %quality"
+        format_down = " W: down"
 }
 
 ethernet eth0{
@@ -31,7 +33,7 @@ ethernet eth0{
 battery 1 {
         last_full_capacity = true
         integer_battery_capacity = true
-        format = "%status %percent***REMOVED***e %remaining"
+        format = " %status %percent***REMOVED***e %remaining"
 }
 
 run_watch DHCP {
@@ -43,7 +45,7 @@ run_watch VPN {
 }
 
 tztime local {
-        format = "%Y-%m-%d %H:%M:%S"
+        format = " %Y-%m-%d %H:%M"
 }
 
 load {
@@ -51,12 +53,12 @@ load {
 }
 
 volume master {
-        format = "♪: %volume"
+        format = " %volume"
         device = "default"
         mixer = "Master"
         mixer_idx = 0
 }
 
-disk "/" {
-        format = "Disk:%avail"
+disk / {
+        format = " %avail"
 }
