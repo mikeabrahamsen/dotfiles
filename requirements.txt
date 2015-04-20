@@ -1,0 +1,5 @@
+redshift
+dropbox
+i3lock
+xss-lock
+xscreensaver
