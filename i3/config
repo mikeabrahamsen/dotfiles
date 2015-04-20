@@ -137,7 +137,7 @@ bindsym $mod+r mode "resize"
 # desktop monitor
 bar {
     # The display is connected either via HDMI or via DisplayPort
-    output HDMI-0
+    output DP-1
     status_command i3status --config ~/.config/i3status/config-desktop
     font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
     font pango:DejaVu Sans Mono, Icons 14
