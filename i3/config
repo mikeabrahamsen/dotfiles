@@ -149,6 +149,11 @@ bar {
     status_command i3status --config ~/.config/i3status/config-laptop
     font pango:DejaVu Sans Mono, Icons 10
 }
+bar {
+    output HDMI1
+    status_command i3status --config ~/.config/i3status/config-laptop
+    font pango:DejaVu Sans Mono, Icons 10
+}
 bindsym XF86AudioMute exec "amixer sset Master toggle"
 bindsym XF86AudioRaiseVolume exec "amixer sset Master 5%+"
 bindsym XF86AudioLowerVolume exec "amixer sset Master 5%-"
@@ -174,3 +179,5 @@ exec --no-startup-id xmodmap ~/.xmodmaprc
 
 # set i3lock as screenlock
 exec --no-startup-id xss-lock -- i3lock
+
+exec --no-startup-id feh --bg-scale /home/ma/Dropbox/media/backgrounds/brainvsheart.jpg
