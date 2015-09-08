@@ -1,5 +1,13 @@
 redshift
-dropbox
+i3-wm
+i3status
 i3lock
-xss-lock
 xscreensaver
+dmenu
+python2-virtualenv
+python-virtualenvwrapper
+
+# aur
+dropbox
+xss-lock
+ttf-dejavu-sans-mono-powerline-git
