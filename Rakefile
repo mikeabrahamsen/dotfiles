@@ -7,13 +7,14 @@ task :install do
   switch_to_zsh
   replace_all = false
   create_tmp_dir
-  files = Dir['*'] - %w[Rakefile config i3]
+  files = Dir['*'] - %w[Rakefile config i3 ***REMOVED***.txt]
   # had to ignore the config folder and add in each file seperately
   # as there may already be something in the config folder
   files << "config/i3status"
   files << "config/htop"
   files << "i3/config"
   files << "config/ranger/rifle.conf"
+  files << "config/ranger/rc.conf"
   files << "i3/detect_displays.sh"
   files << "config/redshift-scheduler/rules.conf"
   files.each do |file|
