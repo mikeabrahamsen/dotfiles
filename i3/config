@@ -159,6 +159,7 @@ bindsym XF86AudioRaiseVolume exec "amixer sset Master 5%+"
 bindsym XF86AudioLowerVolume exec "amixer sset Master 5%-"
 
 bindsym Print exec scrot -e 'mv $f ~/screenshots/ 2>/dev/null'
+bindsym --release Shift+Print exec scrot -s '%Y-%m-%d-%H%M%S_$wx$h_scrot.png' -e 'mv $f ~/screenshots/'
 
 # program assignments
 assign [class="Google-chrome-stable"] 3
@@ -166,9 +167,6 @@ assign [class="Skype"] 6
 assign [class="Keepassx"] 4
 
 
-# start programs
-exec --no-startup-id redshift-scheduler
-exec --no-startup-id dropbox
 
 # mute beep
 exec --no-startup-id xset -b
@@ -181,3 +179,7 @@ exec --no-startup-id xmodmap ~/.xmodmaprc
 exec --no-startup-id xss-lock -- i3lock
 
 exec --no-startup-id feh --bg-scale /home/ma/Dropbox/media/backgrounds/brainvsheart.jpg
+
+# start programs
+exec --no-startup-id redshift-scheduler
+exec --no-startup-id dropbox
