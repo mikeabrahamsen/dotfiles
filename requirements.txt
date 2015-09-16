@@ -6,8 +6,11 @@ xscreensaver
 dmenu
 python2-virtualenv
 python-virtualenvwrapper
+feh
+scrot
 
 # aur
 dropbox
 xss-lock
 ttf-dejavu-sans-mono-powerline-git
+redshift-scheduler
