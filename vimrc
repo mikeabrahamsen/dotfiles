@@ -208,9 +208,6 @@ call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
 nnoremap [unite] <Nop>
 nmap <space> [unite]
 
-" <F4>: Save session
-nnoremap <F4> :<C-u>UniteSessionSave
-
 nmap <F1> [unite]h
 
 " Ctrl-e: Find everything
@@ -253,8 +250,6 @@ nnoremap <silent> [unite]d
 nnoremap <silent> [unite]s :<C-u>Unite -buffer-name=snippets ultisnips<CR>
 " Quick registers
 nnoremap <silent> [unite]r :<C-u>Unite -buffer-name=register register<CR>
-" Quick sessions (projects)
-nnoremap <silent> [unite]p :<C-u>Unite -buffer-name=sessions session<CR>
 " Quick sources
 nnoremap <silent> [unite]a :<C-u>Unite -buffer-name=sources source<CR>
 " Quick find
@@ -284,9 +279,6 @@ let g:unite_source_file_mru_limit = 500
 let g:unite_source_file_mru_filename_format = ':~:.'
 let g:unite_source_file_mru_time_format = ''
 
-" Save session automatically.
-let g:unite_source_session_enable_auto_save = 1
-
 " Custom Unite settings
 autocmd MyAutoCmd FileType unite call s:unite_settings()
 function! s:unite_settings()
@@ -307,14 +299,6 @@ function! s:unite_settings()
   " Using Ctrl-/ to trigger line, close it using same keystroke
   if unite.buffer_name =~# '^search_file'
     imap <buffer> <C-_> <Plug>(unite_exit)
-  endif
-endfunction
-
-" Pop up session selection if no file is specified
-autocmd MyAutoCmd VimEnter * call s:unite_session_on_enter()
-function! s:unite_session_on_enter()
-  if !argc() && !exists("g:start_session_from_cmdline")
-    Unite -buffer-name=sessions session
   endif
 endfunction
 
