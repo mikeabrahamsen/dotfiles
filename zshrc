@@ -1,12 +1,10 @@
-ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="robbyrussell"
-DISABLE_AUTO_TITLE=true
+ZSH=$HOME/.zsh
 
-plugins=(git git-flow)
+DISABLE_AUTO_TITLE=true
 
 source ~/.zprofile
 source ~/.aliases
-source $ZSH/oh-my-zsh.sh
+source $ZSH/git_prompt.zsh
 
 [ -d ~/.bin ] && export PATH=~/.bin:$PATH
 
