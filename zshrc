@@ -1,10 +1,13 @@
 ZSH=$HOME/.zsh
 
+bindkey -e
+
 # source files
 source ~/.zprofile
 source ~/.aliases
 source $ZSH/git_prompt.zsh
 source $ZSH/completion.zsh
+source $ZSH/history.zsh
 
 [ -d ~/.bin ] && export PATH=~/.bin:$PATH
 
