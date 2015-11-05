@@ -13,8 +13,13 @@ alias tl="todo.sh list"
 alias td="todo.sh do"
 alias tr="todo.sh rm"
 
-# git alias not in oh-my-zsh git plugin
+# git
 alias gl="git log --graph --pretty=oneline --abbrev-commit"
+alias ga='git add'
+alias gc='git commit -v'
+alias gc!='git commit -v --amend'
+alias gd='git diff'
+alias gst='git status'
 
 # tmux force 256
 alias tmux="tmux -2"
