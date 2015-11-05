@@ -1,10 +1,10 @@
 ZSH=$HOME/.zsh
 
-DISABLE_AUTO_TITLE=true
-
+# source files
 source ~/.zprofile
 source ~/.aliases
 source $ZSH/git_prompt.zsh
+source $ZSH/completion.zsh
 
 [ -d ~/.bin ] && export PATH=~/.bin:$PATH
 
