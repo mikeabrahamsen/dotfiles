@@ -178,8 +178,6 @@ exec --no-startup-id xmodmap ~/.xmodmaprc
 # set i3lock as screenlock
 exec --no-startup-id xss-lock -- i3lock
 
-exec --no-startup-id feh --bg-scale /home/ma/Dropbox/media/backgrounds/brainvsheart.jpg
-
 # start programs
 exec --no-startup-id redshift-scheduler
 exec --no-startup-id dropbox
