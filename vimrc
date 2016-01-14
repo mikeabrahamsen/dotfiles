@@ -22,7 +22,6 @@ Plugin 'Shougo/neocomplete.vim'
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/unite-outline'
 Plugin 'Shougo/unite-help'
-Plugin 'Shougo/unite-session'
 
 Plugin 'davidhalter/jedi-vim'
 Plugin 'Shougo/vimproc.vim' "README
