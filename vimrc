@@ -28,7 +28,6 @@ Plugin 'Shougo/vimproc.vim' "README
 Plugin 'Shougo/neomru.vim'
 
 Plugin 'marijnh/tern_for_vim' "README
-Plugin 'pangloss/vim-javascript'
 Plugin 'matthewsimo/angular-vim-snippets'
 
 Plugin 'bling/vim-airline'
