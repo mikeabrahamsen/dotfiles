@@ -134,6 +134,17 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+#change keyboard layout
+set $keyboardMode "keyboard d=dvorak, u=us"
+mode $keyboardMode {
+    bindsym d exec "setxkbmap dvorak; xmodmap ~/.xmodmaprc", mode "default"
+    bindsym u exec "setxkbmap us", mode "default"
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Shift+i mode $keyboardMode
+
 # desktop monitor
 bar {
     # The display is connected either via HDMI or via DisplayPort
@@ -146,6 +157,11 @@ bar {
 # laptop monitor
 bar {
     output LVDS1
+    status_command i3status --config ~/.config/i3status/config-laptop
+    font pango:DejaVu Sans Mono, Icons 10
+}
+bar {
+    output LVDS-0
     status_command i3status --config ~/.config/i3status/config-laptop
     font pango:DejaVu Sans Mono, Icons 10
 }
