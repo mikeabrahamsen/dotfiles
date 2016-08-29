@@ -16,3 +16,5 @@ source $ZSH/git_flow_completion.zsh
 export WORKON_HOME=~/.virtualenvs
 source /usr/bin/virtualenvwrapper.sh
 
+# php composer
+export PATH=~/.config/composer/vendor/bin:$PATH
