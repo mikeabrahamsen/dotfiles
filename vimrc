@@ -33,6 +33,8 @@ Plugin 'matthewsimo/angular-vim-snippets'
 Plugin 'bling/vim-airline'
 Plugin 'ton/vim-bufsurf'
 
+Plugin 'StanAngeloff/php.vim'
+
 call vundle#end()
 
 filetype plugin indent on
