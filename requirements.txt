@@ -8,10 +8,11 @@ python2-virtualenv
 python-virtualenvwrapper
 feh
 scrot
+notify-osd
 
 # aur
 dropbox
-xss-lock
+xss-lock-git
 ttf-dejavu-sans-mono-powerline-git
 redshift-scheduler
 light-git
