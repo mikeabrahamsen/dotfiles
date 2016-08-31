@@ -124,6 +124,10 @@ cmap w!! w !sudo tee % >/dev/null
 " turn on deoplete
 let g:deoplete#enable_at_startup = 1
 
+" remove the preview window
+set completeopt-=preview
+
+
 " ultinsnips config
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
@@ -135,12 +139,6 @@ let g:ultisnips_python_style = 'sphinx'
 let g:syntastic_check_on_wq = 0
 " must have flake8 installed through pip2
 let g:syntastic_python_checkers = ['flake8']
-
-" neocomplete
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neocomplete#max_list = 5
-set completeopt-=preview
 
 let g:instant_markdown_autostart = 0
 
