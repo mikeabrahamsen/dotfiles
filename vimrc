@@ -119,6 +119,9 @@ nnoremap Q <nop>
 " to save even when I forget to use sudo
 cmap w!! w !sudo tee % >/dev/null
 
+" turn on deoplete
+let g:deoplete#enable_at_startup = 1
+
 " ultinsnips config
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
