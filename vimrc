@@ -116,6 +116,8 @@ nnoremap <CR> :noh<CR><CR>
 "unmap Q, typo causes bad results
 nnoremap Q <nop>
 
+" key mappings for fzf
+nnoremap <c-p> :Files<CR>
 " to save even when I forget to use sudo
 cmap w!! w !sudo tee % >/dev/null
 
