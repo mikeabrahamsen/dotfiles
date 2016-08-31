@@ -8,6 +8,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-vinegar'
 Plugin 'SirVer/ultisnips'
 Plugin 'nvie/vim-flake8'
 Plugin 'hynek/vim-python-pep8-indent'
@@ -18,8 +19,6 @@ Plugin 'Shougo/neocomplete.vim'
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/unite-outline'
 Plugin 'Shougo/unite-help'
-
-Plugin 'davidhalter/jedi-vim'
 Plugin 'Shougo/vimproc.vim' "README
 Plugin 'Shougo/neomru.vim'
 
