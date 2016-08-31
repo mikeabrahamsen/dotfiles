@@ -8,6 +8,9 @@ let mapleader=","             " change the leader to be a comma vs slash
 " Reload Vimrc
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
+" easily open the vimrc file
+nmap <leader>ev :e $MYVIMRC<CR>
+
 " Set augroup
 augroup MyAutoCmd
   autocmd!
