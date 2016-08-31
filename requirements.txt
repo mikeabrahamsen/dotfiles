@@ -9,6 +9,7 @@ python-virtualenvwrapper
 feh
 scrot
 notify-osd
+zfz
 
 # aur
 dropbox
