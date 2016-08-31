@@ -16,11 +16,7 @@ Plugin 'suan/vim-instant-markdown'
 Plugin 'honza/vim-snippets'
 
 Plugin 'Shougo/neocomplete.vim'
-Plugin 'Shougo/unite.vim'
-Plugin 'Shougo/unite-outline'
-Plugin 'Shougo/unite-help'
 Plugin 'Shougo/vimproc.vim' "README
-Plugin 'Shougo/neomru.vim'
 
 Plugin 'marijnh/tern_for_vim' "README
 Plugin 'matthewsimo/angular-vim-snippets'
