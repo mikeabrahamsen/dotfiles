@@ -10,6 +10,7 @@ feh
 scrot
 notify-osd
 zfz
+the_silver_searcher #ag
 
 # aur
 dropbox
