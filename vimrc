@@ -142,10 +142,6 @@ let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#max_list = 5
 set completeopt-=preview
 
-let g:jedi#auto_vim_configuration = 0
-let g:jedi#completions_enabled=0
-let g:tern_show_signature_in_pum=1
-
 let g:instant_markdown_autostart = 0
 
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
