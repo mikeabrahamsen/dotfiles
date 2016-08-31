@@ -1,30 +1,29 @@
-filetype off                   " required!
+call plug#begin('~/.vim/plugged')
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
 
-Plugin 'VundleVim/Vundle.vim'
+Plug 'VundleVim/Vundle.vim'
 
-Plugin 'scrooloose/syntastic'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-vinegar'
-Plugin 'SirVer/ultisnips'
-Plugin 'nvie/vim-flake8'
-Plugin 'hynek/vim-python-pep8-indent'
-Plugin 'suan/vim-instant-markdown'
-Plugin 'honza/vim-snippets'
+Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-vinegar'
+Plug 'SirVer/ultisnips'
+Plug 'nvie/vim-flake8'
+Plug 'hynek/vim-python-pep8-indent'
+Plug 'suan/vim-instant-markdown'
+Plug 'honza/vim-snippets'
 
-Plugin 'Shougo/neocomplete.vim'
-Plugin 'Shougo/vimproc.vim' "README
+Plug 'Shougo/neocomplete.vim'
+Plug 'Shougo/vimproc.vim' "README
 
-Plugin 'marijnh/tern_for_vim' "README
-Plugin 'matthewsimo/angular-vim-snippets'
+Plug 'marijnh/tern_for_vim' "README
+Plug 'matthewsimo/angular-vim-snippets'
 
-Plugin 'bling/vim-airline'
-Plugin 'ton/vim-bufsurf'
+Plug 'bling/vim-airline'
+Plug 'ton/vim-bufsurf'
 
-Plugin 'StanAngeloff/php.vim'
+Plug 'StanAngeloff/php.vim'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 
-call vundle#end()
-filetype plugin indent on
+call plug#end()
