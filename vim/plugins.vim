@@ -13,7 +13,7 @@ Plug 'hynek/vim-python-pep8-indent'
 Plug 'suan/vim-instant-markdown'
 Plug 'honza/vim-snippets'
 
-Plug 'Shougo/neocomplete.vim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/vimproc.vim' "README
 
 Plug 'marijnh/tern_for_vim' "README
