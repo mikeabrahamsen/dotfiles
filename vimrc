@@ -1,5 +1,3 @@
-set nocompatible               " be iMproved
-
 " source the vim plugins file
 so ~/.vim/plugins.vim
 
