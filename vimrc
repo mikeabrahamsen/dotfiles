@@ -67,6 +67,7 @@ set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
 set wildignore+=*.png,*.jpg,*.gif
 set wildignore+=*.so,*.swp,*.zip
 set wildignore+=*.pyc,*.pyo
+set wildignore+=*/vendor/**
 
 " make text over 79 characters red
 highlight OverLength ctermfg=red
