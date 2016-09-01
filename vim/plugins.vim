@@ -11,18 +11,17 @@ Plug 'SirVer/ultisnips'
 Plug 'nvie/vim-flake8'
 Plug 'hynek/vim-python-pep8-indent'
 Plug 'suan/vim-instant-markdown'
-Plug 'honza/vim-snippets'
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/vimproc.vim' "README
 
 Plug 'marijnh/tern_for_vim' "README
-Plug 'matthewsimo/angular-vim-snippets'
 
 Plug 'bling/vim-airline'
 Plug 'ton/vim-bufsurf'
 
 Plug 'StanAngeloff/php.vim'
+
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 
