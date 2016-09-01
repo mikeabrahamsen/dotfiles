@@ -93,6 +93,11 @@ nnoremap <c-b> <c-^>
 nnoremap <leader>w :bprevious<CR>
 nnoremap <leader>v :bnext<CR>
 
+" key mappings for fzf
+nnoremap <c-p> :Files<CR>
+nnoremap <silent> <Leader>***REMOVED*** :Ag <C-R><C-W><CR> "search for word under cursor
+nnoremap <silent> <Leader>AG :Ag <C-R><C-A><CR> "search for whole word with punc
+
 " resize splits
 nnoremap <space>= <c-w>=
 nnoremap <leader>m <C-w>_<C-w><Bar>
@@ -116,8 +121,7 @@ nnoremap <CR> :noh<CR><CR>
 "unmap Q, typo causes bad results
 nnoremap Q <nop>
 
-" key mappings for fzf
-nnoremap <c-p> :Files<CR>
+
 " to save even when I forget to use sudo
 cmap w!! w !sudo tee % >/dev/null
 
