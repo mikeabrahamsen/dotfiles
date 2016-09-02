@@ -18,7 +18,6 @@ Plug 'Shougo/vimproc.vim' "README
 Plug 'marijnh/tern_for_vim' "README
 
 Plug 'bling/vim-airline'
-Plug 'ton/vim-bufsurf'
 
 Plug 'StanAngeloff/php.vim'
 
