@@ -11,6 +11,7 @@ scrot
 notify-osd
 zfz
 the_silver_searcher #ag
+ttf-font-icons
 
 # aur
 dropbox
