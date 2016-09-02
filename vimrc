@@ -1,5 +1,5 @@
 " source the vim plugins file
-so ~/.vim/plugins.vim
+
 
 let mapleader=","             " change the leader to be a comma vs slash
 
@@ -55,6 +55,7 @@ set splitright
 set splitbelow
 set showcmd
 
+
 " toggle paste mode
 noremap <silent> <Leader>1 :set paste!<cr>:set paste?<CR>
 
@@ -68,6 +69,7 @@ set wildignore+=*.png,*.jpg,*.gif
 set wildignore+=*.so,*.swp,*.zip
 set wildignore+=*.pyc,*.pyo
 set wildignore+=*/vendor/**
+set wildignore+=*/node_modules/**
 
 " make text over 79 characters red
 highlight OverLength ctermfg=red
@@ -91,6 +93,8 @@ nnoremap <bar> :vsp<cr>
 nnoremap <c-b> <c-^>
 nnoremap <leader>w :bprevious<CR>
 nnoremap <leader>v :bnext<CR>
+" close buffer without closing split
+nnoremap <Leader>bd :bp\|bd #<CR> 
 
 " key mappings for fzf
 nnoremap <c-p> :Files<CR>
@@ -183,3 +187,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#buffer_min_count = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
+
+" Laravel framework commons
+nmap <leader>lr :e routes/web.php<cr>
+
