@@ -24,4 +24,6 @@ Plug 'StanAngeloff/php.vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 
+Plug 'jwalton512/vim-blade'
+
 call plug#end()
