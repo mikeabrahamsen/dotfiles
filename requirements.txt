@@ -9,9 +9,12 @@ python-virtualenvwrapper
 feh
 scrot
 notify-osd
-zfz
+fzf
 the_silver_searcher #ag
 ttf-font-icons
+neovim
+python2-neovim
+python-neovim
 
 # aur
 dropbox
