@@ -161,6 +161,11 @@ bar {
     font pango:DejaVu Sans Mono, Icons 14
 }
 bar {
+    output LVDS1
+    status_command i3status --config ~/.config/i3status/config-laptop
+    font pango:DejaVu Sans Mono, Icons 14
+}
+bar {
     output LVDS-0
     status_command i3status --config ~/.config/i3status/config-laptop
     font pango:DejaVu Sans Mono, Icons 10
