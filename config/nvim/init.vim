@@ -1,5 +1,5 @@
 " source the vim plugins file
-
+so ~/.vim/plugins.vim
 
 let mapleader=","             " change the leader to be a comma vs slash
 
