@@ -11,7 +11,7 @@ general {
         interval = 5
 }
 
-order += "wireless wlp4s0"
+order += "wireless wlp3s0"
 order += "disk /"
 order += "volume master"
 order += "battery 1"
@@ -19,7 +19,7 @@ order += "ethernet eth0"
 order += "tztime local"
 
 # NOTE: Using icons - ttf-font-icons must be installed
-wireless wlp4s0{
+wireless wlp3s0{
         format_up = " %essid: %quality"
         format_down = " W: down"
 }
