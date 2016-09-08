@@ -6,7 +6,7 @@ task :install do
   switch_to_zsh
   replace_all = false
   create_tmp_dir
-  files = Dir['*'] - %w[Rakefile config i3 requirements.txt]
+  files = Dir['*'] - %w[Rakefile config i3 etc requirements.txt]
   # had to ignore the config folder and add in each file seperately
   # as there may already be something in the config folder
   files << "config/i3status"
