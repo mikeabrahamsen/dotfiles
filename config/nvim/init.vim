@@ -1,10 +1,10 @@
 " source the vim plugins file
-so ~/.vim/plugins.vim
+so ~/.config/nvim/plugins.vim
 
 let mapleader=","             " change the leader to be a comma vs slash
 
 " Reload Vimrc
-map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+map <silent> <leader>V :source ~/.config/nvim/init.vim<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 " easily open the vimrc file
 nmap <leader>ev :e $MYVIMRC<CR>
