@@ -1,6 +1,6 @@
 vim/.netrwhist
 vim/.VimballRecord
 vim/autoload
-vim/plugged
+config/nvim/plugged
 *.swp
 vim/bundle/*
