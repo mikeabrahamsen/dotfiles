@@ -22,3 +22,4 @@ xss-lock-git
 ttf-dejavu-sans-mono-powerline-git
 redshift-scheduler
 light-git
+dragon-drag-and-drop-git
