@@ -26,4 +26,6 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'jwalton512/vim-blade'
 
+Plug 'suan/vim-instant-markdown'
+
 call plug#end()
