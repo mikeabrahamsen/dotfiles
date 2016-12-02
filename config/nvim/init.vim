@@ -147,7 +147,7 @@ let g:syntastic_check_on_wq = 0
 " must have flake8 installed through pip2
 let g:syntastic_python_checkers = ['flake8']
 
-let g:instant_markdown_autostart = 0
+let g:instant_markdown_autostart = 1
 
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteT***REMOVED***s
