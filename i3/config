@@ -145,20 +145,10 @@ mode $keyboardMode {
 }
 bindsym $mod+Shift+i mode $keyboardMode
 
-# desktop monitor
+# desktop monitor / default
 bar {
-    # The display is connected either via HDMI or via DisplayPort
-    output DP-0
     status_command i3status --config ~/.config/i3status/config-desktop
-    font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-    font pango:DejaVu Sans Mono, Icons 14
-}
-bar {
-    # The display is connected either via HDMI or via DisplayPort
-    output DP-3
-    status_command i3status --config ~/.config/i3status/config-desktop
-    font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-    font pango:DejaVu Sans Mono, Icons 14
+    font pango:DejaVu Sans Mono, Icons 18
 }
 
 # laptop monitor
