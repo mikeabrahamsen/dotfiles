@@ -26,3 +26,6 @@ alias tmux="tmux -2"
 
 # use neovim by default
 alias vim='nvim'
+
+# always run docker with sudo 
+alias docker='sudo docker'
