@@ -11,6 +11,8 @@ the_silver_searcher #ag
 neovim
 python2-neovim
 python-neovim
+rxvt-unicode
+
 
 # optional
 python2-virtualenv
