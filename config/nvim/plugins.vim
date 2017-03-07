@@ -14,8 +14,6 @@ Plug 'Shougo/vimproc.vim' "README
 
 Plug 'marijnh/tern_for_vim' "README
 
-Plug 'bling/vim-airline'
-
 Plug 'StanAngeloff/php.vim'
 
 Plug 'junegunn/fzf'
