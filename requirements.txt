@@ -2,19 +2,22 @@ redshift
 i3-wm
 i3status
 i3lock
-xscreensaver
 dmenu
-python2-virtualenv
-python-virtualenvwrapper
 feh
 scrot
 notify-osd
 fzf
 the_silver_searcher #ag
-ttf-font-icons
 neovim
 python2-neovim
 python-neovim
+rxvt-unicode
+
+
+# optional
+python2-virtualenv
+python-virtualenvwrapper
+xscreensaver
 
 # aur
 dropbox
@@ -23,3 +26,4 @@ ttf-dejavu-sans-mono-powerline-git
 redshift-scheduler
 light-git
 dragon-drag-and-drop-git
+ttf-font-icons
