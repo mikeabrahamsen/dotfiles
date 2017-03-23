@@ -1,8 +1,5 @@
 call plug#begin('~/.config/nvim/plugged')
 
-
-Plug 'VundleVim/Vundle.vim'
-
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
