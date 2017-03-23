@@ -4,6 +4,7 @@ URxvt*borderLess:                false
 URxvt.scrollBar: false
 URxvt*cursorBlink: true
 URxvt*cursorUnderline: true
+URxvt.iso14755: False
 
 URxvt*font:             xft:DejaVu Sans Mono:pixelsize=17:antialias=false
 URxvt.boldFont:         xft:DejaVu Sans Mono:pixelsize=17:antialias=false
