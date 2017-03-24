@@ -12,6 +12,10 @@ neovim
 python2-neovim
 python-neovim
 rxvt-unicode
+ack
+w3m
+ranger
+
 
 
 # optional
