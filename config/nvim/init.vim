@@ -193,3 +193,8 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " Laravel framework commons
 nmap <leader>lr :e routes/web.php<cr>
+
+" Terminal config
+
+" start terminal in insert mode
+:au BufEnter * if &buftype == 'terminal' | :startinsert | endif
