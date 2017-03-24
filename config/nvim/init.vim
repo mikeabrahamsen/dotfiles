@@ -84,6 +84,8 @@ au BufRead,BufNewFile *.{md,mark,markdown} setlocal textwidth=80
 " remap variations of j and k to use to esc
 inoremap jj <Esc>
 inoremap jk <esc>
+" remap jj in terminal to go to normal mode
+tnoremap jj <C-\><C-n>
 
 " split with | and _
 nnoremap _ :sp<cr>
@@ -98,8 +100,10 @@ nnoremap <Leader>bd :bp\|bd #<CR>
 
 " key mappings for fzf
 nnoremap <c-p> :Files<CR>
-nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR> "search for word under cursor
-nnoremap <silent> <Leader>AG :Ag <C-R><C-A><CR> "search for whole word with punc
+"search for word under cursor
+nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR> 
+"search for whole word with punc
+nnoremap <silent> <Leader>AG :Ag <C-R><C-A><CR> 
 
 " resize splits
 nnoremap <space>= <c-w>=
@@ -189,4 +193,3 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " Laravel framework commons
 nmap <leader>lr :e routes/web.php<cr>
-
