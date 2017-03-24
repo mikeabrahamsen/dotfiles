@@ -152,15 +152,22 @@ let g:syntastic_check_on_wq = 0
 " instant markdown config
 let g:instant_markdown_autostart = 1
 
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteT***REMOVED***s
-autocmd FileType javascript setlocal omnifunc=tern#Complete
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteT***REMOVED***s
 
-" othree/javascript-libraries-syntax.vim config
-let g:used_javascript_libs = 'angularjs,underscore,jasmine'
+" exit p***REMOVED***es with q even when :q wanted
+autocmd MyAutoCmd FileType help,quickrun
+      \ if (!&modifiable || &ft==#'quickrun') |
+      \ nnoremap <silent> <buffer> q :q<cr>|
+      \ nnoremap <silent> <buffer> <esc><esc> :q<cr>|
+      \ endif
+autocmd MyAutoCmd FileType qf nnoremap <silent> <buffer> q :q<CR>
 
+" Laravel framework commons
+nmap <leader>lr :e routes/web.php<cr>
+
+" Terminal
+:au BufEnter * if &buftype == 'terminal' | :startinsert | endif
+
+" functions
 function! <SID>StripTrailingWhitespaces()
     " Preparation: save last search, and cursor position.
     let _s=@/
@@ -173,28 +180,12 @@ function! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfunction
 
+autocmd BufWritePre *.py,*.js,*.php :call <SID>StripTrailingWhitespaces()
+
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteT***REMOVED***s
+autocmd FileType javascript setlocal omnifunc=tern#Complete
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteT***REMOVED***s
+
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
-autocmd BufWritePre *.py,*.js :call <SID>StripTrailingWhitespaces()
-
-" exit p***REMOVED***es with q even when :q wanted
-autocmd MyAutoCmd FileType help,quickrun
-      \ if (!&modifiable || &ft==#'quickrun') |
-      \ nnoremap <silent> <buffer> q :q<cr>|
-      \ nnoremap <silent> <buffer> <esc><esc> :q<cr>|
-      \ endif
-autocmd MyAutoCmd FileType qf nnoremap <silent> <buffer> q :q<CR>
-
-" Airline config
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline#extensions#tabline#buffer_min_count = 1
-let g:airline#extensions#tabline#buffer_nr_show = 1
-
-" Laravel framework commons
-nmap <leader>lr :e routes/web.php<cr>
-
-" Terminal config
-
-" start terminal in insert mode
-:au BufEnter * if &buftype == 'terminal' | :startinsert | endif
