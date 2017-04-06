@@ -145,12 +145,6 @@ mode $keyboardMode {
 }
 bindsym $mod+Shift+i mode $keyboardMode
 
-# desktop monitor / default
-bar {
-    status_command i3status --config ~/.config/i3status/config-desktop
-    font pango:DejaVu Sans Mono, Icons 18
-}
-
 # laptop monitor
 bar {
     output LVDS-1
@@ -172,6 +166,7 @@ bar {
     status_command i3status --config ~/.config/i3status/config-laptop
     font pango:DejaVu Sans Mono, Icons 10
 }
+
 bindsym XF86AudioMute exec "amixer sset Master toggle"
 bindsym XF86AudioRaiseVolume exec "amixer sset Master 5%+"
 bindsym XF86AudioLowerVolume exec "amixer sset Master 5%-"
