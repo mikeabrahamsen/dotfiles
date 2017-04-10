@@ -145,6 +145,13 @@ mode $keyboardMode {
 }
 bindsym $mod+Shift+i mode $keyboardMode
 
+# desktop
+bar {
+    output DP-0
+    status_command i3status --config ~/.config/i3status/config-desktop
+    font pango:DejaVu Sans Mono, Icons 18
+}
+
 # laptop monitor
 bar {
     output LVDS-1
