@@ -179,8 +179,8 @@ bindsym XF86AudioMute exec "amixer sset Master toggle"
 bindsym XF86AudioRaiseVolume exec "amixer sset Master 5%+"
 bindsym XF86AudioLowerVolume exec "amixer sset Master 5%-"
 
-bindsym XF86MonBrightnessUp exec light -A 10
-bindsym XF86MonBrightnessDown exec light -U 10
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 
 bindsym Print exec scrot -e 'mv $f ~/screenshots/ 2>/dev/null'
 bindsym --release Shift+Print exec scrot -s '%Y-%m-%d-%H%M%S_$wx$h_scrot.png' -e 'mv $f ~/screenshots/'
