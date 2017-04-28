@@ -7,11 +7,10 @@ python2-neovim
 python-neovim
 rxvt-unicode
 ack
-w3m
 ranger
 htop
 
-# display 
+# install with x display 
 xorg-server
 xorg-server-utils
 xorg-xinit
@@ -19,12 +18,16 @@ i3-wm
 i3status
 i3lock
 dmenu
-
+chromium
 redshift
 feh
+w3m
+alsa-utils
 
 # laptop
 xorg-xbacklight
+acpi
+sysstat
 
 # fonts
 ttf-dejavu
@@ -37,6 +40,8 @@ ttf-croscore
 python2-virtualenv
 python-virtualenvwrapper
 xscreensaver
+i7z
+keepassx
 
 # aur
 dropbox
