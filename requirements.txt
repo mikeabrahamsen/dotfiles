@@ -15,6 +15,14 @@ rxvt-unicode
 ack
 w3m
 ranger
+xorg-server
+xorg-server-utils
+xorg-xinit
+
+# fonts
+ttf-dejavu
+ttf-droid
+ttf-croscore
 
 
 
@@ -26,8 +34,6 @@ xscreensaver
 # aur
 dropbox
 xss-lock-git
-ttf-dejavu-sans-mono-powerline-git
 redshift-scheduler
 light-git
 dragon-drag-and-drop-git
-ttf-font-icons
