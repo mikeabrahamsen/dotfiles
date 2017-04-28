@@ -154,8 +154,9 @@ bar {
 
 # laptop monitor
 bar {
-    output LVDS-1
-    status_command i3status --config ~/.config/i3status/config-laptop
+    output eDP1
+    status_command i3blocks
+    # status_command i3status --config ~/.config/i3status/config-laptop
     font pango:DejaVu Sans Mono, Icons 14
 }
 bar {
