@@ -21,7 +21,8 @@ setopt prompt_subst
 autoload -U colors && colors # Enable colors in prompt
 
 local ret_status="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ %s)"
-PROMPT='${ret_status}%{$fg_bold[green]%}%p %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
+local host="%{$fg[magenta]%}%n@%{$fg[magenta]%}%m% "
+PROMPT='${ret_status}%{$fg_bold[green]%}%p ${host} %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
 
 ZSH_GIT_PROMPT_PREFIX="git:(%{$fg[red]%}"
 ZSH_GIT_PROMPT_SUFFIX="%{$reset_color%}"
