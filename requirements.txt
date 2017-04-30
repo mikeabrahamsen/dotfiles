@@ -28,6 +28,7 @@ alsa-utils
 xorg-xbacklight
 acpi
 sysstat
+tpacpi-bat # aur tp battery thresholds
 
 # fonts
 ttf-dejavu
