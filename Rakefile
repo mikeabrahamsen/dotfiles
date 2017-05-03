@@ -6,6 +6,7 @@ task :install do
   switch_to_zsh
   replace_all = false
   create_tmp_dir
+  create_screenshot_dir
   files = Dir['*'] - %w[Rakefile config i3 etc requirements.txt]
   # had to ignore the config folder and add in each file seperately
   # as there may already be something in the config folder
@@ -49,6 +50,14 @@ def create_tmp_dir()
     else
         puts "creating tmp directory"
         system %Q{mkdir "$HOME/tmp"}
+    end
+end
+def create_screenshot_dir()
+    if File.exist?(File.join(ENV['HOME'], "screenshots"))
+        puts "screenshot directory found"
+    else
+        puts "creating screenshot directory"
+        system %Q{mkdir "$HOME/screenshots"}
     end
 end
 def replace_file(file)
