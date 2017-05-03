@@ -49,5 +49,4 @@ keepassx
 dropbox
 xss-lock-git
 redshift-scheduler
-light-git
 dragon-drag-and-drop-git
