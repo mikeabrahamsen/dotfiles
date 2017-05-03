@@ -15,7 +15,6 @@ task :install do
   files << "config/ranger/rifle.conf"
   files << "config/ranger/rc.conf"
   files << "config/ranger/scope.sh"
-  files << "i3/detect_displays.sh"
   files << "config/redshift-scheduler/rules.conf"
   files << "config/nvim"
   files.each do |file|
