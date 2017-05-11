@@ -7,7 +7,8 @@ task :install do
   replace_all = false
   create_tmp_dir
   create_screenshot_dir
-  files = Dir['*'] - %w[Rakefile config i3 etc requirements.txt]
+  create_virtualenv_dir
+  files = Dir['*'] - %w[Rakefile images config i3 etc requirements.txt]
   # had to ignore the config folder and add in each file seperately
   # as there may already be something in the config folder
   files << "config/i3status"
@@ -58,6 +59,14 @@ def create_screenshot_dir()
     else
         puts "creating screenshot directory"
         system %Q{mkdir "$HOME/screenshots"}
+    end
+end
+def create_virtualenv_dir()
+    if File.exist?(File.join(ENV['HOME'], ".virtualenvs"))
+        puts "virtualenvs directory found"
+    else
+        puts "creating virtualenvs directory"
+        system %Q{mkdir "$HOME/.virtualenvs"}
     end
 end
 def replace_file(file)
