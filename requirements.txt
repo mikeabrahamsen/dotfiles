@@ -16,13 +16,15 @@ xorg-server-utils
 xorg-xinit
 i3-wm
 i3status
-i3lock
+i3lock # or i3lock-color-git
 dmenu
 chromium
 redshift
 feh
 w3m
 alsa-utils
+xautolock
+
 
 # laptop
 xorg-xbacklight
@@ -41,12 +43,11 @@ ttf-croscore
 # optional
 python2-virtualenv
 python-virtualenvwrapper
-xscreensaver
 i7z
 keepassx
 
 # aur
 dropbox
-xss-lock-git
 redshift-scheduler
 dragon-drag-and-drop-git
+i3lock-color-git

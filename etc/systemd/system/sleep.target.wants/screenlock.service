@@ -7,7 +7,7 @@ User=ma
 Type=forking
 Environment=DISPLAY=:0
 ExecStartPre=
-ExecStart=/home/ma/.bin/lock_and_blur.sh
+ExecStart=$HOME/.bin/lock_and_blur.sh
 
 [Install]
 WantedBy=sleep.target
