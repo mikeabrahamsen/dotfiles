@@ -1,5 +1,4 @@
 scrot
-notify-osd
 fzf
 the_silver_searcher #ag
 neovim
@@ -24,6 +23,7 @@ feh
 w3m
 alsa-utils
 xautolock
+notify-osd
 
 
 # laptop
