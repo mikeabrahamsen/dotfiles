@@ -51,3 +51,7 @@ dropbox
 redshift-scheduler
 dragon-drag-and-drop-git
 i3lock-color-git
+
+
+ack
+entr
