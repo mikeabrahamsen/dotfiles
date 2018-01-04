@@ -8,6 +8,8 @@ rxvt-unicode
 ack
 ranger
 htop
+zsh
+rake
 
 # install with x display 
 xorg-server
@@ -44,7 +46,7 @@ ttf-croscore
 python2-virtualenv
 python-virtualenvwrapper
 i7z
-keepassx
+keepassx2
 
 # aur
 dropbox
@@ -52,6 +54,4 @@ redshift-scheduler
 dragon-drag-and-drop-git
 i3lock-color-git
 
-
-ack
 entr
