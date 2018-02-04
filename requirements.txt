@@ -10,6 +10,7 @@ ranger
 htop
 zsh
 rake
+keychain
 
 # install with x display 
 xorg-server
@@ -53,5 +54,4 @@ dropbox
 redshift-scheduler
 dragon-drag-and-drop-git
 i3lock-color-git
-
 entr
