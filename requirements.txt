@@ -44,8 +44,6 @@ ttf-croscore
 
 
 # optional
-python2-virtualenv
-python-virtualenvwrapper
 i7z
 keepassx2
 
@@ -55,3 +53,4 @@ redshift-scheduler
 dragon-drag-and-drop-git
 i3lock-color-git
 entr
+gitflow-avh
