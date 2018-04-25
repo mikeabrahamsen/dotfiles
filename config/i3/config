@@ -155,7 +155,7 @@ bar {
 # laptop monitor
 bar {
     output eDP1
-    status_command -c ~/.config/i3/i3blocks.conf
+    status_command i3blocks -c ~/.config/i3/i3blocks.conf
     # status_command i3status --config ~/.config/i3status/config-laptop
     font pango:DejaVu Sans Mono, Icons 14
 }
