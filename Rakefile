@@ -11,9 +11,9 @@ task :install do
   files = Dir['*'] - %w[Rakefile im***REMOVED***es config i3 etc ***REMOVED***.txt]
   # had to ignore the config folder and add in each file seperately
   # as there may already be something in the config folder
-  files << "config/i3status"
   files << "config/htop"
-  files << "i3/config"
+  files << "config/i3/config"
+  files << "config/i3/i3blocks.conf"
   files << "config/ranger/rifle.conf"
   files << "config/ranger/rc.conf"
   files << "config/ranger/scope.sh"
