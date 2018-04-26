@@ -16,7 +16,6 @@ Plug 'zchee/deoplete-clang' "c and c++
 Plug 'zchee/deoplete-jedi'  "python
 
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
-Plug 'marijnh/tern_for_vim' "README
 
 
 Plug 'junegunn/fzf'
