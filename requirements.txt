@@ -1,0 +1,56 @@
+scrot
+fzf
+the_silver_searcher #ag
+neovim
+python2-neovim
+python-neovim
+rxvt-unicode
+ack
+ranger
+htop
+zsh
+rake
+keychain
+
+# install with x display 
+xorg-server
+xorg-server-utils
+xorg-xinit
+i3-wm
+i3status
+i3lock # or i3lock-color-git
+dmenu
+chromium
+redshift
+feh
+w3m
+alsa-utils
+xautolock
+notify-osd
+
+
+# laptop
+xorg-xbacklight
+acpi
+sysstat
+tlp
+tpacpi-bat # aur tp battery thresholds
+
+# fonts
+ttf-dejavu
+ttf-droid
+ttf-croscore
+
+
+
+# optional
+i7z
+keepassx2
+
+# aur
+dropbox
+redshift-scheduler
+dragon-drag-and-drop-git
+i3lock-color-git
+entr
+gitflow-avh
