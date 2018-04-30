@@ -48,7 +48,7 @@ set hidden                  " allow hidden buffers
 set clipboard=unnamedplus   " easy copying
 set ruler                   " show cursor position
 set cursorline              " highlight the line the cursor is on
-set nostartofline           " preserve cursor location when p***REMOVED***ing
+set nostartofline           " preserve cursor location when paging
 set ls=2                    " always show status line
 set colorcolumn=80          " add line at column 80
 set splitright
@@ -101,7 +101,7 @@ nnoremap <Leader>bd :bp\|bd #<CR>
 " key mappings for fzf
 nnoremap <c-p> :Files<CR>
 "search for word under cursor
-nnoremap <silent> <Leader>***REMOVED*** :Ag <C-R><C-W><CR> 
+nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR> 
 "search for whole word with punc
 nnoremap <silent> <Leader>AG :Ag <C-R><C-A><CR> 
 
@@ -155,7 +155,7 @@ let g:syntastic_check_on_wq = 0
 let g:instant_markdown_autostart = 1
 
 
-" exit p***REMOVED***es with q even when :q wanted
+" exit pages with q even when :q wanted
 autocmd MyAutoCmd FileType help,quickrun
       \ if (!&modifiable || &ft==#'quickrun') |
       \ nnoremap <silent> <buffer> q :q<cr>|
@@ -203,9 +203,9 @@ nnoremap <silent> <Leader>b :call fzf#run({
 \ })<CR>
 
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteT***REMOVED***s
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=tern#Complete
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteT***REMOVED***s
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2

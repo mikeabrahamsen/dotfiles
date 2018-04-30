@@ -8,7 +8,7 @@ task :install do
   create_tmp_dir
   create_screenshot_dir
   create_virtualenv_dir
-  files = Dir['*'] - %w[Rakefile im***REMOVED***es config i3 etc ***REMOVED***.txt]
+  files = Dir['*'] - %w[Rakefile images config i3 etc requirements.txt]
   # had to ignore the config folder and add in each file seperately
   # as there may already be something in the config folder
   files << "config/htop"

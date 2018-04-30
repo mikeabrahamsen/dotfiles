@@ -288,7 +288,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
 	" C Highlighting
 	call <SID>X("cType", s:yellow, "", "")
-	call <SID>X("cStor***REMOVED***eClass", s:purple, "", "")
+	call <SID>X("cStorageClass", s:purple, "", "")
 	call <SID>X("cConditional", s:purple, "", "")
 	call <SID>X("cRepeat", s:purple, "", "")
 
@@ -359,10 +359,10 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("coffeeObject", s:yellow, "", "")
 
 	" HTML Highlighting
-	call <SID>X("htmlT***REMOVED***", s:red, "", "")
-	call <SID>X("htmlT***REMOVED***Name", s:red, "", "")
+	call <SID>X("htmlTag", s:red, "", "")
+	call <SID>X("htmlTagName", s:red, "", "")
 	call <SID>X("htmlArg", s:red, "", "")
-	call <SID>X("htmlScriptT***REMOVED***", s:red, "", "")
+	call <SID>X("htmlScriptTag", s:red, "", "")
 
 	" Diff Highlighting
 	call <SID>X("diffAdd", "", "4c4e39", "")
@@ -429,7 +429,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("scalaKeyword", s:purple, "", "")
 	call <SID>X("scalaKeywordModifier", s:purple, "", "")
 	call <SID>X("scalaOperator", s:blue, "", "")
-	call <SID>X("scalaPack***REMOVED***e", s:red, "", "")
+	call <SID>X("scalaPackage", s:red, "", "")
 	call <SID>X("scalaFqn", s:foreground, "", "")
 	call <SID>X("scalaFqnSet", s:foreground, "", "")
 	call <SID>X("scalaImport", s:purple, "", "")
@@ -457,7 +457,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("scalaLineComment", s:comment, "", "")
 	call <SID>X("scalaComment", s:comment, "", "")
 	call <SID>X("scalaDocComment", s:comment, "", "")
-	call <SID>X("scalaDocT***REMOVED***s", s:comment, "", "")
+	call <SID>X("scalaDocTags", s:comment, "", "")
 	call <SID>X("scalaEmptyString", s:green, "", "")
 	call <SID>X("scalaMultiLineString", s:green, "", "")
 	call <SID>X("scalaUnicode", s:orange, "", "")

@@ -35,10 +35,10 @@ _git-flow ()
 			local -a subcommands
 			subcommands=(
 				'init:Initialize a new git repo with support for the branching model.'
-				'feature:Man***REMOVED***e your feature branches.'
-				'release:Man***REMOVED***e your release branches.'
-				'hotfix:Man***REMOVED***e your hotfix branches.'
-				'support:Man***REMOVED***e your support branches.'
+				'feature:Manage your feature branches.'
+				'release:Manage your release branches.'
+				'hotfix:Manage your hotfix branches.'
+				'support:Manage your support branches.'
 				'version:Shows version information.'
 			)
 			_describe -t commands 'git flow' subcommands
@@ -108,9 +108,9 @@ __git-flow-release ()
 				(finish)
 					_arguments \
 						-F'[Fetch from origin before performing finish]' \
-						-s'[Sign the release t***REMOVED*** cryptographically]'\
+						-s'[Sign the release tag cryptographically]'\
 						-u'[Use the given GPG-key for the digital signature (implies -s)]'\
-						-m'[Use the given t***REMOVED*** mess***REMOVED***e]'\
+						-m'[Use the given tag message]'\
 						-p'[Push to $ORIGIN after performing finish]'\
 						':version:__git_flow_version_list'
 				;;
@@ -170,9 +170,9 @@ __git-flow-hotfix ()
 				(finish)
 					_arguments \
 						-F'[Fetch from origin before performing finish]' \
-						-s'[Sign the release t***REMOVED*** cryptographically]'\
+						-s'[Sign the release tag cryptographically]'\
 						-u'[Use the given GPG-key for the digital signature (implies -s)]'\
-						-m'[Use the given t***REMOVED*** mess***REMOVED***e]'\
+						-m'[Use the given tag message]'\
 						-p'[Push to $ORIGIN after performing finish]'\
 						':hotfix:__git_flow_hotfix_list'
 				;;
@@ -335,7 +335,7 @@ __git_branch_names () {
 
 __git_command_successful () {
 	if (( ${#pipestatus:#0} > 0 )); then
-		_mess***REMOVED***e 'not a git repository'
+		_message 'not a git repository'
 		return 1
 	fi
 	return 0

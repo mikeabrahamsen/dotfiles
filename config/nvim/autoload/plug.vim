@@ -1,4 +1,4 @@
-" vim-plug: Vim plugin man***REMOVED***er
+" vim-plug: Vim plugin manager
 " ============================
 "
 " Download plug.vim and put it in ~/.vim/autoload
@@ -28,16 +28,16 @@
 "   " Using a non-master branch
 "   Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 "
-"   " Using a t***REMOVED***ged release; wildcard allowed (requires git 1.9.2 or above)
-"   Plug 'fatih/vim-go', { 't***REMOVED***': '*' }
+"   " Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
+"   Plug 'fatih/vim-go', { 'tag': '*' }
 "
 "   " Plugin options
-"   Plug 'nsf/gocode', { 't***REMOVED***': 'v.20150303', 'rtp': 'vim' }
+"   Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 "
 "   " Plugin outside ~/.vim/plugged with post-update hook
 "   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 "
-"   " Unman***REMOVED***ed plugin (manually installed and updated)
+"   " Unmanaged plugin (manually installed and updated)
 "   Plug '~/my-prototype-plugin'
 "
 "   " Initialize plugin system
@@ -49,7 +49,7 @@
 "
 "| Option                  | Description                                      |
 "| ----------------------- | ------------------------------------------------ |
-"| `branch`/`t***REMOVED***`/`commit` | Branch/t***REMOVED***/commit of the repository to use       |
+"| `branch`/`tag`/`commit` | Branch/tag/commit of the repository to use       |
 "| `rtp`                   | Subdirectory that contains Vim plugin            |
 "| `dir`                   | Custom directory for the plugin                  |
 "| `as`                    | Use different name for the plugin                |
@@ -137,7 +137,7 @@ endfunction
 function! s:define_commands()
   command! -nargs=+ -bar Plug call plug#(<args>)
   if !executable('git')
-    return s:err('`git` executable not found. Most commands will not be available. To suppress this mess***REMOVED***e, prepend `silent!` to `call plug#begin(...)`.')
+    return s:err('`git` executable not found. Most commands will not be available. To suppress this message, prepend `silent!` to `call plug#begin(...)`.')
   endif
   command! -nargs=* -bar -bang -complete=customlist,s:names PlugInstall call s:install(<bang>0, [<f-args>])
   command! -nargs=* -bar -bang -complete=customlist,s:names PlugUpdate  call s:update(<bang>0, [<f-args>])
@@ -175,10 +175,10 @@ function! s:assoc(dict, key, val)
   let a:dict[a:key] = add(get(a:dict, a:key, []), a:val)
 endfunction
 
-function! s:ask(mess***REMOVED***e, ...)
+function! s:ask(message, ...)
   call inputsave()
   echohl WarningMsg
-  let answer = input(a:mess***REMOVED***e.(a:0 ? ' (y/N/a) ' : ' (y/N) '))
+  let answer = input(a:message.(a:0 ? ' (y/N/a) ' : ' (y/N) '))
   echohl None
   call inputrestore()
   echo "\r"
@@ -562,7 +562,7 @@ function! s:parse_options(arg)
   let opts = copy(s:base_spec)
   let type = type(a:arg)
   if type == s:TYPE.string
-    let opts.t***REMOVED*** = a:arg
+    let opts.tag = a:arg
   elseif type == s:TYPE.dict
     call extend(opts, a:arg)
     if has_key(opts, 'dir')
@@ -600,14 +600,14 @@ function! s:update(force, names)
   call s:update_impl(1, a:force, a:names)
 endfunction
 
-function! plug#helpt***REMOVED***s()
+function! plug#helptags()
   if !exists('g:plugs')
     return s:err('plug#begin was not called')
   endif
   for spec in values(g:plugs)
     let docd = join([s:rtp(spec), 'doc'], '/')
     if isdirectory(docd)
-      silent! execute 'helpt***REMOVED***s' s:esc(docd)
+      silent! execute 'helptags' s:esc(docd)
     endif
   endfor
   return 1
@@ -623,13 +623,13 @@ function! s:syntax()
   syn match plugDash /^-/
   syn match plugPlus /^+/
   syn match plugStar /^*/
-  syn match plugMess***REMOVED***e /\(^- \)\@<=.*/
+  syn match plugMessage /\(^- \)\@<=.*/
   syn match plugName /\(^- \)\@<=[^ ]*:/
   syn match plugSha /\%(: \)\@<=[0-9a-f]\{4,}$/
-  syn match plugT***REMOVED*** /(t***REMOVED***: [^)]\+)/
+  syn match plugTag /(tag: [^)]\+)/
   syn match plugInstall /\(^+ \)\@<=[^:]*/
   syn match plugUpdate /\(^* \)\@<=[^:]*/
-  syn match plugCommit /^  \X*[0-9a-f]\{7,9} .*/ contains=plugRelDate,plugEdge,plugT***REMOVED***
+  syn match plugCommit /^  \X*[0-9a-f]\{7,9} .*/ contains=plugRelDate,plugEdge,plugTag
   syn match plugEdge /^  \X\+$/
   syn match plugEdge /^  \X*/ contained nextgroup=plugSha
   syn match plugSha /[0-9a-f]\{7,9}/ contained
@@ -650,7 +650,7 @@ function! s:syntax()
   hi def link plugPlus    Constant
   hi def link plugStar    Boolean
 
-  hi def link plugMess***REMOVED***e Function
+  hi def link plugMessage Function
   hi def link plugName    Label
   hi def link plugInstall Function
   hi def link plugUpdate  Type
@@ -660,7 +660,7 @@ function! s:syntax()
   hi def link plugRelDate Comment
   hi def link plugEdge    PreProc
   hi def link plugSha     Identifier
-  hi def link plugT***REMOVED***     Constant
+  hi def link plugTag     Constant
 
   hi def link plugNotLoaded Comment
 endfunction
@@ -682,7 +682,7 @@ function! s:new_window()
 endfunction
 
 function! s:plug_window_exists()
-  let buflist = tabp***REMOVED***ebuflist(s:plug_tab)
+  let buflist = tabpagebuflist(s:plug_tab)
   return !empty(buflist) && index(buflist, s:plug_buf) >= 0
 endfunction
 
@@ -692,7 +692,7 @@ function! s:switch_in()
   endif
 
   if winbufnr(0) != s:plug_buf
-    let s:pos = [tabp***REMOVED***enr(), winnr(), winsaveview()]
+    let s:pos = [tabpagenr(), winnr(), winsaveview()]
     execute 'normal!' s:plug_tab.'gt'
     let winnr = bufwinnr(s:plug_buf)
     execute winnr.'wincmd w'
@@ -755,7 +755,7 @@ function! s:prepare(...)
     call s:finish_bindings()
   endif
   let b:plug_preview = -1
-  let s:plug_tab = tabp***REMOVED***enr()
+  let s:plug_tab = tabpagenr()
   let s:plug_buf = winbufnr(0)
   call s:assign_name()
 
@@ -782,9 +782,9 @@ function! s:assign_name()
 endfunction
 
 function! s:chsh(swap)
-  let prev = [&shell, &shellcmdfl***REMOVED***, &shellredir]
+  let prev = [&shell, &shellcmdflag, &shellredir]
   if s:is_win
-    set shell=cmd.exe shellcmdfl***REMOVED***=/c shellredir=>%s\ 2>&1
+    set shell=cmd.exe shellcmdflag=/c shellredir=>%s\ 2>&1
   elseif a:swap
     set shell=sh shellredir=>%s\ 2>&1
   endif
@@ -793,7 +793,7 @@ endfunction
 
 function! s:bang(cmd, ...)
   try
-    let [sh, shellcmdfl***REMOVED***, shrd] = s:chsh(a:0)
+    let [sh, shellcmdflag, shrd] = s:chsh(a:0)
     " FIXME: Escaping is incomplete. We could use shellescape with eval,
     "        but it won't work on Windows.
     let cmd = a:0 ? s:with_cd(a:cmd, a:1) : a:cmd
@@ -806,7 +806,7 @@ function! s:bang(cmd, ...)
     execute "normal! :execute g:_plug_bang\<cr>\<cr>"
   finally
     unlet g:_plug_bang
-    let [&shell, &shellcmdfl***REMOVED***, &shellredir] = [sh, shellcmdfl***REMOVED***, shrd]
+    let [&shell, &shellcmdflag, &shellredir] = [sh, shellcmdflag, shrd]
     if s:is_win
       call delete(batchfile)
     endif
@@ -899,7 +899,7 @@ function! s:finish(pull)
   endif
   call append(3, '- Finishing ... ') | 4
   redraw
-  call plug#helpt***REMOVED***s()
+  call plug#helptags()
   call plug#end()
   call setline(4, getline(4) . 'Done!')
   redraw
@@ -924,12 +924,12 @@ function! s:retry()
         \ extend(copy(s:update.errors), [s:update.threads]))
 endfunction
 
-function! s:is_man***REMOVED***ed(name)
+function! s:is_managed(name)
   return has_key(g:plugs[a:name], 'uri')
 endfunction
 
 function! s:names(...)
-  return sort(filter(keys(g:plugs), 'stridx(v:val, a:1) == 0 && s:is_man***REMOVED***ed(v:val)'))
+  return sort(filter(keys(g:plugs), 'stridx(v:val, a:1) == 0 && s:is_managed(v:val)'))
 endfunction
 
 function! s:check_ruby()
@@ -949,9 +949,9 @@ function! s:update_impl(pull, force, args) abort
   let threads = (len(args) > 0 && args[-1] =~ '^[1-9][0-9]*$') ?
                   \ remove(args, -1) : get(g:, 'plug_threads', 16)
 
-  let man***REMOVED***ed = filter(copy(g:plugs), 's:is_man***REMOVED***ed(v:key)')
-  let todo = empty(args) ? filter(man***REMOVED***ed, '!v:val.frozen || !isdirectory(v:val.dir)') :
-                         \ filter(man***REMOVED***ed, 'index(args, v:key) >= 0')
+  let managed = filter(copy(g:plugs), 's:is_managed(v:key)')
+  let todo = empty(args) ? filter(managed, '!v:val.frozen || !isdirectory(v:val.dir)') :
+                         \ filter(managed, 'index(args, v:key) >= 0')
 
   if empty(todo)
     return s:warn('echo', 'No plugin to '. (a:pull ? 'update' : 'install'))
@@ -1078,18 +1078,18 @@ function! s:update_finish()
       if has_key(spec, 'commit')
         call s:log4(name, 'Checking out '.spec.commit)
         let out = s:checkout(spec)
-      elseif has_key(spec, 't***REMOVED***')
-        let t***REMOVED*** = spec.t***REMOVED***
-        if t***REMOVED*** =~ '\*'
-          let t***REMOVED***s = s:lines(s:system('git t***REMOVED*** --list '.s:shellesc(t***REMOVED***).' --sort -version:refname 2>&1', spec.dir))
-          if !v:shell_error && !empty(t***REMOVED***s)
-            let t***REMOVED*** = t***REMOVED***s[0]
-            call s:log4(name, printf('Latest t***REMOVED*** for %s -> %s', spec.t***REMOVED***, t***REMOVED***))
+      elseif has_key(spec, 'tag')
+        let tag = spec.tag
+        if tag =~ '\*'
+          let tags = s:lines(s:system('git tag --list '.s:shellesc(tag).' --sort -version:refname 2>&1', spec.dir))
+          if !v:shell_error && !empty(tags)
+            let tag = tags[0]
+            call s:log4(name, printf('Latest tag for %s -> %s', spec.tag, tag))
             call append(3, '')
           endif
         endif
-        call s:log4(name, 'Checking out '.t***REMOVED***)
-        let out = s:system('git checkout -q '.s:esc(t***REMOVED***).' -- 2>&1', spec.dir)
+        call s:log4(name, 'Checking out '.tag)
+        let out = s:system('git checkout -q '.s:esc(tag).' -- 2>&1', spec.dir)
       else
         let branch = s:esc(get(spec, 'branch', 'master'))
         call s:log4(name, 'Merging origin/'.branch)
@@ -1101,7 +1101,7 @@ function! s:update_finish()
         call s:log4(name, 'Updating submodules. This may take a while.')
         let out .= s:bang('git submodule update --init --recursive 2>&1', spec.dir)
       endif
-      let msg = s:format_mess***REMOVED***e(v:shell_error ? 'x': '-', name, out)
+      let msg = s:format_message(v:shell_error ? 'x': '-', name, out)
       if v:shell_error
         call add(s:update.errors, name)
         call s:regress_bar()
@@ -1292,7 +1292,7 @@ function! s:log(bullet, name, lines)
     endif
     " FIXME For some reason, nomodifiable is set after :d in vim8
     setlocal modifiable
-    call append(b - 1, s:format_mess***REMOVED***e(a:bullet, a:name, a:lines))
+    call append(b - 1, s:format_message(a:bullet, a:name, a:lines))
     call s:switch_out()
   endif
 endfunction
@@ -1323,12 +1323,12 @@ while 1 " Without TCO, Vim stack is bound to explode
   call s:log(new ? '+' : '*', name, pull ? 'Updating ...' : 'Installing ...')
   redraw
 
-  let has_t***REMOVED*** = has_key(spec, 't***REMOVED***')
+  let has_tag = has_key(spec, 'tag')
   if !new
     let [error, _] = s:git_validate(spec, 0)
     if empty(error)
       if pull
-        let fetch_opt = (has_t***REMOVED*** && !empty(globpath(spec.dir, '.git/shallow'))) ? '--depth 99999999' : ''
+        let fetch_opt = (has_tag && !empty(globpath(spec.dir, '.git/shallow'))) ? '--depth 99999999' : ''
         call s:spawn(name, printf('git fetch %s %s 2>&1', fetch_opt, prog), { 'dir': spec.dir })
       else
         let s:jobs[name] = { 'running': 0, 'lines': ['Already installed'], 'error': 0 }
@@ -1339,7 +1339,7 @@ while 1 " Without TCO, Vim stack is bound to explode
   else
     call s:spawn(name,
           \ printf('git clone %s %s %s %s 2>&1',
-          \ has_t***REMOVED*** ? '' : s:clone_opt,
+          \ has_tag ? '' : s:clone_opt,
           \ prog,
           \ s:shellesc(spec.uri),
           \ s:shellesc(s:trim(spec.dir))), { 'new': 1 })
@@ -1570,9 +1570,9 @@ class Plugin(object):
     self.args = args
     self.buf_q = buf_q
     self.lock = lock
-    self.t***REMOVED*** = args.get('t***REMOVED***', 0)
+    self.tag = args.get('tag', 0)
 
-  def man***REMOVED***e(self):
+  def manage(self):
     try:
       if os.path.exists(self.args['dir']):
         self.update()
@@ -1607,7 +1607,7 @@ class Plugin(object):
     self.write(Action.INSTALL, self.name, ['Installing ...'])
     callback = functools.partial(self.write, Action.INSTALL, self.name)
     cmd = 'git clone {0} {1} {2} {3} 2>&1'.format(
-          '' if self.t***REMOVED*** else G_CLONE_OPT, G_PROGRESS, self.args['uri'],
+          '' if self.tag else G_CLONE_OPT, G_PROGRESS, self.args['uri'],
           esc(target))
     com = Command(cmd, None, G_TIMEOUT, callback, clean(target))
     result = com.execute(G_RETRIES)
@@ -1635,7 +1635,7 @@ class Plugin(object):
     if G_PULL:
       self.write(Action.UPDATE, self.name, ['Updating ...'])
       callback = functools.partial(self.write, Action.UPDATE, self.name)
-      fetch_opt = '--depth 99999999' if self.t***REMOVED*** and os.path.isfile(os.path.join(self.args['dir'], '.git/shallow')) else ''
+      fetch_opt = '--depth 99999999' if self.tag and os.path.isfile(os.path.join(self.args['dir'], '.git/shallow')) else ''
       cmd = 'git fetch {0} {1} 2>&1'.format(fetch_opt, G_PROGRESS)
       com = Command(cmd, self.args['dir'], G_TIMEOUT, callback)
       result = com.execute(G_RETRIES)
@@ -1660,7 +1660,7 @@ class PlugThread(thr.Thread):
       while not G_STOP.is_set():
         name, args = work_q.get_nowait()
         plug = Plugin(name, args, buf_q, lock)
-        plug.man***REMOVED***e()
+        plug.manage()
         work_q.task_done()
     except queue.Empty:
       pass
@@ -1691,7 +1691,7 @@ def esc(name):
   return '"' + name.replace('"', '\"') + '"'
 
 def nonblock_read(fname):
-  """ Read a file with nonblock fl***REMOVED***. Return the last line. """
+  """ Read a file with nonblock flag. Return the last line. """
   fread = os.open(fname, os.O_RDONLY | os.O_NONBLOCK)
   buf = os.read(fread, 100000).decode('utf-8', 'replace')
   os.close(fread)
@@ -1923,7 +1923,7 @@ function! s:update_ruby()
       threads << Thread.new {
         while pair = take1.call
           name = pair.first
-          dir, uri, t***REMOVED*** = pair.last.values_at *%w[dir uri t***REMOVED***]
+          dir, uri, tag = pair.last.values_at *%w[dir uri tag]
           exists = File.directory? dir
           ok, result =
             if exists
@@ -1943,7 +1943,7 @@ function! s:update_ruby()
               else
                 if pull
                   log.call name, 'Updating ...', :update
-                  fetch_opt = (t***REMOVED*** && File.exist?(File.join(dir, '.git/shallow'))) ? '--depth 99999999' : ''
+                  fetch_opt = (tag && File.exist?(File.join(dir, '.git/shallow'))) ? '--depth 99999999' : ''
                   bt.call "#{chdir} && git fetch #{fetch_opt} #{progress} 2>&1", name, :update, nil
                 else
                   [true, skip]
@@ -1952,7 +1952,7 @@ function! s:update_ruby()
             else
               d = esc dir.sub(%r{[\\/]+$}, '')
               log.call name, 'Installing ...', :install
-              bt.call "git clone #{clone_opt unless t***REMOVED***} #{progress} #{uri} #{d} 2>&1", name, :install, proc {
+              bt.call "git clone #{clone_opt unless tag} #{progress} #{uri} #{d} 2>&1", name, :install, proc {
                 FileUtils.rm_rf dir
               }
             end
@@ -2004,11 +2004,11 @@ function! s:compare_git_uri(a, b)
   return ma[1:2] ==# mb[1:2]
 endfunction
 
-function! s:format_mess***REMOVED***e(bullet, name, mess***REMOVED***e)
+function! s:format_message(bullet, name, message)
   if a:bullet != 'x'
-    return [printf('%s %s: %s', a:bullet, a:name, s:lastline(a:mess***REMOVED***e))]
+    return [printf('%s %s: %s', a:bullet, a:name, s:lastline(a:message))]
   else
-    let lines = map(s:lines(a:mess***REMOVED***e), '"    ".v:val')
+    let lines = map(s:lines(a:message), '"    ".v:val')
     return extend([printf('x %s:', a:name)], lines)
   endif
 endfunction
@@ -2019,7 +2019,7 @@ endfunction
 
 function! s:system(cmd, ...)
   try
-    let [sh, shellcmdfl***REMOVED***, shrd] = s:chsh(1)
+    let [sh, shellcmdflag, shrd] = s:chsh(1)
     let cmd = a:0 > 0 ? s:with_cd(a:cmd, a:1) : a:cmd
     if s:is_win
       let batchfile = tempname().'.bat'
@@ -2028,7 +2028,7 @@ function! s:system(cmd, ...)
     endif
     return system(s:is_win ? '('.cmd.')' : cmd)
   finally
-    let [&shell, &shellcmdfl***REMOVED***, &shellredir] = [sh, shellcmdfl***REMOVED***, shrd]
+    let [&shell, &shellcmdflag, &shellredir] = [sh, shellcmdflag, shrd]
     if s:is_win
       call delete(batchfile)
     endif
@@ -2063,12 +2063,12 @@ function! s:git_validate(spec, check_branch)
       endif
     elseif a:check_branch
       let branch = result[0]
-      " Check t***REMOVED***
-      if has_key(a:spec, 't***REMOVED***')
-        let t***REMOVED*** = s:system_chomp('git describe --exact-match --t***REMOVED***s HEAD 2>&1', a:spec.dir)
-        if a:spec.t***REMOVED*** !=# t***REMOVED*** && a:spec.t***REMOVED*** !~ '\*'
-          let err = printf('Invalid t***REMOVED***: %s (expected: %s). Try PlugUpdate.',
-                \ (empty(t***REMOVED***) ? 'N/A' : t***REMOVED***), a:spec.t***REMOVED***)
+      " Check tag
+      if has_key(a:spec, 'tag')
+        let tag = s:system_chomp('git describe --exact-match --tags HEAD 2>&1', a:spec.dir)
+        if a:spec.tag !=# tag && a:spec.tag !~ '\*'
+          let err = printf('Invalid tag: %s (expected: %s). Try PlugUpdate.',
+                \ (empty(tag) ? 'N/A' : tag), a:spec.tag)
         endif
       " Check branch
       elseif a:spec.branch !=# branch
@@ -2116,7 +2116,7 @@ function! s:clean(force)
   let errs = {}
   let [cnt, total] = [0, len(g:plugs)]
   for [name, spec] in items(g:plugs)
-    if !s:is_man***REMOVED***ed(name)
+    if !s:is_managed(name)
       call add(dirs, spec.dir)
     else
       let [err, clean] = s:git_validate(spec, 1)
@@ -2269,7 +2269,7 @@ function! s:status()
       let msg .= ' (not loaded)'
     endif
     call s:progress_bar(2, repeat('=', cnt), total)
-    call append(3, s:format_mess***REMOVED***e(valid ? '-' : 'x', name, msg))
+    call append(3, s:format_message(valid ? '-' : 'x', name, msg))
     normal! 2G
     redraw
   endfor
@@ -2353,7 +2353,7 @@ function! s:preview_commit()
   endif
   setlocal previewwindow filetype=git buftype=nofile nobuflisted modifiable
   try
-    let [sh, shellcmdfl***REMOVED***, shrd] = s:chsh(1)
+    let [sh, shellcmdflag, shrd] = s:chsh(1)
     let cmd = 'cd '.s:shellesc(g:plugs[name].dir).' && git show --no-color --pretty=medium '.sha
     if s:is_win
       let batchfile = tempname().'.bat'
@@ -2362,7 +2362,7 @@ function! s:preview_commit()
     endif
     execute 'silent %!' cmd
   finally
-    let [&shell, &shellcmdfl***REMOVED***, &shellredir] = [sh, shellcmdfl***REMOVED***, shrd]
+    let [&shell, &shellcmdflag, &shellredir] = [sh, shellcmdflag, shrd]
     if s:is_win
       call delete(batchfile)
     endif
@@ -2372,8 +2372,8 @@ function! s:preview_commit()
   wincmd p
 endfunction
 
-function! s:section(fl***REMOVED***s)
-  call search('\(^[x-] \)\@<=[^:]\+:', a:fl***REMOVED***s)
+function! s:section(flags)
+  call search('\(^[x-] \)\@<=[^:]\+:', a:flags)
 endfunction
 
 function! s:format_git_log(line)
@@ -2383,9 +2383,9 @@ function! s:format_git_log(line)
     return indent.substitute(a:line, '\s*$', '', '')
   endif
   let [graph, sha, refs, subject, date] = tokens
-  let t***REMOVED*** = matchstr(refs, 't***REMOVED***: [^,)]\+')
-  let t***REMOVED*** = empty(t***REMOVED***) ? ' ' : ' ('.t***REMOVED***.') '
-  return printf('%s%s%s%s%s (%s)', indent, graph, sha, t***REMOVED***, subject, date)
+  let tag = matchstr(refs, 'tag: [^,)]\+')
+  let tag = empty(tag) ? ' ' : ' ('.tag.') '
+  return printf('%s%s%s%s%s (%s)', indent, graph, sha, tag, subject, date)
 endfunction
 
 function! s:append_ul(lnum, text)
@@ -2397,10 +2397,10 @@ function! s:diff()
   call append(0, ['Collecting changes ...', ''])
   let cnts = [0, 0]
   let bar = ''
-  let total = filter(copy(g:plugs), 's:is_man***REMOVED***ed(v:key) && isdirectory(v:val.dir)')
+  let total = filter(copy(g:plugs), 's:is_managed(v:key) && isdirectory(v:val.dir)')
   call s:progress_bar(2, bar, len(total))
   for origin in [1, 0]
-    let plugs = reverse(sort(items(filter(copy(total), (origin ? '' : '!').'(has_key(v:val, "commit") || has_key(v:val, "t***REMOVED***"))'))))
+    let plugs = reverse(sort(items(filter(copy(total), (origin ? '' : '!').'(has_key(v:val, "commit") || has_key(v:val, "tag"))'))))
     if empty(plugs)
       continue
     endif
@@ -2409,7 +2409,7 @@ function! s:diff()
       let range = origin ? '..origin/'.v.branch : 'HEAD@{1}..'
       let diff = s:system_chomp('git log --graph --color=never '.join(map(['--pretty=format:%x01%h%x01%d%x01%s%x01%cr', range], 's:shellesc(v:val)')), v.dir)
       if !empty(diff)
-        let ref = has_key(v, 't***REMOVED***') ? (' (t***REMOVED***: '.v.t***REMOVED***.')') : has_key(v, 'commit') ? (' '.v.commit) : ''
+        let ref = has_key(v, 'tag') ? (' (tag: '.v.tag.')') : has_key(v, 'commit') ? (' '.v.commit) : ''
         call append(5, extend(['', '- '.k.':'.ref], map(s:lines(diff), 's:format_git_log(v:val)')))
         let cnts[origin] += 1
       endif

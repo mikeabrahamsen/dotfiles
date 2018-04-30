@@ -11,7 +11,7 @@ Plug 'suan/vim-instant-markdown'
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
-" Langu***REMOVED***e specific auto complete
+" Language specific auto complete
 Plug 'zchee/deoplete-clang' "c and c++
 Plug 'zchee/deoplete-jedi'  "python
 

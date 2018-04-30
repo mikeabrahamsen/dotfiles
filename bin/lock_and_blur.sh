@@ -1,23 +1,31 @@
 #!/usr/bin/env bash
 
-icon="$HOME/dotfiles/im***REMOVED***es/lock-icon-light.png"
+icon="$HOME/dotfiles/images/lock-icon-light.png"
 tmpbg='/tmp/screen.png'
 
 VALUE="60" #brightness value to compare to
 
 scrot "$tmpbg"
 
-COLOR=$(convert "$tmpbg" -gravity center -crop 100x100+0+0 +rep***REMOVED***e -colorspace hsb \
+COLOR=$(convert "$tmpbg" -gravity center -crop 100x100+0+0 +repage -colorspace hsb \
     -resize 1x1 txt:- | awk -F '[%$]' 'NR==2{gsub(",",""); printf "%.0f\n", $(NF-1)}');
-if [ "$COLOR" -gt "$VALUE" ]; then #white background im***REMOVED***e and black text
-    icon="$HOME/dotfiles/im***REMOVED***es/lock-icon-dark.png"
-    PARAM=(--textcolor=00000000 --insidecolor=00000000 --ringcolor=0000003e \
+if [ "$COLOR" -gt "$VALUE" ]; then #white background image and black text
+    icon="$HOME/dotfiles/images/lock-icon-dark.png"
+    PARAM=(--insidecolor=00000000 --ringcolor=0000003e \
+        --clock \
+        -timestr="%H:%M:%S"  \
+        --datestr="%A, %m %Y" \
         --linecolor=00000000 --keyhlcolor=ffffff80 --ringvercolor=ffffff00 \
         --separatorcolor=22222260 --insidevercolor=ffffff1c \
         --ringwrongcolor=ffffff55 --insidewrongcolor=ffffff1c)
 else #black
-    icon="$HOME/dotfiles/im***REMOVED***es/lock-icon-light.png"
-    PARAM=(--textcolor=ffffff00 --insidecolor=ffffff00 --ringcolor=ffffff3e \
+    icon="$HOME/dotfiles/images/lock-icon-light.png"
+    PARAM=(--insidecolor=ffffff00 --ringcolor=ffffff3e \
+        --timecolor="#ffffff80" \
+        --datecolor="#ffffff80" \
+        --clock \
+        -timestr="%H:%M:%S"  \
+        --datestr="%A, %m %Y" \
         --linecolor=ffffff00 --keyhlcolor=00000080 --ringvercolor=00000000 \
         --separatorcolor=22222260 --insidevercolor=0000001c \
         --ringwrongcolor=00000055 --insidewrongcolor=0000001c)
