@@ -157,6 +157,8 @@ let g:ultisnips_python_style = 'sphinx'
 
 " syntastic config
 let g:syntastic_check_on_wq = 0
+let g:syntastic_php_checkers=['php', 'phpcs']
+let g:syntastic_php_phpcs_args='--standard=PSR2 -n'
 
 " instant markdown config
 let g:instant_markdown_autostart = 1
