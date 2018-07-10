@@ -24,6 +24,7 @@ Plug 'junegunn/fzf.vim'
 " php
 Plug 'StanAngeloff/php.vim'
 Plug 'jwalton512/vim-blade'
+Plug 'posva/vim-vue'
 
 Plug 'suan/vim-instant-markdown'
 
