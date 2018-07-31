@@ -206,7 +206,7 @@ exec --no-startup-id "sh -c 'sleep 3; xmodmap ~/.xmodmaprc'"
 exec --no-startup-id xset -b
 
 # set screenlock
-exec xautolock -detectsleep -time 7 -locker "/home/ma/.bin/lock_and_blur.sh" \
+exec xautolock -detectsleep -time 7 -locker "$HOME/.bin/lock_and_blur.sh" \
   -notify 30 \
   -notifier "notify-send -u critical -t 10000 -- 'Locking screen in 30 seconds'"
 

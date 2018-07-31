@@ -25,6 +25,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'StanAngeloff/php.vim'
 Plug 'jwalton512/vim-blade'
 
+" vue
+Plug 'posva/vim-vue'
+
 Plug 'suan/vim-instant-markdown'
 
 " C++
