@@ -189,7 +189,7 @@ function! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfunction
 
-autocmd BufWritePre *.py,*.js,*.php :call <SID>StripTrailingWhitespaces()
+autocmd BufWritePre *.py,*.js :call <SID>StripTrailingWhitespaces()
 
 function! s:buflist()
   redir => ls
