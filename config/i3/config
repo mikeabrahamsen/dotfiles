@@ -147,36 +147,7 @@ bindsym $mod+Shift+i mode $keyboardMode
 
 # desktop
 bar {
-    output DP-1
     status_command i3blocks -c ~/.config/i3/i3blocks.conf
-    font pango:DejaVu Sans Mono, Icons 18
-}
-
-# laptop monitor
-bar {
-    output eDP1
-    status_command i3blocks -c ~/.config/i3/i3blocks.conf
-    # status_command i3status --config ~/.config/i3status/config-laptop
-    font pango:DejaVu Sans Mono, Icons 14
-}
-bar {
-    output LVDS1
-    status_command i3status --config ~/.config/i3status/config-laptop
-    font pango:DejaVu Sans Mono, Icons 14
-}
-bar {
-    output LVDS-0
-    status_command i3status --config ~/.config/i3status/config-laptop
-    font pango:DejaVu Sans Mono, Icons 10
-}
-bar {
-    output HDMI1
-    status_command i3status --config ~/.config/i3status/config-laptop
-    font pango:DejaVu Sans Mono, Icons 10
-}
-bar {
-    output HDMI2
-    status_command i3blocks
     font pango:DejaVu Sans Mono, Icons 14
 }
 
