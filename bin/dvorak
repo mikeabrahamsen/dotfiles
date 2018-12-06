@@ -2,3 +2,4 @@
 
 setxkbmap dvorak
 xmodmap ~/.xmodmaprc
+xset -b
