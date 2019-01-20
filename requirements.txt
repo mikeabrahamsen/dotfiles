@@ -54,3 +54,7 @@ dragon-drag-and-drop-git
 i3lock-color-git
 entr
 gitflow-avh
+
+# pip requirements for vim
+jedi
+flake8
