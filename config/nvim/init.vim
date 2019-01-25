@@ -104,7 +104,7 @@ nnoremap <leader>v :bnext<CR>
 nnoremap <Leader>bd :bp\|bd #<CR> 
 
 " key mappings for fzf
-nnoremap <c-p> :Files<CR>
+nnoremap <c-p> :GFiles<CR>
 "search for word under cursor
 nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR> 
 "search for whole word with punc
