@@ -39,3 +39,8 @@ function gpr() {
     pr_url=$github_url"/compare/${1:-master}..."$branch_name
     xdg-open $pr_url;
 }
+
+function gni() {
+    local repo_url=`git remote get-url origin | sed -e 's/git@//' -e 's/.git//' -e 's/:/\//'`
+    xdg-open "https://$repo_url/issues/new?title=${1:-}"
+}
