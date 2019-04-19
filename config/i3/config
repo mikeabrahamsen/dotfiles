@@ -163,7 +163,6 @@ bindsym --release Shift+Print exec scrot -s '%Y-%m-%d-%H%M%S_$wx$h_scrot.png' -e
 
 # program assignments
 assign [class="Chromium"] 3
-assign [class="Keepassx"] 4
 assign [class="Slack"] 4
 
 
