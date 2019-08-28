@@ -105,6 +105,8 @@ nnoremap <Leader>bd :bp\|bd #<CR>
 
 " key mappings for fzf
 nnoremap <c-p> :GFiles<CR>
+nnoremap <leader>p :Files<CR>
+
 "search for word under cursor
 nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR> 
 "search for whole word with punc
@@ -208,6 +210,18 @@ nnoremap <silent> <Leader>b :call fzf#run({
 \   'options': '+m',
 \   'down':    len(<sid>buflist()) + 2
 \ })<CR>
+
+"" Remove all text except what matches the current search result
+"" The opposite of :%s///g (which clears all instances of the current search).
+function! ClearAllButMatches()
+    let old = @c
+    let @c=""
+    %s//\=setreg('C', submatch(0), 'l')/g
+    %d _
+    put c
+    0d _
+    let @c = old
+endfunction
 
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
