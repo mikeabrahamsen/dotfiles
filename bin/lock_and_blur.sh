@@ -5,7 +5,7 @@ tmpbg='/tmp/screen.png'
 
 VALUE="60" #brightness value to compare to
 
-scrot "$tmpbg"
+scrot -o "$tmpbg"
 
 COLOR=$(convert "$tmpbg" -gravity center -crop 100x100+0+0 +repage -colorspace hsb \
     -resize 1x1 txt:- | awk -F '[%$]' 'NR==2{gsub(",",""); printf "%.0f\n", $(NF-1)}');
