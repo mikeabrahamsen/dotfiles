@@ -30,8 +30,8 @@ notify-osd
 
 
 # laptop
-xorg-xbacklight
 acpi
+acpilight
 sysstat
 tlp
 tpacpi-bat # aur tp battery thresholds
