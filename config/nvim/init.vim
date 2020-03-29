@@ -140,25 +140,25 @@ nnoremap Q <nop>
 cmap w!! w !sudo tee % >/dev/null
 
 " turn on deoplete
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#clang#libclang_path = "/usr/lib/libclang.so"
-let g:deoplete#sources#clang#clang_header = "/usr/bin/"
+" let g:deoplete#enable_at_startup = 1
+" let g:deoplete#sources#clang#libclang_path = "/usr/lib/libclang.so"
+" let g:deoplete#sources#clang#clang_header = "/usr/bin/"
 
 " remove the preview window
-set completeopt-=preview
+"set completeopt-=preview
 
 
 " ultinsnips config
-let g:UltiSnipsExpandTrigger = '<tab>'
-let g:UltiSnipsJumpForwardTrigger = '<tab>'
-let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
-let g:UltiSnipsListSnippets = '<C-l>'
-let g:ultisnips_python_style = 'sphinx'
+" let g:UltiSnipsExpandTrigger = '<tab>'
+" let g:UltiSnipsJumpForwardTrigger = '<tab>'
+" let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+" let g:UltiSnipsListSnippets = '<C-l>'
+" let g:ultisnips_python_style = 'sphinx'
 
 " syntastic config
-let g:syntastic_check_on_wq = 0
-let g:syntastic_php_checkers=['php', 'phpcs']
-let g:syntastic_php_phpcs_args='--standard=PSR2 -n'
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_php_checkers=['php', 'phpcs']
+" let g:syntastic_php_phpcs_args='--standard=PSR2 -n'
 
 " instant markdown config
 let g:instant_markdown_autostart = 1
@@ -171,9 +171,6 @@ autocmd MyAutoCmd FileType help,quickrun
       \ nnoremap <silent> <buffer> <esc><esc> :q<cr>|
       \ endif
 autocmd MyAutoCmd FileType qf nnoremap <silent> <buffer> q :q<CR>
-
-" Laravel framework commons
-nmap <leader>lr :e routes/web.php<cr>
 
 " Terminal
 :au BufEnter * if &buftype == 'terminal' | :startinsert | endif
@@ -226,7 +223,7 @@ endfunction
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=tern#Complete
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+"autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
