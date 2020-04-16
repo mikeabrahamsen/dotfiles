@@ -5,7 +5,7 @@ if test -f "$filename"; then
 else
     touch $filename
     echo "---" >> $filename
-    echo "Title: Developer Journal: $(date +%d" "%b" "20%y)" >> $filename
+    echo "Title: Developer Journal: $(date +%d" "%B" "20%y)" >> $filename
     echo "Tags: developer journal" >> $filename
     echo "Author: Michael Abrahamsen" >> $filename
     echo "---" >> $filename
