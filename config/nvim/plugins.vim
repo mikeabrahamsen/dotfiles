@@ -6,7 +6,6 @@ Plug 'tpope/vim-repeat'
 "Plug 'SirVer/ultisnips'
 Plug 'nvie/vim-flake8'
 Plug 'hynek/vim-python-pep8-indent'
-Plug 'suan/vim-instant-markdown'
 
 " auto complete
 Plug 'davidhalter/jedi-vim'
@@ -20,11 +19,6 @@ Plug 'davidhalter/jedi-vim'
 
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-
-" vue
-Plug 'posva/vim-vue'
-
-Plug 'suan/vim-instant-markdown'
 
 " C++
 Plug 'octol/vim-cpp-enhanced-highlight'

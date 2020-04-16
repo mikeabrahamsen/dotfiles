@@ -160,10 +160,6 @@ cmap w!! w !sudo tee % >/dev/null
 " let g:syntastic_php_checkers=['php', 'phpcs']
 " let g:syntastic_php_phpcs_args='--standard=PSR2 -n'
 
-" instant markdown config
-let g:instant_markdown_autostart = 1
-
-
 " exit pages with q even when :q wanted
 autocmd MyAutoCmd FileType help,quickrun
       \ if (!&modifiable || &ft==#'quickrun') |
