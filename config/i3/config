@@ -1,4 +1,3 @@
-
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -159,14 +158,11 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 
 bindsym Print exec scrot -e 'mv $f ~/screenshots/ 2>/dev/null'
-bindsym --release Shift+Print exec scrot -s '%Y-%m-%d-%H%M%S_$wx$h_scrot.png' -e 'mv $f ~/screenshots/'
+bindsym --release Shift+Print exec scrot -s '%Y-%m-%d-%H%M%S_$wx$h.png' -e 'convert $f -trim +repage $f && mv $f ~/screenshots/'
+bindsym --release $mod+Print exec scrot -s '%Y-%m-%d-%H%M%S_$wx$h.png' -e 'convert $f -trim +repage $f && mv $f ~/code/michaelabrahamsen.com/content/images/dev-journal/'
 
 # program assignments
-assign [class="Chromium"] 3
 assign [class="Slack"] 4
-
-
-
 
 # key remaps
 exec --no-startup-id setxkbmap dvorak
