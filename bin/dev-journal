@@ -4,6 +4,7 @@ if [ -z "$1" ]; then
     DATE=$(date +20%y-%m-%d)
 else
     DATE=$(date -d "+$1 days" +20%y-%m-%d)
+    TITLEDATE=$(date -d "+$1 days" +%d" "%B" "20%y)
 fi
 # use a command line argument to change the date
 filename=$HOME/code/michaelabrahamsen.com/content/posts/dev-journal/$DATE-developer-journal.md
@@ -12,7 +13,7 @@ if test -f "$filename"; then
 else
     touch $filename
     echo "---" >> $filename
-    echo "Title: Developer Journal: $(date +%d" "%B" "20%y)" >> $filename
+    echo "Title: Developer Journal: $TITLEDATE" >> $filename
     echo "Tags: developer journal" >> $filename
     echo "Author: Michael Abrahamsen" >> $filename
     echo "---" >> $filename
