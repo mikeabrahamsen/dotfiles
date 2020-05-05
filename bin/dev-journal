@@ -2,6 +2,7 @@
 
 if [ -z "$1" ]; then
     DATE=$(date +20%y-%m-%d)
+    TITLEDATE=$(date +%d" "%B" "20%y)
 else
     DATE=$(date -d "+$1 days" +20%y-%m-%d)
     TITLEDATE=$(date -d "+$1 days" +%d" "%B" "20%y)
