@@ -77,7 +77,7 @@ set wildignore+=*/vendor/**
 set wildignore+=*/node_modules/**
 
 " make text over 79 characters red
-highlight OverLength ctermfg=red
+highlight OverLength ctermfg=blue
 match OverLength /\%80v.\+/
 
 " set the fileformat to unix for python and c files
