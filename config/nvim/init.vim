@@ -139,6 +139,10 @@ nnoremap Q <nop>
 " to save even when I forget to use sudo
 cmap w!! w !sudo tee % >/dev/null
 
+
+" jedi config
+let g:jedi#popup_on_dot = 1
+
 " turn on deoplete
 " let g:deoplete#enable_at_startup = 1
 " let g:deoplete#sources#clang#libclang_path = "/usr/lib/libclang.so"
