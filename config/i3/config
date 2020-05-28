@@ -159,7 +159,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 
 bindsym Print exec scrot -e 'mv $f ~/screenshots/ 2>/dev/null'
 bindsym --release Shift+Print exec scrot -s '%Y-%m-%d-%H%M%S_$wx$h.png' -e 'convert $f -trim +repage $f && mv $f ~/screenshots/'
-bindsym --release $mod+Print exec scrot -s '%Y-%m-%d-%H%M%S_$wx$h.png' -e 'convert $f -trim +repage $f && mv $f ~/code/michaelabrahamsen.com/content/images/dev-journal/ && echo -n "{static}/images/dev-journal/$f" | xclip'
+bindsym --release $mod+Print exec scrot -s '%Y-%m-%d-%H%M%S_$wx$h.png' -e 'convert $f -trim +repage $f && mv $f ~/code/michaelabrahamsen.com/content/images/dev-journal/ && echo -n "![$f]({static}/images/dev-journal/$f)" | xclip'
 
 # program assignments
 assign [class="Slack"] 4
