@@ -1,0 +1,5 @@
+#!/bin/bash
+
+d=`date -d "1 day ago" '+%A %d %B %Y %T %Z'`
+GIT_COMMITTER_DATE="$d" git commit --amend --no-edit --date "$d"
+echo $GIT_COMMITER_DATE
