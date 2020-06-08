@@ -1,8 +1,8 @@
 #!/bin/bash
 if [ -z "$1" ]; then
-    DATE=`date -d "+$1 days" '+%A %d %B %Y %T %Z'`
-else
     DATE=`date -d "1 day ago" '+%A %d %B %Y %T %Z'`
+else
+    DATE=`date -d "+$1 days" '+%A %d %B %Y %T %Z'`
 fi
 
 GIT_COMMITTER_DATE="$DATE" git commit --amend --no-edit --date "$DATE"
