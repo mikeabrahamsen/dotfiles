@@ -13,3 +13,5 @@
 	whitespace = nowarn
 [merge]
 	external = /home/ma/.bin/diff.sh
+[pull]
+	ff = only
