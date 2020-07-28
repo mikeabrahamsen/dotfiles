@@ -16,6 +16,8 @@ augroup END
 
 " toggle spellcheck
 nmap <silent> <leader>s :set spell!<CR>
+nmap <silent> <leader>S :GrammarousCheck --preview<CR>
+
 
 " ctrl-jklm  changes to that split
 nnoremap <c-j> <c-w>j

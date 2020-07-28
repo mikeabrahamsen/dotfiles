@@ -147,7 +147,7 @@ bindsym $mod+Shift+i mode $keyboardMode
 # desktop
 bar {
     status_command i3blocks -c ~/.config/i3/i3blocks.conf
-    font pango:DejaVu Sans Mono, Icons 14
+    font pango:DejaVu Sans Mono, Icons 12
 }
 
 bindsym XF86AudioMute exec --no-startup-id "amixer -q sset Master 0%"

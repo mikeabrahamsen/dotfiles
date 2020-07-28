@@ -22,4 +22,8 @@ Plug 'junegunn/fzf.vim'
 
 " C++
 Plug 'octol/vim-cpp-enhanced-highlight'
+
+
+" Writing tools
+Plug 'rhysd/vim-grammarous'
 call plug#end()
