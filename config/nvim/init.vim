@@ -87,6 +87,8 @@ match OverLength /\%80v.\+/
 au BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix
 
 " markdown
+let g:markdown_fenced_languages = ['html', 'py=python', 'bash=sh']
+let g:markdown_syntax_conceal = 0
 autocmd BufNewFile,BufRead *.{md,mkd,mark,markdown} set ft=markdown
 au BufRead,BufNewFile *.{md,mark,markdown} setlocal textwidth=80
 
