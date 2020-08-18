@@ -9,8 +9,8 @@ URxvt.iso14755: False
 URxvt*font:             xft:DejaVu Sans Mono:pixelsize=17:antialias=false
 URxvt.boldFont:         xft:DejaVu Sans Mono:pixelsize=17:antialias=false
 
-! disable perl extensions
-URxvt.perl-ext:
+! perl extensions
+URxvt.perl-ext: default,matcher,resize-font
 URxvt.perl-ext-common:
  
 ! ! Tomorrow Night

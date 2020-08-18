@@ -54,6 +54,7 @@ dragon-drag-and-drop-git
 i3lock-color-git
 entr
 gitflow-avh
+urxvt-resize-font-git
 
 # pip requirements for vim
 jedi
