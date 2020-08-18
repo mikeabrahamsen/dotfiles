@@ -46,7 +46,7 @@ set softtabstop=4           " use the appropriate number of spaces when tabbing
 set shiftround              " use multiple of shiftwidth when indenting with '<' and '>'
 set autoindent              " auto indent
 set list                    " show unprinted characters
-set listchars=tab:>.,trail:.,extends:#,nbsp:.
+set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
 set noshowmode              " don't show mode
 set hlsearch incsearch smartcase ignorecase "searching preferences,highlight,search as you type
 set showmatch               " show matching paratheses
@@ -62,9 +62,13 @@ set splitright
 set splitbelow
 set showcmd
 
+" Always show at least one line above/below the cursor.
+set scrolloff=1
+" Always show at least one line left/right of the cursor.
+set sidescrolloff=5
 
-" toggle paste mode
-noremap <silent> <Leader>1 :set paste!<cr>:set paste?<CR>
+" Relative line numbers
+set number relativenumber
 
 " Auto complete setting
 set completeopt=longest,menuone
@@ -87,7 +91,7 @@ match OverLength /\%80v.\+/
 au BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix
 
 " markdown
-let g:markdown_fenced_languages = ['html', 'py=python', 'bash=sh']
+let g:markdown_fenced_languages = ['html', 'py=python', 'sh']
 let g:markdown_syntax_conceal = 0
 autocmd BufNewFile,BufRead *.{md,mkd,mark,markdown} set ft=markdown
 au BufRead,BufNewFile *.{md,mark,markdown} setlocal textwidth=80
@@ -149,18 +153,16 @@ cmap w!! w !sudo tee % >/dev/null
 let g:jedi#popup_on_dot = 1
 " disable autocompletion, cause we use deoplete for completion
 let g:jedi#completions_enabled = 0
-" open the go-to function in split, not another buffer
-let g:jedi#use_splits_not_buffers = "right"
+
+" close the scratch window when you leave
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " turn on deoplete
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#jedi#enable_short_types = 1
 " let g:deoplete#disable_auto_complete = 1
 " let g:deoplete#sources#clang#libclang_path = "/usr/lib/libclang.so"
 " let g:deoplete#sources#clang#clang_header = "/usr/bin/"
-
-" remove the preview window
-"set completeopt-=preview
 
 " exit pages with q even when :q wanted
 autocmd MyAutoCmd FileType help,quickrun
@@ -221,7 +223,7 @@ endfunction
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=tern#Complete
-"autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2

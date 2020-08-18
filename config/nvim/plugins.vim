@@ -12,11 +12,10 @@ Plug 'hynek/vim-python-pep8-indent'
 Plug 'davidhalter/jedi-vim'
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'deoplete-plugins/deoplete-jedi'
 
 " Language specific auto complete
 "Plug 'zchee/deoplete-clang' "c and c++
-"Plug 'zchee/deoplete-jedi'  "python
+Plug 'deoplete-plugins/deoplete-jedi'
 
 
 Plug 'junegunn/fzf'
