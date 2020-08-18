@@ -39,3 +39,13 @@ function gni() {
     local repo_url=`git remote get-url origin | sed -e 's/git@//' -e 's/.git//' -e 's/:/\//'`
     xdg-open "https://$repo_url/issues/new?title=${1:-}"
 }
+
+# very simple backup function
+function make-bak () {
+  for file in "$@"; do
+    newname=${file}.$(date +%Y%m%d.%H%M.bak)
+    mv $file $newname
+    cp -p -R $newname $file
+    echo "$file backed up to $newname"
+  done
+}
