@@ -77,14 +77,16 @@ set wildignore+=*.so,*.swp,*.zip
 set wildignore+=*.pyc,*.pyo
 set wildignore+=*/vendor/**
 set wildignore+=*/node_modules/**
+set wildignore+=*/venv/**
 
-" make text over 79 characters red
+" make text over 79 characters blue
 highlight OverLength ctermfg=blue
 match OverLength /\%80v.\+/
 
 " set the fileformat to unix for python and c files
 au BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix
 
+" markdown
 autocmd BufNewFile,BufRead *.{md,mkd,mark,markdown} set ft=markdown
 au BufRead,BufNewFile *.{md,mark,markdown} setlocal textwidth=80
 
@@ -141,30 +143,22 @@ nnoremap Q <nop>
 " to save even when I forget to use sudo
 cmap w!! w !sudo tee % >/dev/null
 
-
 " jedi config
 let g:jedi#popup_on_dot = 1
+" disable autocompletion, cause we use deoplete for completion
+let g:jedi#completions_enabled = 0
+" open the go-to function in split, not another buffer
+let g:jedi#use_splits_not_buffers = "right"
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " turn on deoplete
-" let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1
+" let g:deoplete#disable_auto_complete = 1
 " let g:deoplete#sources#clang#libclang_path = "/usr/lib/libclang.so"
 " let g:deoplete#sources#clang#clang_header = "/usr/bin/"
 
 " remove the preview window
 "set completeopt-=preview
-
-
-" ultinsnips config
-" let g:UltiSnipsExpandTrigger = '<tab>'
-" let g:UltiSnipsJumpForwardTrigger = '<tab>'
-" let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
-" let g:UltiSnipsListSnippets = '<C-l>'
-" let g:ultisnips_python_style = 'sphinx'
-
-" syntastic config
-" let g:syntastic_check_on_wq = 0
-" let g:syntastic_php_checkers=['php', 'phpcs']
-" let g:syntastic_php_phpcs_args='--standard=PSR2 -n'
 
 " exit pages with q even when :q wanted
 autocmd MyAutoCmd FileType help,quickrun
