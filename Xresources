@@ -1,3 +1,5 @@
+Xft.dpi: 120
+
 URxvt*loginShell: true
 URxvt*geometry:                    80x25
 URxvt*borderLess:                false
@@ -6,8 +8,8 @@ URxvt*cursorBlink: true
 URxvt*cursorUnderline: true
 URxvt.iso14755: False
 
-URxvt*font:             xft:DejaVu Sans Mono:pixelsize=17:antialias=false
-URxvt.boldFont:         xft:DejaVu Sans Mono:pixelsize=17:antialias=false
+URxvt*font:             xft:DejaVu Sans Mono:size=17:antialias=true
+URxvt.boldFont:         xft:DejaVu Sans Mono:size=17:antialias=true
 
 ! perl extensions
 URxvt.perl-ext: default,matcher,resize-font
