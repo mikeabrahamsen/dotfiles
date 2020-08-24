@@ -19,6 +19,7 @@ task :install do
   files << "config/redshift-scheduler/rules.conf"
   files << "config/nvim"
   files << "config/spotify/Users/mikeabrahamsen-user/prefs"
+  files << "config/brave-flags.conf"
   files.each do |file|
     system %Q{mkdir -p "$HOME/.#{File.dirname(file)}"} if file =~ /\//
     if File.exist?(File.join(ENV['HOME'], ".#{file.sub(/\.erb$/, '')}"))
