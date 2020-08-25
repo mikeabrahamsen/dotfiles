@@ -17,6 +17,7 @@ else
     echo "Title: Developer Journal: $TITLEDATE" >> $filename
     echo "Tags: developer journal" >> $filename
     echo "Author: Michael Abrahamsen" >> $filename
+    echo "Status: Draft" >> $filename
     echo "---" >> $filename
 fi
 nvim $filename
