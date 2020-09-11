@@ -3,7 +3,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'jiangmiao/auto-pairs'
+"Plug 'jiangmiao/auto-pairs'
 "Plug 'SirVer/ultisnips'
 Plug 'nvie/vim-flake8'
 Plug 'hynek/vim-python-pep8-indent'
