@@ -67,9 +67,6 @@ set scrolloff=1
 " Always show at least one line left/right of the cursor.
 set sidescrolloff=5
 
-" Relative line numbers
-set number relativenumber
-
 " Auto complete setting
 set completeopt=longest,menuone
 
