@@ -1,20 +1,29 @@
 #! /bin/zsh
 
-if [ -z "$1" ]; then
-    DATE=$(date +20%y-%m-%d)
-    TITLEDATE=$(date +%d" "%B" "20%y)
-else
-    DATE=$(date -d "+$1 days" +20%y-%m-%d)
-    TITLEDATE=$(date -d "+$1 days" +%d" "%B" "20%y)
-fi
-# use a command line argument to change the date
-filename=$HOME/code/michaelabrahamsen.com/content/posts/dev-journal/$DATE-developer-journal.md
+DATE=$(date +20%y-%m-%d)
+TITLEDATE=$(date +%d" "%B" "20%y)
+
+while getopts "dn:" opt; do
+    case ${opt} in
+        d ) # process option date -1, 1 for back or forward a day
+            DATE=$(date -d "+$1 days" +20%y-%m-%d)
+            TITLEDATE=$(date -d "+$1 days" +%d" "%B" "20%y)
+            ;;
+        n ) # process option name
+            print "found name arg $OPTARG"
+            NAME="$OPTARG"
+            ;;
+    esac
+done
+
+filename=$HOME/code/michaelabrahamsen.com/content/posts/$DATE-$NAME.md
+
 if test -f "$filename"; then
     echo "Entry exists - opening file"
 else
     touch $filename
     echo "---" >> $filename
-    echo "Title: Developer Journal: $TITLEDATE" >> $filename
+    echo "Title: $NAME: $TITLEDATE" >> $filename
     echo "Tags: developer journal" >> $filename
     echo "Author: Michael Abrahamsen" >> $filename
     echo "Status: Draft" >> $filename
