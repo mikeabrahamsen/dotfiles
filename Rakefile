@@ -18,6 +18,7 @@ task :install do
   files << "config/ranger/scope.sh"
   files << "config/redshift-scheduler/rules.conf"
   files << "config/nvim"
+  files << "config/flake8"
   files << "config/spotify/Users/mikeabrahamsen-user/prefs"
   files << "config/brave-flags.conf"
   files.each do |file|

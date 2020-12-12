@@ -57,7 +57,7 @@ set ruler                   " show cursor position
 set cursorline              " highlight the line the cursor is on
 set nostartofline           " preserve cursor location when paging
 set ls=2                    " always show status line
-set colorcolumn=80          " add line at column 80
+set colorcolumn=88          " add line at column 88
 set splitright
 set splitbelow
 set showcmd
@@ -80,9 +80,9 @@ set wildignore+=*/vendor/**
 set wildignore+=*/node_modules/**
 set wildignore+=*/venv/**
 
-" make text over 79 characters blue
-highlight OverLength ctermfg=blue
-match OverLength /\%80v.\+/
+" make text over 88 characters blue
+highlight OverLength ctermfg=red
+match OverLength /\%88v.\+/
 
 " set the fileformat to unix for python and c files
 au BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix
@@ -91,7 +91,7 @@ au BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix
 let g:markdown_fenced_languages = ['html', 'py=python', 'sh']
 let g:markdown_syntax_conceal = 0
 autocmd BufNewFile,BufRead *.{md,mkd,mark,markdown} set ft=markdown
-au BufRead,BufNewFile *.{md,mark,markdown} setlocal textwidth=80
+au BufRead,BufNewFile *.{md,mark,markdown} setlocal textwidth=88
 
 " remap variations of j and k to use to esc
 inoremap jj <Esc>
@@ -149,7 +149,7 @@ cmap w!! w !sudo tee % >/dev/null
 " jedi config
 let g:jedi#popup_on_dot = 1
 " disable autocompletion, cause we use deoplete for completion
-let g:jedi#completions_enabled = 0
+let g:jedi#completions_enabled = 1
 
 " close the scratch window when you leave
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif

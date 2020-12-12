@@ -7,6 +7,7 @@ Plug 'tpope/vim-repeat'
 "Plug 'SirVer/ultisnips'
 Plug 'nvie/vim-flake8'
 Plug 'hynek/vim-python-pep8-indent'
+Plug 'psf/black', { 'branch': 'stable' }
 
 " auto complete
 Plug 'davidhalter/jedi-vim'
