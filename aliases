@@ -9,6 +9,9 @@ alias sudo="nocorrect sudo"
 alias c='cd ~/code'
 alias dj='cd ~/code/michaelabrahamsen.com'
 
+# python
+alias venv="python -m venv venv; source venv/bin/activate; python -m pip install --upgrade pip;"
+
 # git
 alias gl="git log --graph --pretty=oneline --abbrev-commit"
 alias ga='git add'
