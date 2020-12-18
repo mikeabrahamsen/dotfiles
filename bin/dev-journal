@@ -11,12 +11,13 @@ while getopts "dn:" opt; do
             ;;
         n ) # process option name
             print "found name arg $OPTARG"
+            FILENAME=$(echo "$OPTARG" | tr ' ' "-")
             NAME="$OPTARG"
             ;;
     esac
 done
 
-filename=$HOME/code/michaelabrahamsen.com/content/posts/$DATE-$NAME.md
+filename=$HOME/code/michaelabrahamsen.com/content/posts/$DATE-$FILENAME.md
 
 if test -f "$filename"; then
     echo "Entry exists - opening file"
