@@ -9,7 +9,7 @@ source $ZSH/git_prompt.zsh
 source $ZSH/completion.zsh
 source $ZSH/history.zsh
 source $ZSH/git_flow_completion.zsh
-source $ZSH/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/
 
 [ -d ~/.bin ] && export PATH=~/.bin:$PATH
 

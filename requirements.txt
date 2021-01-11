@@ -14,19 +14,20 @@ keychain
 
 # install with x display 
 xorg-server
-xorg-server-utils
 xorg-xinit
 i3-wm
 i3status
 i3lock # or i3lock-color-git
+i3blocks
 dmenu
-chromium
 redshift
 feh
 w3m
-alsa-utils
 xautolock
 notify-osd
+
+# zsh plugins
+zsh-autosuggestions
 
 
 # laptop
@@ -40,12 +41,6 @@ tpacpi-bat # aur tp battery thresholds
 ttf-dejavu
 ttf-droid
 ttf-croscore
-
-
-
-# optional
-i7z
-keepassx2
 
 # aur
 dropbox
