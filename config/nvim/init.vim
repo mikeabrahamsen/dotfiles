@@ -116,6 +116,8 @@ nnoremap <leader>p :Files<CR>
 
 "search for word under cursor
 nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR> 
+autocmd FileType python map <leader>py :exec '!python3 pysource <C-R><C-A>'<CR>
+
 "search for whole word with punc
 nnoremap <silent> <Leader>AG :Ag <C-R><C-A><CR> 
 
@@ -148,15 +150,14 @@ cmap w!! w !sudo tee % >/dev/null
 
 " jedi config
 let g:jedi#popup_on_dot = 1
-" disable autocompletion, cause we use deoplete for completion
 let g:jedi#completions_enabled = 1
 
 " close the scratch window when you leave
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " turn on deoplete
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#jedi#enable_short_types = 1
+" let g:deoplete#enable_at_startup = 1
+" let g:deoplete#sources#jedi#enable_short_types = 1
 " let g:deoplete#disable_auto_complete = 1
 " let g:deoplete#sources#clang#libclang_path = "/usr/lib/libclang.so"
 " let g:deoplete#sources#clang#clang_header = "/usr/bin/"
