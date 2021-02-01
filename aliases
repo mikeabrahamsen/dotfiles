@@ -29,6 +29,7 @@ alias vim='nvim'
 
 # always run docker with sudo 
 alias docker='sudo docker'
+alias k=kubectl
 
 # Open the github pull request page for current branch
 function gpr() {
