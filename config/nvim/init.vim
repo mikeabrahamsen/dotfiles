@@ -52,7 +52,7 @@ set hlsearch incsearch smartcase ignorecase "searching preferences,highlight,sea
 set showmatch               " show matching paratheses
 set backspace=indent,eol,start " backspace over anything
 set hidden                  " allow hidden buffers
-set clipboard=unnamedplus   " easy copying
+set clipboard^=unnamed,unnamedplus
 set ruler                   " show cursor position
 set cursorline              " highlight the line the cursor is on
 set nostartofline           " preserve cursor location when paging
