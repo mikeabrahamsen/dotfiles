@@ -11,6 +11,7 @@ htop
 zsh
 rake
 keychain
+xclip
 
 # install with x display 
 xorg-server
