@@ -15,3 +15,5 @@
 	external = /home/ma/.bin/diff.sh
 [pull]
 	ff = only
+[init]
+	defaultBranch = main
