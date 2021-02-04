@@ -1,5 +1,6 @@
 #! /bin/bash
 
 setxkbmap dvorak
-xmodmap ~/.xmodmaprc
+setxkbmap -option 'caps:ctrl_modifier'
+xcape -e 'Caps_Lock=Escape'
 xset -b
