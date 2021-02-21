@@ -148,19 +148,13 @@ nnoremap Q <nop>
 " to save even when I forget to use sudo
 cmap w!! w !sudo tee % >/dev/null
 
-" jedi config
-let g:jedi#popup_on_dot = 1
-let g:jedi#completions_enabled = 1
+let g:ale_linters = {
+    \ 'python': ['flake8'],
+    \ 'vim': ['vint'],
+\}
 
 " close the scratch window when you leave
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-
-" turn on deoplete
-" let g:deoplete#enable_at_startup = 1
-" let g:deoplete#sources#jedi#enable_short_types = 1
-" let g:deoplete#disable_auto_complete = 1
-" let g:deoplete#sources#clang#libclang_path = "/usr/lib/libclang.so"
-" let g:deoplete#sources#clang#clang_header = "/usr/bin/"
 
 " exit pages with q even when :q wanted
 autocmd MyAutoCmd FileType help,quickrun
@@ -221,7 +215,6 @@ endfunction
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=tern#Complete
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2

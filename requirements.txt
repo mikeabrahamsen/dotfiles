@@ -54,5 +54,4 @@ urxvt-resize-font-git
 xcape-git
 
 # pip requirements for vim
-jedi
 flake8
