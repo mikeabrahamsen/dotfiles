@@ -16,7 +16,8 @@ Plug 'davidhalter/jedi-vim'
 
 " Language specific auto complete
 "Plug 'zchee/deoplete-clang' "c and c++
-"Plug 'deoplete-plugins/deoplete-jedi'
+Plug 'deoplete-plugins/deoplete-jedi'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 
 Plug 'junegunn/fzf'

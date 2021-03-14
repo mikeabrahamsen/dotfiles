@@ -87,6 +87,10 @@ match OverLength /\%88v.\+/
 " set the fileformat to unix for python and c files
 au BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix
 
+" jedi
+let g:jedi#popup_on_dot = 1
+let g:deoplete#enable_at_startup = 1
+
 " markdown
 let g:markdown_fenced_languages = ['html', 'py=python', 'sh']
 let g:markdown_syntax_conceal = 0
