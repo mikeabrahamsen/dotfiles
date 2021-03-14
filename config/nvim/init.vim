@@ -148,14 +148,8 @@ nnoremap <CR> :noh<CR><CR>
 "unmap Q, typo causes bad results
 nnoremap Q <nop>
 
-
 " to save even when I forget to use sudo
 cmap w!! w !sudo tee % >/dev/null
-
-let g:ale_linters = {
-    \ 'python': ['flake8'],
-    \ 'vim': ['vint'],
-\}
 
 " close the scratch window when you leave
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
@@ -223,3 +217,16 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 autocmd FileType vue setlocal shiftwidth=2 tabstop=2
+
+" PLUGIN SETTINGS
+"
+let g:ale_linters = {
+    \ 'python': ['flake8'],
+    \ 'vim': ['vint'],
+\}
+
+" ISort settings
+" Select python imports and press Ctrl+i to sort them
+let g:vim_isort_map = '<C-i>'
+let g:vim_isort_config_overrides = {
+  \ 'profile': 'black', 'multi_line_output': 3}
