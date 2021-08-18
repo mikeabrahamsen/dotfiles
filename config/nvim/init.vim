@@ -1,7 +1,7 @@
 " source the vim plugins file
 so ~/.config/nvim/plugins.vim
 
-let mapleader=","             " change the leader to be a comma vs slash
+let mapleader=" "             " change the leader to be a comma vs slash
 
 " Reload Vimrc
 map <silent> <leader>V :source ~/.config/nvim/init.vim<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
@@ -56,15 +56,16 @@ set clipboard^=unnamed,unnamedplus
 set ruler                   " show cursor position
 set cursorline              " highlight the line the cursor is on
 set nostartofline           " preserve cursor location when paging
-set ls=2                    " always show status line
+"set ls=2                    " always show status line
 set colorcolumn=88          " add line at column 88
 set splitright
 set splitbelow
 set showcmd
+set relativenumber
 
-" Always show at least one line above/below the cursor.
-set scrolloff=1
-" Always show at least one line left/right of the cursor.
+" Always show at least x lines above/below the cursor.
+set scrolloff=8
+" Always show at least x lines left/right of the cursor.
 set sidescrolloff=5
 
 " Auto complete setting
