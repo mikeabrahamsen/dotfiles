@@ -158,6 +158,7 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 
 bindsym Print exec scrot -e 'mv $f ~/screenshots/ 2>/dev/null'
+bindsym --release $mod+Shift+Print exec scrot -s '%Y-%m-%d-%H%M%S.png' -e 'convert $f +repage $f && mv $f ~/screenshots/ && echo -n "~/screenshots/$f" | xclip'
 bindsym --release Shift+Print exec scrot -s '%Y-%m-%d-%H%M%S.png' -e 'convert $f -trim +repage $f && mv $f ~/screenshots/ && echo -n "~/screenshots/$f" | xclip'
 bindsym --release $mod+Print exec scrot -s '%Y-%m-%d-%H%M%S.png' -e 'convert $f -trim +repage $f && mv $f ~/code/michaelabrahamsen.com/content/images/ && echo -n "![$f]({static}/images/$f)" | xclip'
 
