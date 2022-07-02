@@ -1,3 +1,4 @@
 config/nvim/plugged
 config/nvim/.netrwhist
 *.swp
+bin/tmux-session
