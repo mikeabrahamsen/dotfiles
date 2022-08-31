@@ -6,8 +6,9 @@ alias ls="ls --color=auto"
 alias grep="grep --color=auto"
 alias sudo="nocorrect sudo"
 
-alias c='cd ~/code'
-alias dj='cd ~/code/michaelabrahamsen.com'
+alias c="cd ~/code"
+alias dj="cd ~/code/michaelabrahamsen.com"
+alias r="ranger"
 
 # python
 alias venv="python -m venv venv; source venv/bin/activate; python -m pip install --upgrade pip;"
