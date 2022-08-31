@@ -11,24 +11,24 @@ COLOR=$(convert "$tmpbg" -gravity center -crop 100x100+0+0 +repage -colorspace h
     -resize 1x1 txt:- | awk -F '[%$]' 'NR==2{gsub(",",""); printf "%.0f\n", $(NF-1)}');
 if [ "$COLOR" -gt "$VALUE" ]; then #white background image and black text
     icon="$HOME/dotfiles/images/lock-icon-dark.png"
-    PARAM=(--insidecolor=00000000 --ringcolor=0000003e \
+    PARAM=(--inside-color=00000000 --ring-color=0000003e \
         --clock \
         -timestr="%H:%M:%S"  \
-        --datestr="%A, %m %Y" \
-        --linecolor=00000000 --keyhlcolor=ffffff80 --ringvercolor=ffffff00 \
-        --separatorcolor=22222260 --insidevercolor=ffffff1c \
-        --ringwrongcolor=ffffff55 --insidewrongcolor=ffffff1c)
+        --date-str="%A, %m %Y" \
+        --line-color=00000000 --keyhl-color=ffffff80 --ringver-color=ffffff00 \
+        --separator-color=22222260 --insidever-color=ffffff1c \
+        --ringwrong-color=ffffff55 --insidewrong-color=ffffff1c)
 else #black
     icon="$HOME/dotfiles/images/lock-icon-light.png"
-    PARAM=(--insidecolor=ffffff00 --ringcolor=ffffff3e \
-        --timecolor="#ffffff80" \
-        --datecolor="#ffffff80" \
+    PARAM=(--inside-color=ffffff00 --ring-color=ffffff3e \
+        --time-color="#ffffff80" \
+        --date-color="#ffffff80" \
         --clock \
         -timestr="%H:%M:%S"  \
-        --datestr="%A, %m %Y" \
-        --linecolor=ffffff00 --keyhlcolor=00000080 --ringvercolor=00000000 \
-        --separatorcolor=22222260 --insidevercolor=0000001c \
-        --ringwrongcolor=00000055 --insidewrongcolor=0000001c)
+        --date-str="%A, %m %Y" \
+        --line-color=ffffff00 --keyhl-color=00000080 --ringver-color=00000000 \
+        --separator-color=22222260 --insidever-color=0000001c \
+        --ringwrong-color=00000055 --insidewrong-color=0000001c)
 fi
 
 
