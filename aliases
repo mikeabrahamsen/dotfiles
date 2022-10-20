@@ -9,6 +9,9 @@ alias sudo="nocorrect sudo"
 alias c="cd ~/code"
 alias dj="cd ~/code/michaelabrahamsen.com"
 alias r="ranger"
+alias notes="cd $NOTES"
+alias n="note"
+alias ns="note_search"
 
 # python
 alias venv="python -m venv venv; source venv/bin/activate; python -m pip install --upgrade pip;"
