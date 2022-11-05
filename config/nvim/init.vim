@@ -98,9 +98,6 @@ let g:markdown_syntax_conceal = 0
 autocmd BufNewFile,BufRead *.{md,mkd,mark,markdown} set ft=markdown
 au BufRead,BufNewFile *.{md,mark,markdown} setlocal textwidth=88
 
-" remap variations of j and k to use to esc
-inoremap jj <Esc>
-inoremap jk <esc>
 " remap jj in terminal to go to normal mode
 tnoremap jj <C-\><C-n>
 
@@ -136,13 +133,6 @@ nmap <Left> <C-w>h
 nmap <Down> <C-w>j
 nmap <Up> <C-w>k
 nmap <Right> <C-w>l
-
-
-" Ctrl-c: Inserts line below
-inoremap <c-c> <c-o>o
-" Creating new lines without comment leader
-nmap go o<Esc>S
-nmap gO O<Esc>S
 
 " turn off search highlight by pushing enter
 nnoremap <CR> :noh<CR><CR>
