@@ -15,8 +15,8 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 
 vim.opt.backup = true
-vim.opt.backupdir = "~/tmp"
-vim.opt.directory = "~/tmp"
+vim.opt.backupdir = os.getenv( "HOME" ) .. '/tmp/vim/backup'
+vim.opt.directory = os.getenv( "HOME" ) .. '/tmp/vim/swap'
 
 vim.opt.wrap = false
 vim.opt.hlsearch = false
