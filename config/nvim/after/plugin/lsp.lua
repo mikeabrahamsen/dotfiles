@@ -22,7 +22,18 @@ lsp.configure('sumneko_lua', {
     }
 })
 
-require'lspconfig'.pylsp.setup{}
+lsp.configure('pylsp', {
+  settings = {
+    pylsp = {
+      plugins = {
+        pycodestyle = {
+          ignore = {'W391'},
+          maxLineLength = 100
+       },
+      }
+    }
+  }
+})
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
