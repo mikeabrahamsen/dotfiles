@@ -19,6 +19,7 @@ return require('packer').startup(function(use)
   'VonHeikemen/lsp-zero.nvim',
   requires = {
     -- LSP Support
+    -- Mason is used for lsp packages :help mason.nvim
     {'neovim/nvim-lspconfig'},
     {'williamboman/mason.nvim'},
     {'williamboman/mason-lspconfig.nvim'},
@@ -37,7 +38,7 @@ return require('packer').startup(function(use)
     {'rafamadriz/friendly-snippets'},
   }
 }
-  -- null-ls for black lsp
+  -- null-ls for black lsp linting and formatting
   use "jose-elias-alvarez/null-ls.nvim"
   use "github/copilot.vim"
 

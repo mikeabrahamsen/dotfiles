@@ -3,6 +3,7 @@
 local lsp = require('lsp-zero')
 lsp.preset('recommended')
 
+-- ensure_installed by Mason
 lsp.ensure_installed({
   'tsserver',
   'eslint',
