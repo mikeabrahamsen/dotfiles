@@ -4,7 +4,7 @@ vim.opt.relativenumber = true
 vim.opt.shiftround = true
 vim.opt.autoindent = true
 vim.opt.list = true
-vim.opt.clipboard = "unnamed,unnamedplus"
+vim.opt.clipboard = "unnamedplus"
 vim.opt.startofline = true
 
 vim.opt.tabstop = 4
@@ -17,7 +17,6 @@ vim.opt.smartindent = true
 vim.opt.backup = true
 vim.opt.backupdir = "~/tmp"
 vim.opt.directory = "~/tmp"
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 
 vim.opt.wrap = false
 vim.opt.hlsearch = false
