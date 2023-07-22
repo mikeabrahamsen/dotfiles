@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-icon="$HOME/dotfiles/images/lock-icon-light.png"
+icon="$HOME/code/dotfiles/images/lock-icon-light.png"
 tmpbg='/tmp/screen.png'
 
 VALUE="60" #brightness value to compare to
@@ -10,7 +10,7 @@ scrot -o "$tmpbg"
 COLOR=$(convert "$tmpbg" -gravity center -crop 100x100+0+0 +repage -colorspace hsb \
     -resize 1x1 txt:- | awk -F '[%$]' 'NR==2{gsub(",",""); printf "%.0f\n", $(NF-1)}');
 if [ "$COLOR" -gt "$VALUE" ]; then #white background image and black text
-    icon="$HOME/dotfiles/images/lock-icon-dark.png"
+    icon="$HOME/code/dotfiles/images/lock-icon-dark.png"
     PARAM=(--inside-color=00000000 --ring-color=0000003e \
         --clock \
         -timestr="%H:%M:%S"  \
@@ -19,7 +19,7 @@ if [ "$COLOR" -gt "$VALUE" ]; then #white background image and black text
         --separator-color=22222260 --insidever-color=ffffff1c \
         --ringwrong-color=ffffff55 --insidewrong-color=ffffff1c)
 else #black
-    icon="$HOME/dotfiles/images/lock-icon-light.png"
+    icon="$HOME/code/dotfiles/images/lock-icon-light.png"
     PARAM=(--inside-color=ffffff00 --ring-color=ffffff3e \
         --time-color="#ffffff80" \
         --date-color="#ffffff80" \
