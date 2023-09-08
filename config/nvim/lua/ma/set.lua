@@ -4,7 +4,7 @@ vim.opt.relativenumber = true
 vim.opt.shiftround = true
 vim.opt.autoindent = true
 vim.opt.list = true
-vim.opt.clipboard = "unnamedplus"
+vim.opt.clipboard = "unnamed,unnamedplus"
 vim.opt.startofline = true
 
 vim.opt.tabstop = 4
