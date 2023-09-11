@@ -27,6 +27,11 @@ w3m
 xautolock
 notify-osd
 
+# ranger
+ueberzug # image preview
+ffmpegthumbnailer # video preview
+highlight # syntax highlight
+
 # zsh plugins
 zsh-autosuggestions
 
