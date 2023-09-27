@@ -26,6 +26,7 @@ feh
 w3m
 xautolock
 notify-osd
+dunst
 
 # ranger
 ueberzug # image preview
@@ -35,6 +36,8 @@ highlight # syntax highlight
 # zsh plugins
 zsh-autosuggestions
 
+# vim
+ripgrep
 
 # laptop
 acpi
