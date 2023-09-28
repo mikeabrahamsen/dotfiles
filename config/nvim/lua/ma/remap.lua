@@ -6,6 +6,12 @@ vim.keymap.set("n", "<C-k>", "<c-w>k")
 vim.keymap.set("n", "<c-l>", "<c-w>l")
 vim.keymap.set("n", "<c-h>", "<c-w>h")
 vim.keymap.set("n", "<leader>q", [[:lua ToggleQuickfix()<CR>]])
+vim.keymap.set("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>")
+
+-- Ctrl-b: Go (b)ack. Go to previously buffer
+vim.keymap.set("n", "<c-b>", "<c-^>")
+vim.keymap.set("n", "<leader>w", "<cmd>:bprevious<CR>")
+vim.keymap.set("n", "<leader>v", "<cmd>:bnext<CR>")
 
 function ToggleQuickfix()
   local qf_exists = false
