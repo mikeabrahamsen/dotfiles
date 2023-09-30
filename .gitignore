@@ -2,3 +2,4 @@ config/nvim/plugged
 config/nvim/.netrwhist
 *.swp
 bin/tmux-session
+config/nvim/lazy-lock.json
