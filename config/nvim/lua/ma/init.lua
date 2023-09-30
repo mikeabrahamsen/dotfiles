@@ -11,6 +11,6 @@ vim.g.netrw_winsize = 25
 vim.cmd([[
   augroup TrimWhitespace
     autocmd!
-    autocmd BufWritePre * :%s/\s\+$//e
+    autocmd BufWritePre *.py :%s/\s\+$//e
   augroup END
 ]])
