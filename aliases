@@ -58,3 +58,4 @@ function make-bak () {
     echo "$file backed up to $newname"
   done
 }
+source ~/.aliases_secret
