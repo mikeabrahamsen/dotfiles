@@ -58,6 +58,8 @@ require("lazy").setup({
     -- null-ls for black lsp linting and formatting
     {'jose-elias-alvarez/null-ls.nvim'},
     {'github/copilot.vim'},
+    -- maby use neovim black for async
+    {'psf/black', branch = 'stable' },
 
     -- for fun
     {'eandrju/cellular-automaton.nvim'}
