@@ -9,11 +9,14 @@ URxvt*cursorUnderline: true
 URxvt.iso14755: False
 URxvt.internalBorder: 24
 
-URxvt*font:             xft:DejaVu Sans Mono:size=14:antialias=true,xft:Symbola:size=14:antialias=true
-URxvt.boldFont:         xft:DejaVu Sans Mono:size=14:antialias=true,xft:Symbola
+URxvt*font:             xft:DejaVuSansMNerdFontMono:size=14:antialias=true,xft:Symbola:size=14:antialias=true
+URxvt.boldFont:         xft:DejaVuSansMNerdFontMono-Bold:size=14:antialias=true,xft:Symbola
+
+! URxvt*font:              xft:Monospace:size=14:antialias=true,antialias=true
+! URxvt.boldFont:          xft:Monospace-Bold:size=14:antialias=true
 !
-! URxvt*font:             xft:Symbola:size=13
-! URxvt.boldFont:         xft:SourceCodePro-Black:size=13
+! URxvt*font:             xft:NotoSansMNerdFontMono:size=14:antialias=true,xft:Symbola:size=14:antialias=true
+! URxvt.boldFont:         xft:NotoSansMNerdFontMono-Bold:size=14:antialias=true,xft:Symbola
 
 ! perl extensions
 URxvt.perl-ext: default,resize-font,url-select
