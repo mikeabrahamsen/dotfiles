@@ -46,6 +46,7 @@ require("lazy").setup({
             }
         end
     },
+    {'tpope/vim-fugitive'},
     --{'hrsh7th/nvim-cmp'},
     {'saadparwaiz1/cmp_luasnip'},
     {'hrsh7th/cmp-buffer'},
