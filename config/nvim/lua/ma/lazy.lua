@@ -20,10 +20,8 @@ require("lazy").setup({
     dependencies = { 'nvim-lua/plenary.nvim' }
     },
     -- LSP Support
-    {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
     {'neovim/nvim-lspconfig'},
     {'hrsh7th/cmp-nvim-lsp'},
-    {'hrsh7th/nvim-cmp'},
     {'neovim/nvim-lspconfig'},
     {'williamboman/mason.nvim'},
     {'williamboman/mason-lspconfig.nvim'},
@@ -47,7 +45,6 @@ require("lazy").setup({
         end
     },
     {'tpope/vim-fugitive'},
-    --{'hrsh7th/nvim-cmp'},
     {'saadparwaiz1/cmp_luasnip'},
     {'hrsh7th/cmp-buffer'},
     {'hrsh7th/cmp-path'},
@@ -56,11 +53,7 @@ require("lazy").setup({
         "L3MON4D3/LuaSnip",
         dependencies = { "rafamadriz/friendly-snippets" },
     },
-    -- null-ls for black lsp linting and formatting
-    {'jose-elias-alvarez/null-ls.nvim'},
     {'github/copilot.vim'},
-    -- maby use neovim black for async
-    {'psf/black', branch = 'stable' },
 
     -- for fun
     {'eandrju/cellular-automaton.nvim'}
