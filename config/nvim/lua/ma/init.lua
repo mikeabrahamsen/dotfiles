@@ -11,6 +11,6 @@ vim.g.netrw_winsize = 25
 vim.cmd([[
   augroup TrimWhitespace
     autocmd!
-    autocmd BufWritePre *.py :%s/\s\+$//e
+    autocmd BufWritePre *.py let g:save_cursor = winsaveview() | %s/\s\+$//e | call winrestview(g:save_cursor)
   augroup END
 ]])
