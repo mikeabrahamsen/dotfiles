@@ -176,3 +176,9 @@ exec --no-startup-id xset -b
 exec --no-startup-id redshift-scheduler
 exec --no-startup-id dropbox
 exec --no-startup-id /usr/bin/dunst
+
+exec xautolock -detectsleep -time 1 -locker "~/.bin/lock_and_blur" \
+  -notify 30 \
+  -notifier "notify-send -u critical -t 10000 -- 'Locking screen in 30 seconds'"
+
+exec_always --no-startup-id xss-lock --transfer-sleep-lock -- ~/.bin/lock_and_blur --nofork &
