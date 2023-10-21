@@ -14,4 +14,5 @@
 xrdb -merge ~/.Xresources
 
 # start i3 windows mananger and enable logging
-exec i3 -V >> ~/.i3/i3log 2>&1
+# exec i3 -V >> ~/var/log/i3log 2>&1
+exec i3
