@@ -12,6 +12,7 @@ vim.keymap.set("n", "<leader>fml", "<cmd>CellularAutomaton make_it_rain<CR>")
 vim.keymap.set("n", "<c-b>", "<c-^>")
 vim.keymap.set("n", "<leader>w", "<cmd>:bprevious<CR>")
 vim.keymap.set("n", "<leader>v", "<cmd>:bnext<CR>")
+vim.keymap.set("n", "<CR>", "<cmd>:noh<CR>", { noremap = true })
 
 -- chatgpt
 vim.keymap.set({"n", "v"}, "<leader>ce", "<cmd>ChatGPTEditWithInstruction<CR>")

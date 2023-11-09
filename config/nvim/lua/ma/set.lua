@@ -26,7 +26,7 @@ if vim.fn.has("persistent_undo") == 1 then
 end
 
 vim.opt.wrap = false
-vim.opt.hlsearch = false
+vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
