@@ -35,9 +35,14 @@ highlight # syntax highlight
 
 # zsh plugins
 zsh-autosuggestions
+zsh-syntax-highlighting
 
 # vim
 ripgrep
+
+# pdf
+mupdf
+mupdf-tools
 
 # laptop
 acpi
@@ -48,6 +53,7 @@ tpacpi-bat # aur tp battery thresholds
 
 # fonts
 ttf-dejavu
+ttf-dejavu-nerd
 ttf-droid
 ttf-croscore
 
@@ -60,6 +66,7 @@ entr
 gitflow-avh
 urxvt-resize-font-git
 xcape-git
+zsh-autocomplete-git
 
 # pip requirements for vim
 flake8
