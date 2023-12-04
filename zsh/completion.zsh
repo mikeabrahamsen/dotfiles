@@ -21,4 +21,4 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.cache/zsh
 
-typeset -ga ZSH_AUTOSUGGEST_STRATEGY=(history completion prefix cursor suffix)
+typeset -ga ZSH_AUTOSUGGEST_STRATEGY=(history completion)
