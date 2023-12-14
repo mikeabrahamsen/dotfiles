@@ -162,9 +162,6 @@ bindsym --release $mod+Shift+Print exec scrot -s '%Y-%m-%d-%H%M%S.png' -e 'conve
 bindsym --release Shift+Print exec scrot -s '%Y-%m-%d-%H%M%S.png' -e 'convert $f -trim +repage $f && mv $f ~/screenshots/ && echo -n "~/screenshots/$f" | xclip'
 bindsym --release $mod+Print exec scrot -s '%Y-%m-%d-%H%M%S.png' -e 'convert $f -trim +repage $f && mv $f ~/code/michaelabrahamsen.com/content/images/ && echo -n "![$f]({static}/images/$f)" | xclip'
 
-# program assignments
-assign [class="Slack"] 4
-
 # key remaps
 exec --no-startup-id setxkbmap dvorak
 exec --no-startup-id "sh -c 'sleep 2; ~/.bin/dvorak'"
