@@ -9,8 +9,10 @@ URxvt*cursorUnderline: true
 URxvt.iso14755: False
 URxvt.internalBorder: 24
 
-URxvt*font:             xft:DejaVuSansMNerdFontMono:size=14:antialias=true,xft:Symbola:size=14:antialias=true
-URxvt.boldFont:         xft:DejaVuSansMNerdFontMono-Bold:size=14:antialias=true,xft:Symbola
+! add Symbola as a fallback
+URxvt*font:             xft:DejaVuSansMNerdFontMono:size=12:antialias=true,xft:DejaVuSans:size=12:antialias=true,xft:Symbola:size=12:antialias=true
+URxvt.boldFont:         xft:DejaVuSansMNerdFontMono-Bold:size=12:antialias=true,xft:DejaVuSans:size=12:antialias=true,xft:Symbola:size=12:antialias=true
+
 
 ! URxvt*font:              xft:Monospace:size=14:antialias=true,antialias=true
 ! URxvt.boldFont:          xft:Monospace-Bold:size=14:antialias=true
@@ -26,25 +28,25 @@ URxvt.keysym.M-u: perl:url-select:select_next
 URxvt.url-select.launcher: /usr/bin/xdg-open
 URxvt.url-select.underline: true
  
-! ! Tomorrow Night
- URxvt.foreground:  #c5c8c6
- URxvt.background:  #1d1f21
- URxvt.cursorColor: #aeafad
- URxvt.color0:      #000000
- URxvt.color1:      #912226
- URxvt.color2:      #778900
- URxvt.color3:      #ae7b00
+! Tomorrow Night
+URxvt.foreground:  #c5c8c6
+URxvt.background:  #1d1f21
+URxvt.cursorColor: #aeafad
+URxvt.color0:      #000000
+URxvt.color1:      #912226
+URxvt.color2:      #778900
+URxvt.color3:      #ae7b00
 
- URxvt.color4:      #1d2594
- URxvt.color5:      #682a9b
- URxvt.color6:      #2b6651
+URxvt.color4:      #1d2594
+URxvt.color5:      #682a9b
+URxvt.color6:      #2b6651
 
- URxvt.color7:      #929593
- URxvt.color8:      #666666
- URxvt.color9:      #cc6666
- URxvt.color10:     #b5bd68
- URxvt.color11:     #f0c674
- URxvt.color12:     #81a2be
- URxvt.color13:     #b294bb
- URxvt.color14:     #8abeb7
- URxvt.color15:     #ecebec
+URxvt.color7:      #929593
+URxvt.color8:      #666666
+URxvt.color9:      #cc6666
+URxvt.color10:     #b5bd68
+URxvt.color11:     #f0c674
+URxvt.color12:     #81a2be
+URxvt.color13:     #b294bb
+URxvt.color14:     #8abeb7
+URxvt.color15:     #ecebec

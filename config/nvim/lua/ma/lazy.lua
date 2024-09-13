@@ -15,8 +15,9 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
     {"EdenEast/nightfox.nvim"},
+    {"tpope/vim-obsession"},
     {"mbbill/undotree"},
-    {'nvim-telescope/telescope.nvim', tag = '0.1.4',
+    {'nvim-telescope/telescope.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' }
     },
     -- LSP Support
