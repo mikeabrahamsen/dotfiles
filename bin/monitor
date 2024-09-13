@@ -1,0 +1,4 @@
+#!/bin/bash
+
+detect_displays
+xrandr --output eDP-1 --off
