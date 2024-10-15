@@ -1,4 +1,4 @@
 #!/bin/bash
 
 detect_displays
-xrandr --output DP-1 --off
+xrandr --output DisplayPort-2 --off
