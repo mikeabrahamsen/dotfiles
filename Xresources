@@ -1,4 +1,4 @@
-Xft.dpi: 120
+Xft.dpi: 192
 
 URxvt*loginShell: true
 URxvt*geometry:                    80x25
