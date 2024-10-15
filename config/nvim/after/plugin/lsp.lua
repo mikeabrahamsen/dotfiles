@@ -55,9 +55,6 @@ require'lspconfig'.pylsp.setup{
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
 
--- Add completion source from friendly-snippets
-require("luasnip.loaders.from_vscode").lazy_load()
-
 cmp.setup({
   mapping = cmp.mapping.preset.insert({
       -- `Enter` key to confirm completion
@@ -68,10 +65,6 @@ cmp.setup({
       ['<C-y>'] = cmp.mapping.confirm({ select = true }),
       -- Ctrl+Space to trigger completion menu
       ["<C-Space>"] = cmp.mapping.complete(),
-
-      -- Navigate between snippet placeholder
-      -- ['<C-f>'] = cmp_action.luasnip_jump_forward(),
-      -- ['<C-b>'] = cmp_action.luasnip_jump_backward(),
 
       -- Scroll up and down in the completion documentation
       ['<C-u>'] = cmp.mapping.scroll_docs(-4),
