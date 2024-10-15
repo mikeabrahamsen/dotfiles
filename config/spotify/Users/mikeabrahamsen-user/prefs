@@ -1,3 +1,13 @@
+audio.equalizer.high_mid_peak_gain_v2=402653184
 connect.dial_devices="[]"
 audio.play_bitrate_non_metered_migrated=true
+audio.equalizer_v2=true
+audio.equalizer.low_peak_gain_v2=214748365
+audio.equalizer.low_mid_peak_gain_v2=-384757487
+audio.play_bitrate_enumeration=3
+ui.track_notifications_enabled=false
+audio.equalizer.high_peak_gain_v2=152113425
+audio.play_bitrate_non_metered_enumeration=3
 app.browser.zoom-level=200
+audio.equalizer.high_shelf_gain_v2=858993459
+audio.equalizer.low_shelf_gain_v2=680036488
