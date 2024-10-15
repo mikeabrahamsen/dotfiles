@@ -1,4 +1,3 @@
 ```
-:PackerInstall
 :MasonInstall black
 ```

@@ -23,7 +23,6 @@ require("lazy").setup({
     -- LSP Support
     {'neovim/nvim-lspconfig'},
     {'hrsh7th/cmp-nvim-lsp'},
-    {'neovim/nvim-lspconfig'},
     {'williamboman/mason.nvim'},
     {'williamboman/mason-lspconfig.nvim'},
     -- Autocomplete
@@ -70,5 +69,11 @@ require("lazy").setup({
         "nvim-lua/plenary.nvim",
         "nvim-telescope/telescope.nvim"
         }
+    },
+    -- typescript tools
+    {
+    "pmizio/typescript-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    opts = {},
     }
 })
