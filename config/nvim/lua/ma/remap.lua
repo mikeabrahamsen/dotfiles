@@ -14,6 +14,10 @@ vim.keymap.set("n", "<leader>w", "<cmd>:bprevious<CR>")
 vim.keymap.set("n", "<leader>v", "<cmd>:bnext<CR>")
 vim.keymap.set("n", "<CR>", "<cmd>:noh<CR>", { noremap = true })
 
+-- Keep visual selection when indenting
+vim.keymap.set('x', '>', '>gv')
+vim.keymap.set('x', '<', '<gv')
+
 -- chatgpt
 vim.keymap.set({"n", "v"}, "<leader>ce", "<cmd>ChatGPTEditWithInstruction<CR>")
 vim.keymap.set({"n", "v"}, "<leader>cx", "<cmd>ChatGPTRun explain_code<CR>")

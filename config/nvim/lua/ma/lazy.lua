@@ -18,47 +18,33 @@ require("lazy").setup({
     {"tpope/vim-obsession"},
     {"mbbill/undotree"},
     {'nvim-telescope/telescope.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim' }
+    dependencies = { 
+        'nvim-lua/plenary.nvim', 
+        'mollerhoj/telescope-recent-files.nvim', 
+        },
+    config = function()
+        require("telescope").load_extension("recent-files")
+    end
     },
+
     -- LSP Support
     {'neovim/nvim-lspconfig'},
     {'hrsh7th/cmp-nvim-lsp'},
     {'williamboman/mason.nvim'},
     {'williamboman/mason-lspconfig.nvim'},
     -- Autocomplete
-    {
-        'hrsh7th/nvim-cmp',
-        config = function ()
-            require'cmp'.setup {
-                snippet = {
-                    expand = function(args)
-                        require'luasnip'.lsp_expand(args.body)
-                    end
-                },
-
-                sources = {
-                    {name = 'luasnip'},
-                    {name = 'nvim_lsp'},
-                    -- more sources
-                },
-            }
-        end
-    },
+    {'hrsh7th/nvim-cmp'},
     {'tpope/vim-fugitive'},
-    {'saadparwaiz1/cmp_luasnip'},
     {'hrsh7th/cmp-buffer'},
     {'hrsh7th/cmp-path'},
     {'hrsh7th/cmp-nvim-lua'},
-    {
-        "L3MON4D3/LuaSnip",
-        dependencies = { "rafamadriz/friendly-snippets" },
-    },
-    {'github/copilot.vim'},
-
     -- for fun
     {'eandrju/cellular-automaton.nvim'},
 
-    -- chat gpt
+    -- AI tools
+    {'github/copilot.vim'},
+    {"supermaven-inc/supermaven-nvim"},
+
     {
     "jackMort/ChatGPT.nvim",
         event = "VeryLazy",
