@@ -1,1 +1,1 @@
-vim.opt.shiftwidth = 2
+vim.bo.shiftwidth = 4
