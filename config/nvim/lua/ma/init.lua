@@ -14,8 +14,3 @@ vim.cmd([[
     autocmd BufWritePre *.py let g:save_cursor = winsaveview() | %s/\s\+$//e | call winrestview(g:save_cursor)
   augroup END
 ]])
-
-local home = vim.fn.expand("$HOME")
-require("chatgpt").setup({
-    api_key_cmd = "gpg --decrypt " .. home .. "/.open_ai_key.txt.gpg"
-})

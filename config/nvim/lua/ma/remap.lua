@@ -18,9 +18,6 @@ vim.keymap.set("n", "<CR>", "<cmd>:noh<CR>", { noremap = true })
 vim.keymap.set('x', '>', '>gv')
 vim.keymap.set('x', '<', '<gv')
 
--- chatgpt
-vim.keymap.set({"n", "v"}, "<leader>ce", "<cmd>ChatGPTEditWithInstruction<CR>")
-vim.keymap.set({"n", "v"}, "<leader>cx", "<cmd>ChatGPTRun explain_code<CR>")
 
 function ToggleQuickfix()
   local qf_exists = false

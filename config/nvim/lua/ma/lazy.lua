@@ -15,7 +15,6 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
     {"EdenEast/nightfox.nvim"},
-    {"tpope/vim-obsession"},
     {"mbbill/undotree"},
     {'nvim-telescope/telescope.nvim',
     dependencies = { 
@@ -26,6 +25,12 @@ require("lazy").setup({
         require("telescope").load_extension("recent-files")
     end
     },
+    {
+        "FabijanZulj/blame.nvim",
+        config = function()
+            require('blame').setup {}
+        end,
+    },
 
     -- LSP Support
     {'neovim/nvim-lspconfig'},
@@ -34,7 +39,6 @@ require("lazy").setup({
     {'williamboman/mason-lspconfig.nvim'},
     -- Autocomplete
     {'hrsh7th/nvim-cmp'},
-    {'tpope/vim-fugitive'},
     {'hrsh7th/cmp-buffer'},
     {'hrsh7th/cmp-path'},
     {'hrsh7th/cmp-nvim-lua'},
@@ -42,20 +46,9 @@ require("lazy").setup({
     {'eandrju/cellular-automaton.nvim'},
 
     -- AI tools
-    {'github/copilot.vim'},
+    {'github/copilot.vim', enabled = false},
     {"supermaven-inc/supermaven-nvim"},
 
-    {
-    "jackMort/ChatGPT.nvim",
-        event = "VeryLazy",
-        config = function()
-        end,
-        dependencies = {
-        "MunifTanjim/nui.nvim",
-        "nvim-lua/plenary.nvim",
-        "nvim-telescope/telescope.nvim"
-        }
-    },
     -- typescript tools
     {
     "pmizio/typescript-tools.nvim",
