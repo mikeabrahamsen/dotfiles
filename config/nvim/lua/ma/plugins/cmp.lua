@@ -28,8 +28,8 @@ return {
 
                 -- disable completion with tab
                 -- this helps with copilot setup
-                -- ['<Tab>'] = nil,
-                -- ['<S-Tab>'] = nil,
+                ['<Tab>'] = nil,
+                ['<S-Tab>'] = nil,
             }),
             sources = {
                 { name = "supermaven" },
