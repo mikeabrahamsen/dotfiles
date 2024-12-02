@@ -1,6 +1,6 @@
-function ColorMe(color)
+function SetScheme(color)
 	color = color or "nightfox"
 	vim.cmd.colorscheme(color)
 end
 
-ColorMe()
+SetScheme()
