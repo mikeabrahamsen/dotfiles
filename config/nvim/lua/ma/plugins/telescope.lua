@@ -22,7 +22,6 @@ return {
         local telescope = require('telescope')
         telescope.setup {
             defaults = {
-                prompt_prefix = '  ',
                 sorting_strategy = "ascending",
                 layout_strategy = 'horizontal',
                 layout_config = {
