@@ -1,2 +1,4 @@
 venv
 .worktrees/
+Session.vim
+.python-version

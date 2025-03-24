@@ -9,7 +9,9 @@ M.setup = function ()
       config = {}
     end
 
-    config.on_attach = keymaps.setup
+    config.on_attach = function(_, bufnr)
+      keymaps.setup(bufnr)
+    end
 
     config.capabilities = require('cmp_nvim_lsp').default_capabilities()
 
