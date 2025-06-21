@@ -14,3 +14,9 @@ vim.cmd([[
     autocmd BufWritePre *.py let g:save_cursor = winsaveview() | %s/\s\+$//e | call winrestview(g:save_cursor)
   augroup END
 ]])
+
+vim.diagnostic.config({
+  virtual_text = true,
+  signs = true,
+  underline = true,
+})
