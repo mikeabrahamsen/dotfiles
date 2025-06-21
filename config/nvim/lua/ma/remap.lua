@@ -18,6 +18,9 @@ vim.keymap.set("n", "<CR>", "<cmd>:noh<CR>", { noremap = true })
 vim.keymap.set('x', '>', '>gv')
 vim.keymap.set('x', '<', '<gv')
 
+-- Create new file in current dir
+vim.keymap.set("n", "<leader>en", ":e %:h/")
+
 
 function ToggleQuickfix()
   local qf_exists = false
