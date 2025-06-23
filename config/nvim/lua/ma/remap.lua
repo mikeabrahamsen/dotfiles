@@ -21,6 +21,8 @@ vim.keymap.set('x', '<', '<gv')
 -- Create new file in current dir
 vim.keymap.set("n", "<leader>en", ":e %:h/")
 
+-- Claude Code
+vim.keymap.set('n', '<leader>cc', '<cmd>ClaudeCode<CR>', { desc = 'Toggle Claude Code' })
 
 function ToggleQuickfix()
   local qf_exists = false
