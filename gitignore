@@ -3,4 +3,6 @@ venv
 Session.vim
 .python-version
 CLAUDE.md
+AGENTS.md
+.claude/
 
