@@ -170,7 +170,6 @@ exec --no-startup-id "sh -c 'sleep 2; ~/.bin/dvorak'"
 exec --no-startup-id xset -b
 
 # start programs
-exec --no-startup-id redshift-scheduler
 exec --no-startup-id dropbox
 exec --no-startup-id /usr/bin/dunst
 
